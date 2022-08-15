@@ -1,1 +1,0 @@
-# kinsta-pet-project
