@@ -1,8 +1,10 @@
 import React from 'react'
 import {FaBars} from 'react-icons/fa'
 import  {IconContext} from 'react-icons'
-import {NavBar, NavbarContainer, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink} from './NavElements'
+import {NavBar, NavbarContainer, NavLogo} from './NavElements'
+/* import { MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink} from './NavElements' */
 import * as data from './links.json'
+/* import { animateScroll as scroll} from 'react-scroll' */
 
 const linksString = JSON.stringify(data)
 const links = JSON.parse(linksString).links
@@ -18,8 +20,8 @@ const Nav: React.FC<{}> = () => {
     <IconContext.Provider value={{color:'#fff'}}>
         <NavBar>
             <NavbarContainer>
-                <NavLogo to="/">Logo</NavLogo>
-                <MobileIcon>
+                <NavLogo to="/">Logo</NavLogo> 
+{/*                 <MobileIcon>
                     <FaBars />
                 </MobileIcon>
                 <NavMenu>{links.map((link: Link) => {
@@ -32,7 +34,7 @@ const Nav: React.FC<{}> = () => {
                 </NavMenu>
                 <NavBtn>
                     <NavBtnLink to='/signin'>Sign In</NavBtnLink>
-                </NavBtn>
+                </NavBtn> */}
             </NavbarContainer>
         </NavBar>
     </IconContext.Provider>
