@@ -8,8 +8,6 @@ import * as data from './links.json'
 const linksString = JSON.stringify(data)
 const links = JSON.parse(linksString).links
 
-
-
 type Link = {
     label: string,
     href: string
