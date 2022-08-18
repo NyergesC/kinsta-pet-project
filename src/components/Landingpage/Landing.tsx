@@ -1,12 +1,11 @@
 import React from 'react'
 import {  SwiperWrapper, SlideImage, Content, ContentH2, ContentP } from './LandingElements'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, Autoplay} from 'swiper';
+import { Navigation, Pagination, Autoplay} from 'swiper';
 import { swipers } from './Swiperdata';
-import 'swiper/css/bundle'
 import { EffectFade } from 'swiper'
+import 'swiper/css/bundle'
 import 'swiper/css/effect-fade'
-
 
 interface SlideItem {
     imageSrc: string,
@@ -14,8 +13,6 @@ interface SlideItem {
     title: string,
     text: string
 }
-
-
 
 export const Landing: React.FC<{}> = () => { 
 
@@ -36,9 +33,7 @@ export const Landing: React.FC<{}> = () => {
 /*         navigation={true} */
         modules={[Autoplay, Pagination, Navigation, EffectFade] }
         effect={'fade'}
-
-        >
-       
+        >       
         <SwiperWrapper>{swipers.map((slide: SlideItem) => {
             return (
                 <SwiperSlide  key={slide.imageAlt} >      
@@ -47,8 +42,7 @@ export const Landing: React.FC<{}> = () => {
                         <ContentH2>{slide.title}</ContentH2>
                         <ContentP>{slide.text}</ContentP>
                     </Content>
-                </SwiperSlide>
-        
+                </SwiperSlide>        
              )
          })}
         </SwiperWrapper>
