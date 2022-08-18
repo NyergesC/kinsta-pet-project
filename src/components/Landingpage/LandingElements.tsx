@@ -1,29 +1,30 @@
 import styled from "@emotion/styled"
+import { SwiperSlide } from "swiper/react"
 
-/* transition: opacity 0.6 ease, transform 0.3s ease */
-export const SwiperContainer = styled.div`
-width:100%;
-height:100vh;
-`
+
 
 export const SwiperWrapper = styled.div`
+    position:relative;
     width:100%;
-    height:100vh;    
+    height:100vh; 
+    transition: opacity 0.6 ease, transform 0.3s ease   
 
 `
 
 /* backface-visibility: hidden;
 overflow:hidden; */
-export const SwSlide = styled.div`
+/* export const SwiperSl = styled.(djv)`
 
-`
+    
+
+` */
 export const SlideImage = styled.img`
-height: 100vh;
-width: 100%;
-object-fit: cover;
-background-position: center;
-background-size: cover;
-pointer-events: none;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
 `
 
 export const Content = styled.div`
@@ -38,12 +39,21 @@ export const Content = styled.div`
 `
 /* opacity: 0; */
 export const ContentH2 = styled.h2`
-    color: #000000;
+    color: white;
     font-size: 4em;
     font-weight: 700;
     text-shadow: 0 5px 25px rgba(0,0,0,0.1);
     margin-bottom: 20px;
     transform: translateY(-50px);
+    opacity:0;
+
+    &.active{
+        transform: translateY(0);
+        opacity: 1;
+        transition: 1s ease;
+        transition-delay: 0.3s;
+        transition-property: transform, opacity;
+    }
 
 `
 export const ContentP = styled.p`
@@ -59,4 +69,4 @@ export const ContentP = styled.p`
     transform: translateX(-80px);
     
     `
-/*     opacity: 0; */
+
