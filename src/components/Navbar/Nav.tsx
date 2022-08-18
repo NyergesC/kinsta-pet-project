@@ -34,7 +34,7 @@ const Nav: React.FC<{}> = () => {
         <NavBar>
             <NavbarContainer>
                 <NavLogo to="/">Logo</NavLogo> 
-                <MobileIcon>
+                <MobileIcon >
                     <FaBars />
                 </MobileIcon>
                 <Links links={links} /> 
@@ -47,4 +47,4 @@ const Nav: React.FC<{}> = () => {
   )
 }
 
-export default Nav
+export default Nav 

@@ -1,3 +1,4 @@
+import Landing from "../components/Landingpage/Landing";
 import Nav from "../components/Navbar/Nav";
 
 const Home: React.FC<{}>  = () => {
@@ -6,6 +7,7 @@ const Home: React.FC<{}>  = () => {
   return (
     <>
       <Nav />
+      <Landing />
     </>
   )
 }
