@@ -26,15 +26,34 @@ export const NavBar = styled.nav`
     }
 `;
 
-export const NavbarContainer = styled.div`
+/* max-width: 1200px;
+padding: 0 24px; */
+/* export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
     height: 60px;
     z-index: 1;
-    max-width: 1200px;
     width: 100%;
-    padding: 0 24px;
+    padding: 0 200px;
+`; */
+export const NavbarContainer = styled.div`
+    position:relative;
+    display: flex;
+    justify-content: space-between;
+    align-items:center
+    height: 60px;
+    z-index: 1;
+    width: 100%;
+    padding: 0 200px;
 `;
+export const NavItems = styled.div`
+    display:flex;
+    justify-content:space-between;
+    
+
+`
+
+
 
  export const NavLogo = styled(LinkR)`
     color: #fff;
@@ -68,12 +87,12 @@ export const MobileIcon = styled.div`
 
 `
 
+
 export const NavMenu =  styled.ul`
     display: flex;
     align-items: center;
     list-style: none;
     text-align: center;
-    margin-right: -22px;
 
 
     @media screen and (max-width: 768px){

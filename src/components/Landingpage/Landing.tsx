@@ -1,5 +1,5 @@
 import React from 'react'
-import {  SwiperWrapper, SlideImage, Content, ContentH2, ContentP } from './LandingElements'
+import {  SwiperItem, SlideImage, Content, ContentH2, ContentP } from './LandingElements'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay} from 'swiper';
 import { swipers } from './Swiperdata';
@@ -11,10 +11,52 @@ interface SlideItem {
     imageSrc: string,
     imageAlt: string,
     title: string,
-    text: string
+    text: string,
+
 }
 
 export const Landing: React.FC<{}> = () => { 
+
+  return (
+    <Swiper
+        loop={true}
+        speed={700}
+        scrollbar={{ draggable:true}}
+        centeredSlides={true}
+        grabCursor={true}
+        autoplay={{
+          delay: 4000,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation, EffectFade] }
+        effect={'fade'}
+        >       
+        <>{swipers.map((slide: SlideItem) => {
+            return (
+                <SwiperSlide  key={slide.imageAlt} > 
+                    <SwiperItem>
+                        <SlideImage src={slide.imageSrc} alt={slide.imageAlt}></SlideImage>                
+                        <Content>
+                            <ContentH2>{slide.title}</ContentH2>
+                            <ContentP>{slide.text}</ContentP>
+                        </Content>              
+                        
+                    </SwiperItem>     
+                </SwiperSlide>        
+             )
+         })}
+        </>
+    </Swiper>
+  )
+    }
+
+export default Landing 
+
+/*  export const Landing: React.FC<{}> = () => { 
 
   return (
     <Swiper
@@ -30,24 +72,32 @@ export const Landing: React.FC<{}> = () => {
         pagination={{
           clickable: true,
         }}
-/*         navigation={true} */
-        modules={[Autoplay, Pagination, Navigation, EffectFade] }
-        effect={'fade'}
+
+        modules={[Autoplay, Pagination, Navigation] }
+
         >       
-        <SwiperWrapper>{swipers.map((slide: SlideItem) => {
+        <>{swipers.map((slide: SlideItem) => {
             return (
-                <SwiperSlide  key={slide.imageAlt} >      
-                    <SlideImage src={slide.imageSrc} alt={slide.imageAlt}></SlideImage>                
-                    <Content>
-                        <ContentH2>{slide.title}</ContentH2>
-                        <ContentP>{slide.text}</ContentP>
-                    </Content>
+                <SwiperSlide  key={slide.imageAlt}>
+                    <SwiperItem> 
+                        {( { isActive }: boolean ) => (
+                          <div>Current Slide Is {isActive ? 'active' : 'not Active'}</div>
+                          )
+                        }                   
+                        <SlideImage src={slide.imageSrc} alt={slide.imageAlt}></SlideImage>                
+                            <Content>
+                                <ContentH2>{slide.title}</ContentH2>
+                                <ContentP>{slide.text}</ContentP>
+                            </Content>          
+                        
+                    </SwiperItem>   
                 </SwiperSlide>        
              )
          })}
-        </SwiperWrapper>
+        </>
     </Swiper>
   )
     }
 
-export default Landing
+export default Landing  */
+
