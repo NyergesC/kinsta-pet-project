@@ -73,6 +73,10 @@ export const NavLogo = styled(LinkR)`
     text-transform: uppercase;
     text-shadow:0 5px 25px rgba(0,0,0,0.1);
 
+    &:hover{
+        color: #fff;
+    }
+
 
     @media screen and (max-width: 768px) {
         margin: 0 0 0 10px;
@@ -124,7 +128,7 @@ export const NavLinks = styled(LinkS)`
     cursor: pointer;
 
     &:hover{
-${'' /*         color: #A2A2F6; */}
+        color: #fff;
         transition: 0.2s all ease-in-out;
         border-bottom: 3px solid #A2A2F6;
     }

@@ -20,7 +20,7 @@ export const Landing: React.FC<{}> = () => {
   return (
     <Swiper
         loop={true}
-        speed={700}
+        speed={900}
         scrollbar={{ draggable:true}}
         centeredSlides={true}
         grabCursor={true}
