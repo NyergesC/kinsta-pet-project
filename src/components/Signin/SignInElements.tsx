@@ -85,7 +85,7 @@ export const FormH4 = styled(FormH1)`
 export const FormPassword = styled.div`
     width:100%;
     text-align:center;
-    margin-left:20px;
+
     margin-bottom:20px;
 
 ` 

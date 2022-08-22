@@ -47,7 +47,7 @@ export const Content = styled.div`
     
 export const ContentH2 = styled.h2`
     color: white;
-    font-size: 4.2em;
+    font-size: 5em;
     font-weight: 700;
     text-shadow: 0 5px 25px rgba(0,0,0,0.1);
     margin-bottom: 20px;  
@@ -93,15 +93,6 @@ export const Button = styled(LinkS)`
         padding: 10px 13px;
         margin-top:30px
     }
+   
+`
 
-    
-    `
- export const BsArrowRight= styled.i`
-    font-size: 1.6em;
-    margin-left: 3px;
-    transition: 0.3s ease;
-    
-    &:hover{
-        transform: translateX(5px);
-    }
-    `
