@@ -47,7 +47,11 @@ export const FormWrap = styled.div`
     @media screen and (max-width: 480px){
     margin-left:16px;
     margin-top:8px;
-}
+
+    &:hover{
+        color: #ffffff;
+    }
+
 
 `       
 
