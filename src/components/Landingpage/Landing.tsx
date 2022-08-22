@@ -1,18 +1,18 @@
 import React from 'react'
-import {  SwiperItem, SlideImage, Content, ContentH2, ContentP } from './LandingElements'
+import {  SwiperItem, SlideImage, Content, ContentH2, ContentP, Button } from './LandingElements'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay} from 'swiper';
 import { swipers } from './Swiperdata';
 import { EffectFade } from 'swiper'
 import 'swiper/css/bundle'
 import 'swiper/css/effect-fade'
+import { BsArrowRight} from 'react-icons/bs'
 
 interface SlideItem {
     imageSrc: string,
     imageAlt: string,
     title: string,
     text: string,
-
 }
 
 export const Landing: React.FC<{}> = () => { 
@@ -31,7 +31,7 @@ export const Landing: React.FC<{}> = () => {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
+/*         navigation={true} */
         modules={[Autoplay, Pagination, Navigation, EffectFade] }
         effect={'fade'}
         >       
@@ -43,8 +43,8 @@ export const Landing: React.FC<{}> = () => {
                         <Content>
                             <ContentH2>{slide.title}</ContentH2>
                             <ContentP>{slide.text}</ContentP>
-                        </Content>              
-                        
+                            <Button to="/">Go to Challenge<BsArrowRight/></Button>             
+                        </Content>                         
                     </SwiperItem>     
                 </SwiperSlide>        
              )
@@ -52,7 +52,7 @@ export const Landing: React.FC<{}> = () => {
         </>
     </Swiper>
   )
-    }
+  }
 
 export default Landing 
 
