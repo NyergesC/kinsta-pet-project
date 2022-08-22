@@ -43,7 +43,10 @@ export const Landing: React.FC<{}> = () => {
                         <Content>
                             <ContentH2>{slide.title}</ContentH2>
                             <ContentP>{slide.text}</ContentP>
-                            <Button to="/">Go to Challenge<BsArrowRight/></Button>             
+                            <Button to="/">Go to Challenge <BsArrowRight style={{marginLeft:"4px", fontSize:"1.6em", transition:"0.3s ease" }} 
+                            onMouseOver={({target}:any)=>target.style.transform=" translateX(4px)"}
+                            onMouseOut={({target}:any)=>target.style.transform=" translateX(-1px)"}
+                            /></Button>             
                         </Content>                         
                     </SwiperItem>     
                 </SwiperSlide>        

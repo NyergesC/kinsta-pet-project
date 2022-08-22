@@ -80,8 +80,8 @@ export const Button = styled(LinkS)`
     margin-top: 40px;
     background-color: white;
     color: black;
-    font-size: 1em;
-    font-weight: 500;
+    font-size: 1.1em;
+    font-weight: 600;
     padding: 15px 20px;
     display: flex;
     align-items: center;
