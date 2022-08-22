@@ -9,6 +9,7 @@ export const SwiperItem = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
+    font-family: 'Poppins', sans-serif;
 
   
  `
@@ -37,7 +38,7 @@ export const Content = styled.div`
     
 export const ContentH2 = styled.h2`
     color: white;
-    font-size: 4.5em;
+    font-size: 4.2em;
     font-weight: 700;
     text-shadow: 0 5px 25px rgba(0,0,0,0.1);
     margin-bottom: 20px;    

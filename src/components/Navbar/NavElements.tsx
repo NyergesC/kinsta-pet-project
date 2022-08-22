@@ -19,6 +19,7 @@ export const NavBar = styled.nav`
     z-index:10; 
     transition-propery:height, backround;
     transition: 0.5s ease;
+    font-family: 'Poppins', sans-serif;
     
 
     @media screen and (max-width: 960px) {

@@ -1,54 +1,82 @@
 import { Button, Checkbox, Form, Input } from 'antd';
+import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4 } from './SignInElements'
 import React from 'react';
 import 'antd/dist/antd.css'
+import { NONAME } from 'dns';
+
 
 const SignIn: React.FC = () => {
+ 
+    return (
+    <Container>
+        <FormWrap>
+            <Icon to="/">Logo</Icon>
+            <FormContent>                
+                <Form
+                    name="basic"
+                    labelCol={{ span: 8 }}
+                    wrapperCol={{ span: 10 }}
+                    initialValues={{ remember: true }}
+                    autoComplete="off"
+                    style={
+                        {
+                            maxWidth:"600px",
+                            width:"100%",
+                            height:"auto",
+                            background: "rgba(255,255,255, 0.1)",
+                            padding:"70px 12px",
+                            borderRadius:"4px",
+                            boxShadow: "rgb(0 0 0 / 90%) 0px 2px 8px",
+                            backdropFilter: "blur(10px)",
+                        }
+                    }
+                >
+                    <FormH1>Hello!</FormH1>
+                    <FormH4>We are really happy to see you again!</FormH4>
+                    <Form.Item
+                    label="Username"
+                    name="username"
+                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    >
+                    <Input style={{borderRadius:"4px"}}/>
+                    </Form.Item>
+            
+                    <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[{ required: true, message: 'Please input your password!' }]}
+                    
+                    >
+                    <Input.Password  style={{borderRadius:"4px"}}/>
+                    </Form.Item>
+            
+                    <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 10 }}>
+                    <Checkbox style={{fontWeight:"500"}}>Remember me</Checkbox>
+                    </Form.Item>
+            
+                    <Form.Item wrapperCol={{ offset: 8, span: 10 }}>
+                    <Button 
+                    type="primary" 
+                    htmlType="submit"
+                    style={
+                        {
+                        width:"100%",
+                        borderRadius: "4px",
+                        background:"#6C63FF",
+                        border:"none"
+                            
 
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
+
+                    } }  
+                    >
+                        Sign In                        
+                    </Button>
+                    </Form.Item>
+                </Form>
+            </FormContent>
+        </FormWrap>
+      </Container>
+    );
   };
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
-  };
-
-  return (
-    <Form
-      name="basic"
-      labelCol={{ span: 8 }}
-      wrapperCol={{ span: 16 }}
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
-      autoComplete="off"
-    >
-      <Form.Item
-        label="Username"
-        name="username"
-        rules={[{ required: true, message: 'Please input your username!' }]}
-      >
-        <Input />
-      </Form.Item>
-
-      <Form.Item
-        label="Password"
-        name="password"
-        rules={[{ required: true, message: 'Please input your password!' }]}
-      >
-        <Input.Password />
-      </Form.Item>
-
-      <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 16 }}>
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button type="primary" htmlType="submit">
-          Submit
-        </Button>
-      </Form.Item>
-    </Form>
-  );
-};
-
-export default SignIn
+  
+  export default SignIn;
