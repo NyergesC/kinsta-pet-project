@@ -2,7 +2,7 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4, FormMember, MemberP, MemberSpan} from './SignInElements'
 import React from 'react';
 import 'antd/dist/antd.css'
-import { NONAME } from 'dns';
+
 
 
 const SignIn: React.FC = () => {

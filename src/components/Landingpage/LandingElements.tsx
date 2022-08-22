@@ -21,7 +21,7 @@ export const SlideImage = styled.img`
     background-position: center;
     background-size: cover;
     pointer-events: none;
-    filter:brightness(70%)
+    filter:brightness(80%)
 
 `
 export const Content = styled.div`

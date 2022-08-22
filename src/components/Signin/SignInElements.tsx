@@ -44,13 +44,14 @@ export const FormWrap = styled.div`
     letter-spacing: 2px;
     text-transform: uppercase;
 
+    &:hover{
+        color: #ffffff;
+    }
+    
     @media screen and (max-width: 480px){
     margin-left:16px;
     margin-top:8px;
 
-    &:hover{
-        color: #ffffff;
-    }
 
 
 `       
