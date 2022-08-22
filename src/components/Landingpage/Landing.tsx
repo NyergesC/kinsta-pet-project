@@ -8,6 +8,7 @@ import 'swiper/css/bundle'
 import 'swiper/css/effect-fade'
 import { BsArrowRight} from 'react-icons/bs'
 
+
 interface SlideItem {
     imageSrc: string,
     imageAlt: string,
@@ -30,6 +31,8 @@ export const Landing: React.FC<{}> = () => {
         }}
         pagination={{
           clickable: true,
+          dynamicBullets: true,
+     
         }}
 /*         navigation={true} */
         modules={[Autoplay, Pagination, Navigation, EffectFade] }

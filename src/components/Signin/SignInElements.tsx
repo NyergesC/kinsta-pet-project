@@ -81,9 +81,25 @@ export const FormH4 = styled(FormH1)`
     font-weight:500;
     margin-bottom:30px;
 `
-export const FormPassword = styled.div`
+/* export const FormPassword = styled.div`
     width:100%;
     text-align:center;
     margin-left:20px;
+
+` */
+export const FormMember = styled.div`
+    width:100%;
+    text-align:center;
+    margin-left:20px;
+
+`
+export const MemberP = styled.p`
+    color: grey
+    font-size:16px;
+`
+export const MemberSpan = styled.span`
+    color:#6C63FF;
+    font-size:14px;
+    margin-left: 3px;
 
 `
