@@ -23,7 +23,6 @@ const SignIn: React.FC = () => {
                             maxWidth:"600px",
                             width:"100%",
                             height:"auto",
-                            /* background: "rgba(255,255,255, 0.1)", */
                             background: "rgba(255,255,255, 0.3)",
                             padding:"70px 12px",
                             borderRadius:"4px",

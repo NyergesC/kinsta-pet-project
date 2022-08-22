@@ -27,12 +27,21 @@ export const SlideImage = styled.img`
 export const Content = styled.div`
     position:absolute;
     max-width:1200px;
+    width:100%;
     top:30%;
     left:0;
     width: 100%;
     color: white;
+    padding: 0 40px 0 0; 
     margin: 0 200px;
     transition: 0.3 ease;
+
+    @media screen and (max-width: 960px) {
+        margin: 0 120px 0 50px;
+    }
+    @media screen and (max-width: 768px) {
+        margin: 0 70px 0 20px;
+    }
 `
 
     
@@ -41,11 +50,16 @@ export const ContentH2 = styled.h2`
     font-size: 4.2em;
     font-weight: 700;
     text-shadow: 0 5px 25px rgba(0,0,0,0.1);
-    margin-bottom: 20px;    
+    margin-bottom: 20px;  
+    
+    @media screen and (max-width: 768px) {
+        font-size: 3em;
+    }
 `
 
 export const ContentP = styled.p`
     max-width: 700px;
+    width:100%;
     background: rgba(255,255,255, 0.1);
     backdrop-filter: blur(10px);
     text-shadow: 0 5px 25px rgba(0,0,0,0.1);
@@ -54,6 +68,11 @@ export const ContentP = styled.p`
     border-bottom: 1px solid rgba(255,255,255, 0.1);
     border-right: 1px solid rgba(255,255,255, 0.1);
     box-shadow: 0 5px 25px rgba(0 0 0 / 20%);
+
+    @media screen and (max-width: 768px) {
+        font-size: 0.8em;
+        
+    }
     
 `
 export const Button = styled(LinkS)`
@@ -67,6 +86,15 @@ export const Button = styled(LinkS)`
     display: flex;
     align-items: center;
     border-radius: 10px;
+    transition: 0.3s all ease;
+
+    @media screen and (max-width: 768px) {
+        font-size: 0.9em;
+        padding: 10px 13px;
+        margin-top:30px
+    }
+
+    
     `
  export const BsArrowRight= styled.i`
     font-size: 1.6em;
