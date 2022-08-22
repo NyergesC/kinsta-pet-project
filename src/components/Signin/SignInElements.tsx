@@ -47,12 +47,10 @@ export const FormWrap = styled.div`
     &:hover{
         color: #ffffff;
     }
-    
+
     @media screen and (max-width: 480px){
     margin-left:16px;
     margin-top:8px;
-
-
 
 `       
 
@@ -81,18 +79,18 @@ export const FormH4 = styled(FormH1)`
     font-size:16px;
     font-weight:500;
     margin-bottom:30px;
+    color:#585858;
+    font-weight:600
 `
-/* export const FormPassword = styled.div`
+export const FormPassword = styled.div`
     width:100%;
     text-align:center;
     margin-left:20px;
+    margin-bottom:20px;
 
-` */
-export const FormMember = styled.div`
-    width:100%;
-    text-align:center;
-    margin-left:20px;
-
+` 
+export const FormMember = styled(FormPassword)`
+    margin-bottom:0;
 `
 export const MemberP = styled.p`
     color: grey
@@ -101,6 +99,7 @@ export const MemberP = styled.p`
 export const MemberSpan = styled.span`
     color:#6C63FF;
     font-size:14px;
+    font-weight:600;
     margin-left: 3px;
 
 `

@@ -1,5 +1,5 @@
 import { Button, Checkbox, Form, Input } from 'antd';
-import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4, FormMember, MemberP, MemberSpan} from './SignInElements'
+import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4, FormPassword, FormMember, MemberP, MemberSpan} from './SignInElements'
 import React from 'react';
 import 'antd/dist/antd.css'
 
@@ -32,8 +32,9 @@ const SignIn: React.FC = () => {
                         }
                     }
                 >
-                    <FormH1>Hello!</FormH1>
-                    <FormH4>We are really happy to see you again!</FormH4>
+                    <FormH1>Welcome Back!</FormH1>
+                   {/*  <FormH4>We are really happy to see you again!</FormH4> */}
+                    <FormH4>Login to continue</FormH4>
                     <Form.Item
                     label="Username"
                     name="username"
@@ -55,7 +56,9 @@ const SignIn: React.FC = () => {
                     <Checkbox style={{color: "#000000"}}>Remember me</Checkbox> */}
                 
                     </Form.Item>
-            
+                    <FormPassword >
+                        <a style={{color:"#585858", fontWeight:"600"}}>Forgot password?</a>
+                    </FormPassword>             
                     <Form.Item wrapperCol={{ offset: 8, span: 10 }}>
                     <Button 
                     type="primary" 
@@ -65,19 +68,13 @@ const SignIn: React.FC = () => {
                         width:"100%",
                         borderRadius: "4px",
                         background:"#6C63FF",
-                        border:"none"
-                            
-
+                        border:"none"                    
 
                     } }  
                     >
                         Sign In                        
                     </Button>
                     </Form.Item>
-{/*                     <FormPassword >
-                        <a style={{color:"grey"}}>Forgot password
-                    </a>
-                    </FormPassword> */}
                     <FormMember>
                         <MemberP>New member?<MemberSpan>Sign Up here</MemberSpan></MemberP>
                     </FormMember>
