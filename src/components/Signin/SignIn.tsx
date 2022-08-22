@@ -23,7 +23,8 @@ const SignIn: React.FC = () => {
                             maxWidth:"600px",
                             width:"100%",
                             height:"auto",
-                            background: "rgba(255,255,255, 0.1)",
+                            /* background: "rgba(255,255,255, 0.1)", */
+                            background: "rgba(255,255,255, 0.3)",
                             padding:"70px 12px",
                             borderRadius:"4px",
                             boxShadow: "rgb(0 0 0 / 90%) 0px 2px 8px",
@@ -51,7 +52,7 @@ const SignIn: React.FC = () => {
                     </Form.Item>
             
                     <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 10 }}>
-                    <Checkbox style={{fontWeight:"500"}}>Remember me</Checkbox>
+                    <Checkbox style={{color: "#000000"}}>Remember me</Checkbox>
                     </Form.Item>
             
                     <Form.Item wrapperCol={{ offset: 8, span: 10 }}>
