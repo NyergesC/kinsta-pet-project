@@ -13,7 +13,11 @@ interface Link {
     href: string
 }
 
-const Links: React.FC<{ links: Link[] }> = ( { links }) => {
+type Links = {
+    links: Link[]
+}
+
+const Links: React.FC<Links> = ( { links }) => {
     return (   
         <NavMenu>{links.map((link: Link) => {
             return(
