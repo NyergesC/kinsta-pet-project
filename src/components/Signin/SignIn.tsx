@@ -1,4 +1,4 @@
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4, FormPassword, FormMember, MemberP, MemberSpan} from './SignInElements'
 import React from 'react';
 import 'antd/dist/antd.css'
@@ -35,7 +35,6 @@ const SignIn: React.FC = () => {
                     }
                 >
                     <FormH1>Welcome Back!</FormH1>
-                   {/*  <FormH4>We are really happy to see you again!</FormH4> */}
                     <FormH4>Login to continue</FormH4>
                     <Form.Item
                     label=""
@@ -53,11 +52,7 @@ const SignIn: React.FC = () => {
                     
                     >
                     <Input.Password  placeholder="Password" style={{borderRadius:"4px", width:"300px"}}/>
-{/*                     </Form.Item>
-            
-                    <Form.Item name="remember" valuePropName="checked" wrapperCol={{ offset: 8, span: 10 }}>
-                    <Checkbox style={{color: "#000000"}}>Remember me</Checkbox> */}
-                
+              
                     </Form.Item>
                     <FormPassword >
                         <a style={{color:"#585858", fontWeight:"600"}}>Forgot password?</a>
@@ -88,4 +83,4 @@ const SignIn: React.FC = () => {
     );
   };
   
-  export default SignIn;
+  export default SignIn; 

@@ -88,6 +88,10 @@ export const Button = styled(LinkS)`
     border-radius: 10px;
     transition: 0.3s all ease;
 
+    &:hover{
+        color:#000000;
+    }
+
     @media screen and (max-width: 768px) {
         font-size: 0.9em;
         padding: 10px 13px;
