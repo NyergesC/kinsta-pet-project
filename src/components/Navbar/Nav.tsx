@@ -31,25 +31,6 @@ const Links: React.FC<Links> = ( { links }) => {
     )
 };
 
-/* 
-const Nav: React.FC<{}> = () => {
-  return (
-    <IconContext.Provider value={{color:'#fff'}}>
-        <NavBar>
-            <NavbarContainer>
-                <NavLogo to="/">Logo</NavLogo> 
-                <MobileIcon >
-                    <FaBars />
-                </MobileIcon>
-                <Links links={links} /> 
-                <NavBtn>
-                    <NavBtnLink to='/signin'>Sign In</NavBtnLink>
-                </NavBtn>  
-            </NavbarContainer>
-        </NavBar>
-    </IconContext.Provider>
-  )
-} */
 const Nav: React.FC<{}> = () => {
   return (
     <IconContext.Provider value={{color:'#fff'}}>
