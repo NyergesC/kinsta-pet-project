@@ -15,9 +15,7 @@ type Blog = {
     id:number 
 }
 
-
 const BlogList: React.FC<Blogs> = ( { blogs }) => {
-
 
   return (
     <div>
