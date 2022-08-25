@@ -4,6 +4,7 @@ import './index.css';
 import Home from './pages/Home';
 import SignIn from './components/Signin/SignIn';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import 'antd/dist/antd.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
