@@ -17,7 +17,7 @@ type Links = {
     links: Link[]
 }
 
-const Links: React.FC<Links> = ( { links }) => {
+const LinkItem: React.FC<Links> = ( { links }) => {
     return (   
         <NavMenu>{links.map((link: Link) => {
             return(
@@ -41,7 +41,7 @@ const Nav: React.FC<{}> = () => {
                     <MobileIcon >
                         <FaBars />
                     </MobileIcon>
-                    <Links links={links} /> 
+                    <LinkItem links={links} /> 
                     <NavBtn>
                         <NavBtnLink to='/signin'>Sign In</NavBtnLink>
                     </NavBtn>  
