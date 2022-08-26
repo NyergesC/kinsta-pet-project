@@ -1,6 +1,6 @@
 import Landing from "../components/Landingpage/Landing";
 import Nav from "../components/Navbar/Nav";
-import Blogs from '../components/Blogs/Blogs'
+import Blogs from '../components/Blogs/Bloglist/Blogs'
 
 const Home: React.FC<{}>  = () => {
     
