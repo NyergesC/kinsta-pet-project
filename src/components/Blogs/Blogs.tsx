@@ -4,9 +4,7 @@ import useFetch from '../../useFetch'
 
 
 const Blogs: React.FC<{}>= () => {
-  const {data:blogs, isPending, error} = useFetch("http://localhost:3001/blogs")
-
-  
+  const {data:blogs, isPending, error} = useFetch("http://localhost:3001/blogs")  
 
   return (
     <div>

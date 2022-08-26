@@ -7,8 +7,11 @@ export const useFetch = (url:string) => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
+
+        const abortCont = new AbortController(); //to stop the fetch in the background when we change the router
+
         setTimeout(() => {
-            fetch(url)
+            fetch(url, {signal: abortCont.signal})
                 .then(res => {
                     if(!res.ok){
                         throw Error('could not fetch the data for that resource')
@@ -21,10 +24,16 @@ export const useFetch = (url:string) => {
                     setError(null)
                 })
                 .catch(err=>{
-                    SetIsPending(false)
-                    setError(err.message)
+                    if (err.name === 'AbortError') {
+                        console.log("fetch aborted")
+                    } else{
+                        SetIsPending(false)
+                        setError(err.message)
+                    }
                 })
         }, 1000)
+    
+        return () => abortCont.abort()
       }, [url])
 
       return { data, isPending, error}
