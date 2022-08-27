@@ -12,7 +12,6 @@ type Blog = {
   id:number 
 }
 
-
 const BlogDetails = () => {
 
   const { id } = useParams()

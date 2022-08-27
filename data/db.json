@@ -1,49 +1,61 @@
 {
-    "blogs":[
-        {
-            "title":"First Station is ISS",
-            "date":"2021.01.30.",
-            "small":" It’s in low-Earth orbit, this means that even though it is in space ..",
-            "body":"1. First Station is International Space Station, which is in low-Earth orbit. This means that even though it is in space it is still subject to Earth’s gravity and is falling back to Earth, but it is traveling at such speed (approx. 17,500 mile per hour) that it is actually falling around Earth.  It is typically 250 miles above the Earth’s surface, and because the Earth is rotating beneath it, every time the ISS orbits the Earth it is over a different part of the Earth’s surface, and it passes over 90% of the Earth’s population.  This means the astronauts on board have an ever changing and very spectacular view, and have taken millions of photos.",
-            "author":"Tom Shelley",
-            "read":"read more",
-            "id":1
-        },
-        {
-            "title":"Food preparation",
-            "date":"2021.08.22.",
-            "small":" Everyone’s gotta eat! And just like on Earth meal times in space are a time to catch-up and socialize. ",
-            "author":"Elizabeth Smith",
-            "body":"Everyone’s gotta eat! And just like on Earth meal times in space are a time to catch-up and socialize. The ISS galley has an array of food from the different countries that make up the ISS partnership so all tastes can be catered for. However in weightlessness there is no natural convection, meaning food must be heated in a slightly different way, either with hot water or using a forced air convention oven.Recent experiments have successfully grown mixed greens like lettuce and cabbage in space. While these are not yet available for astronauts to eat, they will be in the future.",
-            "read":"read more",
-            "id":2
-        },
-        {
-            "title":"A Day in the Life of a Private Astronaut part 1",
-            "date":"2021.01.30.",
-            "small":" A small group of lucky (and very successful) people have launched to the International Space Station (ISS) on flights arranged by Space Adventures.",
-            "body":"Morning routine: Time on the ISS is set to UTC (Coordinated Universal Time) and the day begins around 6:00 a.m. And just like on Earth, everyone starts the day getting cleaned-up and refreshed. Being in a weightless environment there are no such thing as running water from a faucet or a nice warm shower, so you must make do with a lot of wet towels and no-rinse shampoo.",
-            "author":"Tom Shelley",
-            "read":"read more",
-            "id":3
-        },
-        {
-            "title":"Season’s Greetings 2022",
-            "date":"2022.01.15.",
-            "small":"I think many of us will be glad to see the end of 2021 and will welcome 2022 with open arms.",
-            "body":"I think many of us will be glad to see the end of 2021 and will welcome 2022 with open arms.  But before we do, I thought it was worth looking back at some of 2020’s significant achievements in the field of space exploration – completed despite the global pandemic – as well as some of our favorite photographs of Earth taken by astronauts onboard the International Space Station.The Space Adventures’ team wishes you the best for 2021!  We have an exciting year ahead as we prepare for two clients to fly on the Soyuz to the International Space Station in December, and we’ll be sure to keep you posted of their progress. And please remember we are here to help you realize your own dreams of flying to space, so never hesitate to reach out – it’s never too early to start the conversation!",
-            "author":"Cori Meyen",
-            "read":"read more",
-            "id":4
-        },
-        {
-            "title":"Using NASA communications",
-            "date":"2022.04.18.",
-            "small":" The ISS is outfitted with Wi-Fi allowing connection to high speed (600 Mbps) internet via the TEDRIS satellite system. ",
-            "body":"Communication assets on the ISS are really very good. The ISS is outfitted with Wi-Fi allowing connection to high speed (600 Mbps) internet via the TEDRIS satellite system.  Through special arrangements with NASA, our clients have been able to make use of this system for voice, video, and e-mail communication. There are also direct-to-ground radio and video communication systems, so you’re never out of touch!",
-            "author":"Reid Brown",
-            "read":"read more",
-            "id":5
-        }
-    ]
+  "blogs": [
+    {
+      "title": "First Station is ISS",
+      "date": "2021.01.30.",
+      "small": " It’s in low-Earth orbit, this means that even though it is in space ..",
+      "body": "1. First Station is International Space Station, which is in low-Earth orbit. This means that even though it is in space it is still subject to Earth’s gravity and is falling back to Earth, but it is traveling at such speed (approx. 17,500 mile per hour) that it is actually falling around Earth.  It is typically 250 miles above the Earth’s surface, and because the Earth is rotating beneath it, every time the ISS orbits the Earth it is over a different part of the Earth’s surface, and it passes over 90% of the Earth’s population.  This means the astronauts on board have an ever changing and very spectacular view, and have taken millions of photos.",
+      "author": "Tom Shelley",
+      "read": "read more",
+      "id": 1
+    },
+    {
+      "title": "Food preparation",
+      "date": "2021.08.22.",
+      "small": " Everyone’s gotta eat! And just like on Earth meal times in space are a time to catch-up and socialize. ",
+      "author": "Elizabeth Smith",
+      "body": "Everyone’s gotta eat! And just like on Earth meal times in space are a time to catch-up and socialize. The ISS galley has an array of food from the different countries that make up the ISS partnership so all tastes can be catered for. However in weightlessness there is no natural convection, meaning food must be heated in a slightly different way, either with hot water or using a forced air convention oven.Recent experiments have successfully grown mixed greens like lettuce and cabbage in space. While these are not yet available for astronauts to eat, they will be in the future.",
+      "read": "read more",
+      "id": 2
+    },
+    {
+      "title": "A Day in the Life of a Private Astronaut part 1",
+      "date": "2021.01.30.",
+      "small": " A small group of lucky (and very successful) people have launched to the International Space Station (ISS) on flights arranged by Space Adventures.",
+      "body": "Morning routine: Time on the ISS is set to UTC (Coordinated Universal Time) and the day begins around 6:00 a.m. And just like on Earth, everyone starts the day getting cleaned-up and refreshed. Being in a weightless environment there are no such thing as running water from a faucet or a nice warm shower, so you must make do with a lot of wet towels and no-rinse shampoo.",
+      "author": "Tom Shelley",
+      "read": "read more",
+      "id": 3
+    },
+    {
+      "title": "Season’s Greetings 2022",
+      "date": "2022.01.15.",
+      "small": "I think many of us will be glad to see the end of 2021 and will welcome 2022 with open arms.",
+      "body": "I think many of us will be glad to see the end of 2021 and will welcome 2022 with open arms.  But before we do, I thought it was worth looking back at some of 2020’s significant achievements in the field of space exploration – completed despite the global pandemic – as well as some of our favorite photographs of Earth taken by astronauts onboard the International Space Station.The Space Adventures’ team wishes you the best for 2021!  We have an exciting year ahead as we prepare for two clients to fly on the Soyuz to the International Space Station in December, and we’ll be sure to keep you posted of their progress. And please remember we are here to help you realize your own dreams of flying to space, so never hesitate to reach out – it’s never too early to start the conversation!",
+      "author": "Cori Meyen",
+      "read": "read more",
+      "id": 4
+    },
+    {
+      "title": "Using NASA communications",
+      "date": "2022.04.18.",
+      "small": " The ISS is outfitted with Wi-Fi allowing connection to high speed (600 Mbps) internet via the TEDRIS satellite system. ",
+      "body": "Communication assets on the ISS are really very good. The ISS is outfitted with Wi-Fi allowing connection to high speed (600 Mbps) internet via the TEDRIS satellite system.  Through special arrangements with NASA, our clients have been able to make use of this system for voice, video, and e-mail communication. There are also direct-to-ground radio and video communication systems, so you’re never out of touch!",
+      "author": "Reid Brown",
+      "read": "read more",
+      "id": 5
+    },
+    {
+      "title": "aga",
+      "body": "agag",
+      "author": "agagrfga",
+      "id": 6
+    },
+    {
+      "title": "afafa",
+      "body": "affa",
+      "author": "afafa",
+      "id": 7
+    }
+  ]
 }
