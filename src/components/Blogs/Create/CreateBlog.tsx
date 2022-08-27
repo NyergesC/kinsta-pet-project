@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 const CreateBlog = () => {
 
@@ -7,6 +7,7 @@ const CreateBlog = () => {
   const [body, setBody] = useState("")
   const [author, setAuthor] = useState("")
   const [isPending, setIsPending] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = (e:any) => {
     e.preventDefault()
@@ -22,7 +23,11 @@ const CreateBlog = () => {
     }).then(() => {
       console.log("submitted")
       setIsPending(false)
+      navigate(-1)
+      
     })
+
+
 
   }
 
