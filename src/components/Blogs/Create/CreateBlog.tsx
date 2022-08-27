@@ -23,12 +23,8 @@ const CreateBlog = () => {
     }).then(() => {
       console.log("submitted")
       setIsPending(false)
-      navigate(-1)
-      
+      navigate("../", { replace: true });      
     })
-
-
-
   }
 
   return (

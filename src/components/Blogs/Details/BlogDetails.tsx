@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import useFetch from '../../../useFetch'
 
 type Blog = {
@@ -16,8 +16,19 @@ const BlogDetails = () => {
 
   const { id } = useParams()
   const {data: blog, error, isPending} = useFetch("http://localhost:3001/blogs/" + id)
+  const navigate = useNavigate()
+
 
   console.log(blog)  
+
+  const handleDelete = () => {
+    fetch("http://localhost:3001/blogs/" + blog.id, {
+      method: 'DELETE'
+    }).then (() => {
+      navigate("../", { replace: true });   
+    })
+  }
+
   return (
     <div>
       { isPending && <div>Loading...</div>}
@@ -29,6 +40,7 @@ const BlogDetails = () => {
            <div>
              <p>{blog.body}</p>
            </div>
+           <button onClick={handleDelete}>delete</button>
         </article>
       )}
       
