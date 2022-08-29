@@ -2,7 +2,8 @@ import  {useState, useEffect} from 'react'
 
 export const useFetch = (url:string) => {
 
-    const [data, setData] = useState(null)
+    const [data, setData] = useState(null) 
+/*     const [data, setData] = useState<[] | [] | {[key:string]:any}>({}) */
     const [isPending, SetIsPending] = useState(true)
     const [error, setError] = useState(null)
 

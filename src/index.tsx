@@ -1,10 +1,9 @@
-import React from 'react';
+import 'antd/dist/antd.css'
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SignIn from './components/Signin/SignIn';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import 'antd/dist/antd.css'
 import Create from './pages/Create';
 import Details from './pages/Details';
 import Notfound from './pages/Notfound';

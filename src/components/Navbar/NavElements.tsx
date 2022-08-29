@@ -19,7 +19,7 @@ export const NavBar = styled.nav`
     z-index:10; 
     transition-propery:height, backround;
     transition: 0.5s ease;
-    font-family: 'Poppins', sans-serif;
+    font-family:'Bellefair', sans-serif;
     
 
     @media screen and (max-width: 960px) {
@@ -48,7 +48,7 @@ export const NavbarContainer = styled.div`
     padding: 0 200px;
     transition: 0.3s all ease;
 
-    @media screen and (max-width: 960px) {
+    @media screen and (max-width: 1200px) {
         padding: 0 50px;
     }
     @media screen and (max-width: 768px) {

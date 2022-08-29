@@ -1,5 +1,7 @@
 import React from 'react'
-import {  SwiperItem, SlideImage, Content, ContentH2, ContentP, Button } from './LandingElements'
+import {  Container, Wrapper, ContentText, TitleH1, TitleH3, ContentP, Img1, Square, BaseButton} from './Landingstyles'
+import image2 from './images/astronaut.png'; 
+/* import {  SwiperItem, SlideImage, Content, ContentH2, ContentP, Button } from './LandingElements' */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay} from 'swiper';
 import { swipers } from './Swiperdata';
@@ -9,7 +11,7 @@ import 'swiper/css/effect-fade'
 import { BsArrowRight} from 'react-icons/bs'
 
 
-interface SlideItem {
+/* interface SlideItem {
     imageSrc: string,
     imageAlt: string,
     title: string,
@@ -34,7 +36,6 @@ export const Landing: React.FC<{}> = () => {
           dynamicBullets: true,
      
         }}
-/*         navigation={true} */
         modules={[Autoplay, Pagination, Navigation, EffectFade] }
         effect={'fade'}
         >       
@@ -58,52 +59,31 @@ export const Landing: React.FC<{}> = () => {
         </>
     </Swiper>
   )
-  }
+  } */
+const Landing: React.FC<{}> = () => { 
+
+  return(
+    <Container>
+      <Wrapper>
+        <ContentText>
+          <TitleH1>Space Travel</TitleH1>
+          <TitleH3>is not a dream anymore</TitleH3>
+          <ContentP>Our mission is the transportation of passengers to the planets of solar system</ContentP>
+          <BaseButton>Explore</BaseButton>
+        </ContentText>
+        <Square></Square>
+
+        <Img1 src={image2}></Img1>
+
+
+
+
+      </Wrapper>
+    </Container>
+  )
+}
 
 export default Landing 
 
-/*  export const Landing: React.FC<{}> = () => { 
 
-  return (
-    <Swiper
-        loop={true}
-        speed={500}
-        scrollbar={{ draggable:true}}
-        centeredSlides={true}
-        grabCursor={true}
-        autoplay={{
-          delay: 4000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-
-        modules={[Autoplay, Pagination, Navigation] }
-
-        >       
-        <>{swipers.map((slide: SlideItem) => {
-            return (
-                <SwiperSlide  key={slide.imageAlt}>
-                    <SwiperItem> 
-                        {( { isActive }: boolean ) => (
-                          <div>Current Slide Is {isActive ? 'active' : 'not Active'}</div>
-                          )
-                        }                   
-                        <SlideImage src={slide.imageSrc} alt={slide.imageAlt}></SlideImage>                
-                            <Content>
-                                <ContentH2>{slide.title}</ContentH2>
-                                <ContentP>{slide.text}</ContentP>
-                            </Content>          
-                        
-                    </SwiperItem>   
-                </SwiperSlide>        
-             )
-         })}
-        </>
-    </Swiper>
-  )
-    }
-
-export default Landing  */
 

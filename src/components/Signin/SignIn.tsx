@@ -1,7 +1,7 @@
 import { Button, Form, Input } from 'antd';
 import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4, FormPassword, FormMember, MemberP, MemberSpan} from './SignInElements'
 import React from 'react';
-import 'antd/dist/antd.css'
+
 
 
 const SignIn: React.FC = () => {
