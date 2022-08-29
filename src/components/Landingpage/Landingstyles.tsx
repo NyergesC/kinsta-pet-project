@@ -16,6 +16,7 @@ export const Container = styled.div( () => ({
     fontFamily:"'Bellefair', sans-serif",
 
   }) )
+
 export const Wrapper = styled.div( () => ({
     position:'relative',
     width:"100%",
@@ -30,6 +31,7 @@ export const Wrapper = styled.div( () => ({
     
 
   }) )
+
 export const ContentText = styled.div( () => ({
     maxWidth:"600px",
     width:"100%",
@@ -44,6 +46,7 @@ export const ContentText = styled.div( () => ({
     }
 
   }) )
+
 export const TitleH1 = styled.h1( () => ({
     color: "white",
     textAlign:'left',
@@ -62,6 +65,7 @@ export const TitleH1 = styled.h1( () => ({
         fontSize: "2.7em"
     }
   }) )
+
 export const TitleH3 = styled.h3( () => ({
     color: "white",
     fontSize: "2em",
@@ -73,6 +77,7 @@ export const TitleH3 = styled.h3( () => ({
         fontSize: "1.5em"
     }
   }) )
+
 export const ContentP = styled.p( () => ({
     maxWidth:'400px',
     width:'100%',
@@ -88,14 +93,7 @@ export const ContentP = styled.p( () => ({
         fontSize: "0.6em"
     }
   }) )
-/* export const ContentImg = styled.div( () => ({
-    maxWidth: "1800px",
-    width:"100%",
-    zIndex:"100",
-    marginRight:'50px',
-    position:'relative',
 
- }) ) */
 export const Img1 = styled.img( () => ({
     position:'absolute',
     maxWidth:'1000px',
@@ -132,10 +130,9 @@ export const Img1 = styled.img( () => ({
      '@media screen and (max-width: 1550px)': {
          right:"35%",
      },
- 
-
 
 }) )
+
 export const BaseButton= styled(Button)( () => ({
     position: "absolute",
     marginTop: "40px",

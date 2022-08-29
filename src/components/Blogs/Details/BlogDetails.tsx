@@ -19,8 +19,6 @@ const BlogDetails = () => {
   const navigate = useNavigate()
 
 
-  console.log(blog)  
-
   const handleDelete = () => {
     fetch("http://localhost:3001/blogs/" + blog.id, {
       method: 'DELETE'

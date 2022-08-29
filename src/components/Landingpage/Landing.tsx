@@ -72,12 +72,7 @@ const Landing: React.FC<{}> = () => {
           <BaseButton>Explore</BaseButton>
         </ContentText>
         <Square></Square>
-
         <Img1 src={image2}></Img1>
-
-
-
-
       </Wrapper>
     </Container>
   )
