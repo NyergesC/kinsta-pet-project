@@ -12,7 +12,7 @@ type Blog = {
   id:number 
 }
 
-const BlogDetails = () => {
+const BlogDetails: React.FC<{}> = () => {
 
   const { id } = useParams()
   const {data: blog, error, isPending} = useFetch("http://localhost:3001/blogs/" + id)
