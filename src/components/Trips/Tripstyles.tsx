@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { Card } from 'antd';
-import image2 from './images/background2.jpg'; 
 
 
 export const Slide = styled.div( () => ({
@@ -10,10 +9,6 @@ export const Slide = styled.div( () => ({
     justifyContent:'center',
     alignItems:'center',
     background:'black',
-    backgroundImage:`url(${image2})`,
-    backgroundSize:"cover",
-    backgroundPosition:"center center", 
-
   }) )
 
 export const LeftSide = styled.div( () => ({
@@ -23,6 +18,7 @@ export const LeftSide = styled.div( () => ({
   }) )
 
 export const Img = styled.img( () => ({
+    width:'400px'
 
   }) )
 
@@ -33,10 +29,8 @@ export const Img = styled.img( () => ({
     margin:'0 10px',
     padding: "20px",
     borderRadius: "10px",
-    background: "rgba(255,255,255, 0.05)",
-    backdropFilter: "blur(10px)", 
-    border: "1px solid rgba(255,255,255, 0.05)",
-    boxShadow:" 0 5px 25px rgba(0 0 0 / 20%)", 
+    border:'none',
+    background:'transparent',
     div:{
 
         h2:{

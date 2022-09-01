@@ -61,21 +61,22 @@ export const Image2 = styled.img( () => ({
     width:'100%',
     height:'auto',
     bottom:'-32%',
-    right:'10%',
+    right:'200px',
     zIndex:'2',
 
     
     '@media screen and (max-width: 1650px)': {
-        maxWidth:'350px',
-        right:'5%',
+        maxWidth:'330px',
+    
     },
     '@media screen and (max-width: 1200px)': {
-        right:'3%px',
+        right:'50px',
         maxWidth:'320px'
     },
     '@media screen and (max-width: 768px)': {
         maxWidth:'250px',
         bottom:'-22%',
+        right:'20px',
     },
 
 
