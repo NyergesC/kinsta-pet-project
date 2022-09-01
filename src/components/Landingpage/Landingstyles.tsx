@@ -135,7 +135,7 @@ export const Img1 = styled.img( () => ({
      background:'transparent',
      borderStyle: "solid",
      borderWidth:" 5px",
-     borderImage: "linear-gradient(45deg, #093a8f, #5dc9f0) 1",
+     borderImage: "linear-gradient(45deg, #7f33b0, #5dc9f0) 1",
      position:'absolute',
      top:'50%',
      right:"50%",

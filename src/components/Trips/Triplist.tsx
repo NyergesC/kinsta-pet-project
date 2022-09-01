@@ -4,7 +4,7 @@ import { Navigation, Pagination, Autoplay} from 'swiper';
 import { EffectFade } from 'swiper'
 import 'swiper/css/bundle'
 import 'swiper/css/effect-fade'
-
+import BaseButton from '../../useButton'
 
 type Trips = {
     trips: Trip[]
@@ -33,11 +33,6 @@ const TripList: React.FC<Trips> = ( { trips }) => {
         delay: 4000,
         disableOnInteraction: false,
         }}
-/*         pagination={{
-        clickable: true,
-        dynamicBullets: true,       
-    }}
-        navigation={true} */
         modules={[Autoplay, Pagination, Navigation, EffectFade] }
         effect={'fade'}
     >
@@ -49,8 +44,9 @@ const TripList: React.FC<Trips> = ( { trips }) => {
                         <Img src={require(`./images/${trip.src}`)} alt={trip.alt} />
                     </LeftSide>
                     <RightSide>
+                        <h6>Our destinations</h6>
                         <h2>{ trip.destination }</h2>
-                        <p>{ trip.description }</p>
+                        <p>{ trip.description }</p>         
                         <Details>
                             <div>
                                 <h4>Distance:</h4>
@@ -60,47 +56,22 @@ const TripList: React.FC<Trips> = ( { trips }) => {
                                 <h4>Duration:</h4>
                                 <p>{trip.duration}</p>
                             </div>
-                        </Details>                    
+                        </Details> 
+                        <BaseButton children={"Book now"} />
+                                                               
                     </RightSide>
+                 
                 </Slide>
             </SwiperSlide>
           )
-      }
+      },         
+            
       )}
       </>
     </Swiper>
+    
   );
 }
  
 export default TripList;
 
-/* const TripList: React.FC<Trips> = ( { trips }) => {
-
-  return (
-    <CarouselContainer 
-    effect="fade"
-    autoplay={true}
-    draggable={true}
-    infinite={true}
-    pauseOnHover={false}
-    pauseOnDotsHover={true}
-    >
-      {trips.map((trip:Trip) => {          
-          return(
-            <Slide key={trip.id} >
-                <LeftSide>                   
-                    <Img src={require(`./images/${trip.src}`)} alt={trip.alt} />
-                </LeftSide>
-                <RightSide>
-                    <TitleH2>{ trip.destination }</TitleH2>
-                    <TextP>{ trip.description }</TextP>
-                </RightSide>
-            </Slide>
-          )
-      }
-      )}
-    </CarouselContainer>
-  );
-}
- 
-export default TripList; */
