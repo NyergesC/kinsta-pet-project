@@ -3,7 +3,7 @@ import useFetch from '../../useFetch'
 
 
 const Trips: React.FC<{}>= () => {
-  const {data:trips, isPending, error} = useFetch("http://localhost:3001/trips")  
+  const {data:trips, isPending, error} = useFetch("http://localhost:8000/trips")  
 
   return (
     <div>

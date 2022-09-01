@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
-import {  Link as LinkS} from 'react-scroll'
-import { Button} from "antd";
 import image from './images/background.jpg'; 
+import {Button} from 'antd'
 
 export const Container = styled.div( () => ({
     width:"100%",
@@ -51,11 +50,16 @@ export const TitleH1 = styled.h1( () => ({
     color: "white",
     textAlign:'left',
     fontSize: "6em",
-    fontWeight: "700",
+    fontWeight: "600",
+    textTransform:'uppercase',
+    marginBottom:'0',
     textShadow:" 0 5px 25px rgba(0,0,0,0.1)",
     
+    '@media screen and (max-width: 1350px)': {
+        fontSize: "4.5em"
+    },
     '@media screen and (max-width: 1200px)': {
-        fontSize: "5em"
+        fontSize: "4em"
     },
     '@media screen and (max-width: 768px)': {
         fontSize: "3em"
@@ -68,10 +72,12 @@ export const TitleH1 = styled.h1( () => ({
 
 export const TitleH3 = styled.h3( () => ({
     color: "white",
-    fontSize: "2em",
+    fontSize: "1.8em",
+    marginBottom:'45px',
 
     '@media screen and (max-width: 768px)': {
-        fontSize: "1.8em"
+        fontSize: "1.8em",
+        marginBottom:'25px',
     },
     '@media screen and (max-width: 480px)': {
         fontSize: "1.5em"
@@ -79,15 +85,21 @@ export const TitleH3 = styled.h3( () => ({
   }) )
 
 export const ContentP = styled.p( () => ({
-    maxWidth:'400px',
+    maxWidth:'450px',
     width:'100%',
     color: "white",
     fontWeight:'300',
     fontSize: "1.5em",
     marginTop:"24px",
 
+    '@media screen and (max-width: 1200px)': {
+        maxWidth:'400px'
+    },
+
     '@media screen and (max-width: 768px)': {
-        fontSize: "0.8em"
+        fontSize: "0.8em",
+        maxWidth:'250px',
+        marginTop:'0',
     },
     '@media screen and (max-width: 480px)': {
         fontSize: "0.6em"
@@ -110,6 +122,10 @@ export const Img1 = styled.img( () => ({
     '@media screen and (max-width: 1200px)': {
         maxWidth:'750px',
     },
+    '@media screen and (max-width: 768px)': {
+        maxWidth:'550px',
+        transform:'translate(-20%, -50%)'
+    },
 
  }) )
 
@@ -119,7 +135,7 @@ export const Img1 = styled.img( () => ({
      background:'transparent',
      borderStyle: "solid",
      borderWidth:" 5px",
-     borderImage: "linear-gradient(45deg, blue, white) 1",
+     borderImage: "linear-gradient(45deg, #093a8f, #5dc9f0) 1",
      position:'absolute',
      top:'50%',
      right:"50%",
@@ -130,60 +146,11 @@ export const Img1 = styled.img( () => ({
      '@media screen and (max-width: 1550px)': {
          right:"35%",
      },
+     '@media screen and (max-width: 768px)': {
+        width:'100px',
+        height:'400px',
+        right:"40%",
+     },
 
 }) )
 
-export const BaseButton= styled(Button)( () => ({
-    position: "absolute",
-    marginTop: "40px",
-    backgroundColor: "white",
-    color: "black",
-    fontSize: "1.1em",
-    fontWeight: "600",
-    padding: "15px 20px",
-    display: "flex",
-    alignItems:" center",
-    borderRadius: "10px",
-    transition:" 0.3s all ease",
-
-   " &:hover":{
-        color:"#000000",
-    },
-
-    '@media screen and (max-width: 768px)': {
-        fontSize: "0.9em",
-        padding: "10px 13px",
-        marginTop:"30px",
-    }
-
- }) )
-
-
-
-
-/*  export const Button = styled(LinkS)`
-    position: absolute;
-    margin-top: 40px;
-    background-color: white;
-    color: black;
-    font-size: 1.1em;
-    font-weight: 600;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-    transition: 0.3s all ease;
-
-    &:hover{
-        color:#000000;
-    }
-
-    @media screen and (max-width: 768px) {
-        font-size: 0.9em;
-        padding: 10px 13px;
-        margin-top:30px
-    }
-   
-`
- 
- */

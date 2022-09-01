@@ -26,17 +26,6 @@ export const NavBar = styled.nav`
         transition: 0.8s all ease;
     }
 `;
-
-/* max-width: 1200px;
-padding: 0 24px; */
-/* export const NavbarContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    height: 60px;
-    z-index: 1;
-    width: 100%;
-    padding: 0 200px;
-`; */
 export const NavbarContainer = styled.div`
     position:relative;
     display: flex;
@@ -147,6 +136,30 @@ export const NavBtn = styled.nav`
 `
 
 export const NavBtnLink = styled(LinkR)`
+    background: transparent;
+    border: 2px solid white;
+    white-space: nowrap;
+    color: #fff;
+    padding: 8px 18px;
+    font-size: 16px;
+    font-weight:550;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+
+    &:hover {
+        transition: all 0.2s ease-in-out;
+        background:'black',
+        backgroundImage: "linear-gradient(45deg, #093a8f, #5dc9f0) ",
+        textDecoration: "none",
+        border:'none',
+        color:'white',
+    }
+
+
+`
+/* export const NavBtnLink = styled(LinkR)`
     border-radius: 12px;
     background: #fff;
     white-space: nowrap;
@@ -165,4 +178,4 @@ export const NavBtnLink = styled(LinkR)`
         color:#000000;
     }
 
-`
+` */

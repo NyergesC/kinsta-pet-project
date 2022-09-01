@@ -6,26 +6,26 @@ import { Button, Form, Input,Select,} from 'antd';
  
   const formItemLayout = {
     labelCol: {
-      xs: { span:22 },
-      sm: { span: 18 },
+      xs: { span: 24 },
+      sm: { span: 8 },
     },
     wrapperCol: {
-      xs: { span: 18 },
-      sm: { span: 26 },
+      xs: { span: 24 },
+      sm: { span: 16 },
     },
   };
   const tailFormItemLayout = {
     wrapperCol: {
       xs: {
-        span: 26,
+        span: 8,
         offset: 0,
       },
       sm: {
-        span: 26,
-        offset: 26,
+        span: 8,
+        offset: 0,
       },
     },
-  }; 
+  };
   
   const ApplyForm: React.FC = () => {
 
@@ -89,7 +89,7 @@ import { Button, Form, Input,Select,} from 'antd';
                 name="destination"
                 rules={[{ required: true, message: 'Please select your destination!' }]}
                 >
-                <SelectField placeholder="select your destination"  style={{borderRadius:"4px", width:"300px"}} >
+                <SelectField placeholder="select your destination"  style={{ width:"300px"}} >
                     <Option value="moon">Moon</Option>
                     <Option value="mars">Mars</Option>
                     <Option value="europa">Europa</Option>
@@ -101,7 +101,7 @@ import { Button, Form, Input,Select,} from 'antd';
                 name="phone"
                 rules={[{ required: true, message: 'Please input your phone number!' }]}
                 >
-                <Inputfield placeholder="Phone number"addonBefore={prefixSelector} style={{ width: '100%' }} />
+                <Inputfield placeholder="Phone number"addonBefore={prefixSelector} />
                 </FormItem>
         
                 <FormItem
@@ -124,7 +124,7 @@ import { Button, Form, Input,Select,} from 'antd';
                 name="gender"
                 rules={[{ required: true, message: 'Please select gender!' }]}
                 >
-                <SelectField placeholder="select your gender">
+                <SelectField placeholder="select your gender" style={{ width:"300px"}}>
                     <Option value="male">Male</Option>
                     <Option value="female">Female</Option>
                     <Option value="other">Other</Option>
@@ -133,7 +133,7 @@ import { Button, Form, Input,Select,} from 'antd';
                
                 <FormItem {...tailFormItemLayout}>
 
-                    <Button type="primary" htmlType="submit" >Apply</Button>
+                    <Button type="primary" htmlType="submit" style={{ width:"300px"}}>Apply</Button>
                 </FormItem>
       
         </FormWrapper>

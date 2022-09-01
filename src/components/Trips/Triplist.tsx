@@ -1,4 +1,4 @@
-import { Slide, LeftSide, Img, RightSide, Details} from './Tripstyles'
+import { Slide, LeftSide, Img,RightSide, Details} from './Tripstyles'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay} from 'swiper';
 import { EffectFade } from 'swiper'

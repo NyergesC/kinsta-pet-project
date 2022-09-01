@@ -1,31 +1,45 @@
 import { Button, Form, Input, Select,} from 'antd';
 import styled from '@emotion/styled';
+/* import image from './images/card2.jpg';  */
 
 
 export const FormContainer = styled.div( () => ({
     width:"100%",
-    height:"80vh",
+    height:"50vh",
     display:"flex",
     justifyContent:'center',
     alignItems:'center',
     position:'relative', 
+    background:'black',
+/*     backgroundImage:`url(${image})`,
+    backgroundSize:"cover",
+    backgroundPosition:"center center"
+ */
 
   }) )
 
   export const Main = styled.div( () => ({
-      maxWidth:'1200px',
+      maxWidth:'600px',
       width:'100%',
       padding:' 0 20px',
-      background:'purple',
       margin: ' 0 auto'
 
   }))
   export const FormWrapper = styled(Form)( () => ({
-      maxWidth: '800px',
+ /*      position:'absolute',
+      top:'-35%',
+      left:'50%',
+      transform:'translate(-50%)', */
+      zIndex:'100', 
+      maxWidth: '1200px',
       width:'100%',
       padding:' 30px 40px',
       alignItems:'center',
-      background:'red',
+      background: "rgba(255,255,255, 0.05)",
+      backdropFilter: "blur(10px)", 
+      borderRadius: "10px",
+      border: "1px solid rgba(255,255,255, 0.05)",
+      boxShadow:" 0 5px 25px rgba(0 0 0 / 20%)", 
       margin: '0 auto',
 
   }))
@@ -35,21 +49,17 @@ export const FormContainer = styled.div( () => ({
       display:'flex',
       justifyContent:'center',
       marginBottom:"25px",
-      background:'yellow'
+      margin: '10px auto',
 
   }))
   export const Inputfield= styled(Input)( () => ({
       width:'300px',
-      padding:'5px 15px'
 
 
   }))
   export const SelectField= styled(Select)( () => ({
       width:'300px',
 
-      div:{
-          width:'300px'
-      }
-
+  
   }))
 
