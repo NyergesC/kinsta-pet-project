@@ -83,5 +83,15 @@
       "alt": "Jupiter",
       "id": 4
     }
+  ],
+  "applications": [
+    {
+      "firstname": "Darth",
+      "surname": "Vader",
+      "destination": "mars",
+      "email": "afaf@afjaif.com",
+      "gender": "male",
+      "id": 1
+    }
   ]
 }

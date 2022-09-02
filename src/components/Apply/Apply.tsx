@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FormContainer, Main, FormWrapper, FormItem , Inputfield, SelectField} from './Applystyles'
-import { Button, Form, Input,Select,} from 'antd';
+import { Button, Form, Input,message,Select,} from 'antd';
   
   const { Option } = Select;    
  
@@ -29,12 +29,40 @@ import { Button, Form, Input,Select,} from 'antd';
   
   const ApplyForm: React.FC = () => {
 
+    const [firstname, setFirstname] = useState("")
+    const [surname, setSurname] = useState("")
+    const [destination, setDestination] = useState("")
+    const [phone, setPhone] = useState("")
+    const [email, setEmail] = useState("")
+
+      
+    const onFinish = (values:any) => {
+  
+         
+      fetch("http://localhost:8000/applications", {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body:JSON.stringify({
+          firstname:values.firstname,
+          surname:values.surname,
+          destination:values.destination,
+          email:values.email,
+          gender:values.gender
+        })
+      }).then(() => {
+        console.log("submitted")
+
+      })
+    }
+
     const [form] = Form.useForm();
+
+    const onFinishFailed = (errorInfo:any) => {
+      message.error('Something went wrong!');
+      console.log('Failed:', errorInfo)
+    }
   
-    const onFinish = (values: any) => {
-      console.log('Received values of form: ', values);
-    };
-  
+ 
     const prefixSelector = (
       <FormItem name="prefix" noStyle>
         <Select style={{ width: 70 }}>
@@ -49,12 +77,13 @@ import { Button, Form, Input,Select,} from 'antd';
         <Main>
             <FormWrapper
                  {...formItemLayout}
-                form={form}
-                name="register"
+                 form={form}
+                 name="register"
+                 initialValues={{
+                   prefix: '36',
+                  }}
                 onFinish={onFinish}
-                initialValues={{
-                prefix: '36',
-                }}
+                onFinishFailed={onFinishFailed}
                 scrollToFirstError
             >
                 <FormItem
