@@ -13,6 +13,6 @@ export type Blog = {
 }
 
 export enum SortBlogs {
-  ASC = 'Sort ascending',
-  DESC = 'Sort descending'
+  ASC = 'Author A-Z',
+  DESC = 'Author Z-A'
 };
