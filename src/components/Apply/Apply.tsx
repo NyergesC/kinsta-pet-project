@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FormContainer, Main, FormWrapper, FormItem , Inputfield, SelectField} from './Applystyles'
-import { Button, Form, Input,message,Select,} from 'antd';
+import { Modal, Button, Form, message,Select,} from 'antd';
   
   const { Option } = Select;    
  
@@ -29,15 +29,34 @@ import { Button, Form, Input,message,Select,} from 'antd';
   
   const ApplyForm: React.FC = () => {
 
-    const [firstname, setFirstname] = useState("")
-    const [surname, setSurname] = useState("")
-    const [destination, setDestination] = useState("")
-    const [phone, setPhone] = useState("")
-    const [email, setEmail] = useState("")
+    const [visible, setVisible] = useState(false);
+    const [confirmLoading, setConfirmLoading] = useState(false);
+    const [modalText, setModalText] = useState('Your ticket will be sent into your Mail box!');
 
-      
-    const onFinish = (values:any) => {
+    //MODAL
+
+    const showModal = () => {
+      setVisible(true);
+    };
   
+    const handleOk = () => {
+      setModalText('Congratulations! Your journey has just begun!');
+      setConfirmLoading(true);
+      setTimeout(() => {
+        setVisible(false);
+        setConfirmLoading(false);
+      }, 2000);
+    };
+  
+    const handleCancel = () => {
+      console.log('Clicked cancel button');
+      setVisible(false);
+    };
+
+    //POST METHOD
+    
+    const onFinish = (values:any) => {
+      
          
       fetch("http://localhost:8000/applications", {
         method: 'POST',
@@ -49,19 +68,24 @@ import { Button, Form, Input,message,Select,} from 'antd';
           email:values.email,
           gender:values.gender
         })
+      
       }).then(() => {
+      /*   message.success(`${values.firstname} has been added.`) */
         console.log("submitted")
+        
 
       })
     }
-
+        
     const [form] = Form.useForm();
-
+    
     const onFinishFailed = (errorInfo:any) => {
       message.error('Something went wrong!');
       console.log('Failed:', errorInfo)
     }
+    
   
+    //FORM
  
     const prefixSelector = (
       <FormItem name="prefix" noStyle>
@@ -69,8 +93,7 @@ import { Button, Form, Input,message,Select,} from 'antd';
           <Option value="36">+36</Option>
         </Select>
       </FormItem>
-       );
-    
+       );    
       
     return (
     <FormContainer>
@@ -85,20 +108,22 @@ import { Button, Form, Input,message,Select,} from 'antd';
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
                 scrollToFirstError
+                preserve={false}
             >
                 <FormItem
                 name="firstname"
                 rules={[
-                    {
+                  {
                     message: 'The input is not valid E-mail!',
-                    },
-                    {
+                  },
+                  {
                     required: true,
                     message: 'Please input your E-mail!',
-                    },
+                  },
+                  
                 ]}
                 >
-                <Inputfield placeholder='First name' />
+                <Inputfield placeholder='First name'  />
                 </FormItem>
         
                 <FormItem
@@ -162,10 +187,21 @@ import { Button, Form, Input,message,Select,} from 'antd';
                
                 <FormItem {...tailFormItemLayout}>
 
-                    <Button type="primary" htmlType="submit" style={{ width:"300px"}}>Apply</Button>
+                    <Button type="primary" htmlType="submit" style={{ width:"300px"}} onClick={showModal}>Apply</Button>
                 </FormItem>
       
         </FormWrapper>
+      <Modal
+        title="Title"
+        visible={visible}
+        onOk={handleOk}
+        confirmLoading={confirmLoading}
+        onCancel={handleCancel}
+      >
+        <>
+        <h1>{modalText} </h1>
+        </>
+      </Modal> 
       </Main>
     </FormContainer>
     );

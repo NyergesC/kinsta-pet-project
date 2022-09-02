@@ -1,5 +1,6 @@
-
 import { Link } from 'react-router-dom';
+import { Wrapper} from './BlogsStyle'
+
 
 type Blogs = {
     blogs: Blog[]
@@ -17,8 +18,9 @@ type Blog = {
 
 const BlogList: React.FC<Blogs> = ( { blogs }) => {
 
+
   return (
-    <div>
+    <Wrapper>
       {blogs.map((blog:Blog) => {
           
           return(
@@ -34,7 +36,7 @@ const BlogList: React.FC<Blogs> = ( { blogs }) => {
           )
       }
       )}
-    </div>
+    </Wrapper>
   );
 }
  
