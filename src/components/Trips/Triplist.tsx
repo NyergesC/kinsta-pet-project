@@ -57,7 +57,7 @@ const TripList: React.FC<Trips> = ( { trips }) => {
                                 <p>{trip.duration}</p>
                             </div>
                         </Details> 
-                        <BaseButton children={"Book now"} />
+                        <BaseButton children={"Book now"} type='link'/>
                                                                
                     </RightSide>
                  

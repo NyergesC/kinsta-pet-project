@@ -30,6 +30,13 @@ export const UseButton = styled(Button)( () => ({
         border:'none',
         color:'white',
     },   
+    ':focus': {
+        //backgroundPosition: 'right center', /* change the direction of the change here */
+        background:'black',
+        textDecoration: "none",
+        border:'2px solid white', 
+        color:'white',
+    },   
    
     
     '@media screen and (max-width: 768px)': {
