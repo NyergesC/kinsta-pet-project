@@ -9,6 +9,7 @@ export type Blog = {
     author:string, 
     body:string, 
     read:string,
+    value:number,
     id:number 
 }
 
