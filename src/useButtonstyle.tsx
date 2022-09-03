@@ -3,9 +3,6 @@ import { Button } from 'antd';
 
 
 export const UseButton = styled(Button)( () => ({
-    //backgroundImage: 'linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%)',
-    //backgroundImage: 'linear-gradient(to right, #2596be 0%, #5015bd  51%, #2596be 100%)',
-    //backgroundImage: 'linear-gradient(to right, #2596be 0%, #093a8f  51%, #2596be 100%)',
     marginTop: '40px',
     padding: '15px 45px',
     textAlign: 'center',
@@ -23,15 +20,13 @@ export const UseButton = styled(Button)( () => ({
 
 
     ':hover': {
-        //backgroundPosition: 'right center', /* change the direction of the change here */
         background:'black',
-        backgroundImage: "linear-gradient(45deg, #093a8f, #5dc9f0) ",
+        backgroundImage: "linear-gradient(45deg, #ca4bcc , #7f33b0) ",
         textDecoration: "none",
         border:'none',
         color:'white',
     },   
     ':focus': {
-        //backgroundPosition: 'right center', /* change the direction of the change here */
         background:'black',
         textDecoration: "none",
         border:'2px solid white', 
