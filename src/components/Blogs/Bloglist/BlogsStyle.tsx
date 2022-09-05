@@ -32,7 +32,13 @@ export const Blogwrapper = styled.div(() => ({
 
     ':hover':{
         boxShadow:" 0 5px 25px rgba(0 0 0 / 10%)", 
+    },
+
+    '@media screen and (max-width: 1650px)': {
+        maxWidth:'500px',
+        width:'100%',
     }
+
 
 }) )
 export const ButtonWrap = styled.div(() => ({
@@ -124,6 +130,13 @@ export const Image1 = styled.img(() => ({
         width:'350px',
         top:'-5%',
         left:'200px',
+        transition:'0.3s all ease',
+
+        '@media screen and (max-width: 1650px)': {
+            width:"300px",
+            left:'100px'
+
+         },
     
 
 }) )
@@ -132,6 +145,14 @@ export const Image2 = styled.img(() => ({
         width:'350px',
         bottom:'100px',
         left:'200px',
+        transition:'0.3s all ease',
+
+        '@media screen and (max-width: 1650px)': {
+            width:"300px",
+            left:'100px'
+
+         },
+            
 
     
 
@@ -141,6 +162,13 @@ export const Image3 = styled.img(() => ({
         width:'350px',
         bottom:'100px',
         right:'140px',
+        transition:'0.3s all ease',
+
+        
+    '@media screen and (max-width: 1650px)': {
+        width:"300px",
+        right:'100px',
+     },
         
 
 }) )
@@ -170,7 +198,6 @@ export const Three = styled.div( () => ({
         },
 
     '@media screen and (max-width: 1650px)': {
-       right:'12%',
        h2:{
         fontSize:'12em',
     },
@@ -180,7 +207,6 @@ export const Three = styled.div( () => ({
     
     },
     '@media screen and (max-width: 1200px)': {
-        right:'10%',
         top:"20%",
         h2:{
             fontSize:'10em',
@@ -191,8 +217,8 @@ export const Three = styled.div( () => ({
     },
         
     '@media screen and (max-width: 960px)': {
-        left:'5%',
-        top:"10%",
+        right:'15%',
+
     },
     
 }) )

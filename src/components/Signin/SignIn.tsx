@@ -1,10 +1,22 @@
 import { Button, Form, Input } from 'antd';
 import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4, FormPassword, FormMember, MemberP, MemberSpan} from './SignInElements'
 import React from 'react';
+import { useGlobalContext } from '../../UserContext';
+import { useNavigate } from "react-router-dom";
 
 
 
 const SignIn: React.FC = () => {
+
+    const { user, setUser } = useGlobalContext()
+    const navigate = useNavigate();
+
+    const onFinish = (e: { username: string; }) => {
+        console.log(e.username);
+        setUser(e.username);
+        navigate("/");
+      };
+    
  
     return (
     <Container>
@@ -12,6 +24,7 @@ const SignIn: React.FC = () => {
             <Icon to="/">Logo</Icon>
             <FormContent>                
                 <Form
+                    onFinish={onFinish}
                     name="basic"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 10 }}

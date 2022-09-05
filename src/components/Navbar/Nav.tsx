@@ -1,9 +1,10 @@
-import React from 'react'
+
+import React, { useContext, useState } from "react";
 import {FaBars} from 'react-icons/fa'
 import  {IconContext} from 'react-icons'
 import {NavBar, NavbarContainer, NavItems, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink} from './NavElements'
 import * as data from './links.json'
-/* import { animateScroll as scroll} from 'react-scroll' */
+import { useGlobalContext } from "../../UserContext";
 
 const linksString = JSON.stringify(data)
 const links = JSON.parse(linksString).links
@@ -31,7 +32,10 @@ const LinkItem: React.FC<Links> = ( { links }) => {
     )
 };
 
+
 const Nav: React.FC<{}> = () => {
+
+    const msg = useGlobalContext().user
   return (
     <IconContext.Provider value={{color:'#fff'}}>
         <NavBar>
@@ -44,7 +48,10 @@ const Nav: React.FC<{}> = () => {
                     <LinkItem links={links} /> 
                     <NavBtn>
                         <NavBtnLink to='/signin'>Sign In</NavBtnLink>
-                    </NavBtn>  
+                    </NavBtn>
+                    <div>
+                        <h2 style={{color:'white'}}>Hello {msg}</h2>
+                    </div>  
                 </NavItems>
             </NavbarContainer>
         </NavBar>

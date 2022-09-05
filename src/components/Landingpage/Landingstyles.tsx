@@ -154,3 +154,10 @@ export const Img1 = styled.img( () => ({
 
 }) )
 
+export const UserDiv = styled("div")(() => ({
+    display: "flex",
+    justifyContent: "right",
+    marginRight: "15px",
+    padding: "10px",
+    gap: "10px",
+  }));
