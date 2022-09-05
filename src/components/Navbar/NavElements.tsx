@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 import { Link as LinkR} from 'react-router-dom'
 import { Link as LinkS} from 'react-scroll'
+/* import { LogoutOutlined } from '@ant-design/icons'; */
+import {HiLogout} from 'react-icons/hi'
 
 
 
@@ -34,11 +36,11 @@ export const NavbarContainer = styled.div`
     height: 60px;
     z-index: 1;
     width: 100%;
-    padding: 0 200px;
+    padding: 0 40px 0 200px;
     transition: 0.3s all ease;
 
     @media screen and (max-width: 1200px) {
-        padding: 0 50px;
+        padding:  0 40px 0 50px;
     }
     @media screen and (max-width: 768px) {
         padding: 5px 20px;
@@ -125,57 +127,57 @@ export const NavLinks = styled(LinkS)`
     &:active{
     }
 `
-export const NavBtn = styled.nav`
-    display:flex;
-    align-items:center;
+export const NavBtn = styled.nav(() => ({
+    display:"flex",
+    alignItems:"center",
 
-    @media screen and (max-width: 768px){
-        display:none
+    '@media screen and (max-width: 768px)': {
+        display:"none",
     }
 
-`
+}));
 
-export const NavBtnLink = styled(LinkR)`
-    background: transparent;
-    border: 2px solid white;
-    white-space: nowrap;
-    color: #fff;
-    padding: 8px 18px;
-    font-size: 16px;
-    font-weight:550;
-    outline: none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
+export const NavBtnLink = styled(LinkR)(() => ({
+    border: "2px solid white",
+    background: "transparent",
+    whiteSpace: "nowrap",
+    color: "#fff",
+    padding:" 8px 18px",
+    fontSize: "16px",
+    fontWeight:"550",
+    outline: "none",
+    cursor: "pointer",
+    transition: "all 0.2s ease-in-out",
+    textDecoration: "none",
 
-    &:hover {
-        transition: all 0.2s ease-in-out;
+    ':hover': {
         background:'black',
-        backgroundImage: "linear-gradient(45deg, #093a8f, #5dc9f0) ",
+        border: "2px solid #7f33b0 ",
         textDecoration: "none",
-        border:'none',
+        color:'#7f33b0',
+    }
+}));
+
+
+
+export const UserDiv = styled("div")(() => ({
+    width:'200px',
+    height:"50px",
+    display: "flex",
+    alignItems:"center",
+    gap: "10px",
+    color:'#7f33b0e',
+    'h3': {
         color:'white',
+        marginTop:'5px',
     }
-
-
-`
-/* export const NavBtnLink = styled(LinkR)`
-    border-radius: 12px;
-    background: #fff;
-    white-space: nowrap;
-    color: #000000;
-    padding: 8px 18px;
-    font-size: 16px;
-    font-weight:550;
-    outline: none;
-    border:none;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    text-decoration: none;
-
-    &:hover {
-        transition: all 0.2s ease-in-out;
-        color:#000000;
-    }
-
-` */
+  }));
+export const OutButton = styled('button')(() => ({
+    background:'transparent',
+  }));
+export const LogoutOutlinedS = styled(HiLogout)(() => ({
+    color:'white ',
+    fontWeight:"700",   
+    fontSize:'28px',
+    marginTop:'5px',
+  }));

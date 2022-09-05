@@ -1,6 +1,5 @@
 import styled from "@emotion/styled"
 import image from './images/background.jpg'; 
-import {Button} from 'antd'
 
 export const Container = styled.div( () => ({
     width:"100%",
@@ -154,10 +153,3 @@ export const Img1 = styled.img( () => ({
 
 }) )
 
-export const UserDiv = styled("div")(() => ({
-    display: "flex",
-    justifyContent: "right",
-    marginRight: "15px",
-    padding: "10px",
-    gap: "10px",
-  }));

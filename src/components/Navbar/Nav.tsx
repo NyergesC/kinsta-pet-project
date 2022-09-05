@@ -1,22 +1,13 @@
 
-import React, { useContext, useState } from "react";
 import {FaBars} from 'react-icons/fa'
 import  {IconContext} from 'react-icons'
-import {NavBar, NavbarContainer, NavItems, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink} from './NavElements'
+import {NavBar, NavbarContainer, NavItems, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink, UserDiv, OutButton, LogoutOutlinedS} from './NavElements'
 import * as data from './links.json'
 import { useGlobalContext } from "../../UserContext";
+import {Link, Links} from './Types'
 
 const linksString = JSON.stringify(data)
 const links = JSON.parse(linksString).links
-
-interface Link {
-    label: string,
-    href: string
-}
-
-type Links = {
-    links: Link[]
-}
 
 const LinkItem: React.FC<Links> = ( { links }) => {
     return (   
@@ -32,10 +23,12 @@ const LinkItem: React.FC<Links> = ( { links }) => {
     )
 };
 
-
 const Nav: React.FC<{}> = () => {
 
-    const msg = useGlobalContext().user
+
+    const {user, setUser} = useGlobalContext()
+    const guestUser = 'Guest'
+
   return (
     <IconContext.Provider value={{color:'#fff'}}>
         <NavBar>
@@ -47,13 +40,14 @@ const Nav: React.FC<{}> = () => {
                     </MobileIcon>
                     <LinkItem links={links} /> 
                     <NavBtn>
-                        <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+                        <NavBtnLink to='/signin'>Login</NavBtnLink>
                     </NavBtn>
-                    <div>
-                        <h2 style={{color:'white'}}>Hello {msg}</h2>
-                    </div>  
                 </NavItems>
             </NavbarContainer>
+            <UserDiv>
+                <h3>Hello {user}!</h3>
+                {user === guestUser! || <OutButton onClick={() => setUser('Guest')}><LogoutOutlinedS/></OutButton>}
+            </UserDiv> 
         </NavBar>
     </IconContext.Provider>
   )

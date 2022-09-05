@@ -11,6 +11,8 @@ const SignIn: React.FC = () => {
     const { user, setUser } = useGlobalContext()
     const navigate = useNavigate();
 
+    const guestUser = 'Guest'
+
     const onFinish = (e: { username: string; }) => {
         console.log(e.username);
         setUser(e.username);
