@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { FormContainer, Main, FormWrapper, FormItem , Inputfield, SelectField} from './Applystyles'
-import { Modal, Button, Form, message,Select,} from 'antd';
+import { Container, Icon, FormWrap, FormContent, FormWrapper, FormItem , Inputfield, SelectField, ImgDiv, Img, FormH1, ApplyButton } from './Applystyles'
+import { Modal,Form, message,Select,} from 'antd';
+import image from './images/shuttle.jpg'
   
   const { Option } = Select;    
  
@@ -94,114 +95,121 @@ import { Modal, Button, Form, message,Select,} from 'antd';
        );    
       
     return (
-    <FormContainer>
-        <Main>
-            <FormWrapper
-                 {...formItemLayout}
-                 form={form}
-                 name="register"
-                 initialValues={{
-                   prefix: '36',
-                  }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-                scrollToFirstError
-                preserve={false}
-            >
-                <FormItem
-                name="firstname"
-                rules={[
-                  {
-                    message: 'The input is not valid E-mail!',
-                  },
-                  {
-                    required: true,
-                    message: 'Please input your E-mail!',
-                  },
-                  
-                ]}
-                >
-                <Inputfield placeholder='First name'  />
-                </FormItem>
-        
-                <FormItem
-                name="surname"
-                rules={[
+    <Container>
+      <Icon to="/">Logo</Icon>  
+      <FormWrap>
+          <FormContent>
+              <ImgDiv>
+                <Img src={image} />                
+              </ImgDiv>
+              <FormWrapper
+                  {...formItemLayout}
+                  form={form}
+                  name="register"
+                  initialValues={{
+                    prefix: '36',
+                    }}
+                  onFinish={onFinish}
+                  onFinishFailed={onFinishFailed}
+                  scrollToFirstError
+                  preserve={false}
+              >
+                 <FormH1>Apply for a journey</FormH1>
+                  <FormItem
+                  name="firstname"
+                  rules={[
                     {
-                    required: true,
-                    message: 'Please input your Surname!',
+                      message: 'The input is not valid E-mail!',
                     },
-                ]}
-                hasFeedback
-                >
-                <Inputfield placeholder='Surname' />
-                </FormItem>  
+                    {
+                      required: true,
+                      message: 'Please input your E-mail!',
+                    },
+                    
+                  ]}
+                  >
+                  <Inputfield placeholder='First name'  />
+                  </FormItem>
+          
+                  <FormItem
+                  name="surname"
+                  rules={[
+                      {
+                      required: true,
+                      message: 'Please input your Surname!',
+                      },
+                  ]}
+                  hasFeedback
+                  >
+                  <Inputfield placeholder='Surname' />
+                  </FormItem>  
 
-                <FormItem
-                name="destination"
-                rules={[{ required: true, message: 'Please select your destination!' }]}
-                >
-                <SelectField placeholder="select your destination"  style={{ width:"300px"}} >
-                    <Option value="moon">Moon</Option>
-                    <Option value="mars">Mars</Option>
-                    <Option value="europa">Europa</Option>
-                    <Option value="jupiter">Jupiter</Option>
-                </SelectField>
-                </FormItem>                 
+                  <FormItem
+                  name="destination"
+                  rules={[{ required: true, message: 'Please select your destination!' }]}
+                  >
+                  <SelectField placeholder="select your destination"  style={{ width:"300px"}} >
+                      <Option value="moon">Moon</Option>
+                      <Option value="mars">Mars</Option>
+                      <Option value="europa">Europa</Option>
+                      <Option value="jupiter">Jupiter</Option>
+                  </SelectField>
+                  </FormItem>                 
+                  
+                  <FormItem
+                  name="phone"
+                  rules={[{ required: true, message: 'Please input your phone number!' }]}
+                  >
+                  <Inputfield placeholder="Phone number"addonBefore={prefixSelector} />
+                  </FormItem>
+          
+                  <FormItem
+                      name="email"
+                      rules={[
+                  {
+                      type: 'email',
+                      message: 'The input is not valid E-mail!',
+                  },
+                  {
+                      required: true,
+                      message: 'Please input your E-mail!',
+                  },
+                  ]}
+                  >
+                  <Inputfield placeholder='E-mail address' />
+                  </FormItem>       
+          
+                  <FormItem
+                  name="gender"
+                  rules={[{ required: true, message: 'Please select gender!' }]}
+                  >
+                  <SelectField placeholder="select your gender" style={{ width:"300px"}}>
+                      <Option value="male">Male</Option>
+                      <Option value="female">Female</Option>
+                      <Option value="other">Other</Option>
+                  </SelectField>
+                  </FormItem>           
                 
-                <FormItem
-                name="phone"
-                rules={[{ required: true, message: 'Please input your phone number!' }]}
-                >
-                <Inputfield placeholder="Phone number"addonBefore={prefixSelector} />
-                </FormItem>
-        
-                <FormItem
-                    name="email"
-                    rules={[
-                {
-                    type: 'email',
-                    message: 'The input is not valid E-mail!',
-                },
-                {
-                    required: true,
-                    message: 'Please input your E-mail!',
-                },
-                ]}
-                >
-                <Inputfield placeholder='E-mail address' />
-                </FormItem>       
-        
-                <FormItem
-                name="gender"
-                rules={[{ required: true, message: 'Please select gender!' }]}
-                >
-                <SelectField placeholder="select your gender" style={{ width:"300px"}}>
-                    <Option value="male">Male</Option>
-                    <Option value="female">Female</Option>
-                    <Option value="other">Other</Option>
-                </SelectField>
-                </FormItem>           
-               
-                <FormItem {...tailFormItemLayout}>
+                  <FormItem {...tailFormItemLayout}>
 
-                    <Button type="primary" htmlType="submit" style={{ width:"300px"}} onClick={showModal}>Apply</Button>
-                </FormItem>
-      
-        </FormWrapper>
-      <Modal
-        title="Title"
-        visible={visible}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={handleCancel}
-      >
-        <>
-        <h1>{modalText} </h1>
-        </>
-      </Modal> 
-      </Main>
-    </FormContainer>
+                      <ApplyButton type="primary" htmlType="submit" style={{ width:"300px"}} onClick={showModal}>Apply</ApplyButton>
+                  </FormItem>
+        
+          </FormWrapper>
+        <Modal
+          title="Title"
+          visible={visible}
+          onOk={handleOk}
+          confirmLoading={confirmLoading}
+          onCancel={handleCancel}
+        >
+          <>
+          <h3>{modalText} </h3>
+          </>
+        </Modal> 
+        </FormContent>
+      </FormWrap>
+    </Container>
     );
   };
 

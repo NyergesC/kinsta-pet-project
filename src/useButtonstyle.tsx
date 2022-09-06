@@ -21,7 +21,7 @@ export const UseButton = styled(Button)( () => ({
 
     ':hover': {
         background:'black',
-        backgroundImage: "linear-gradient(45deg, #ca4bcc , #7f33b0) ",
+        backgroundImage: "linear-gradient(45deg, #ca4bcc , #090154) ",
         textDecoration: "none",
         border:'none',
         color:'white',

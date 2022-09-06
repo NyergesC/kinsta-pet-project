@@ -1,8 +1,9 @@
 import { Button, Form, Input } from 'antd';
-import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4, FormPassword, FormMember, MemberP, MemberSpan} from './SignInElements'
+import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4, FormPassword, FormMember, MemberP, MemberSpan, Img, LoginButton, FP } from './SignInElements'
 import React from 'react';
 import { useGlobalContext } from '../../UserContext';
 import { useNavigate } from "react-router-dom";
+import image from './images/background.jpg'
 
 
 
@@ -22,6 +23,7 @@ const SignIn: React.FC = () => {
  
     return (
     <Container>
+            <Img src={image} />
         <FormWrap>
             <Icon to="/">Logo</Icon>
             <FormContent>                
@@ -55,7 +57,7 @@ const SignIn: React.FC = () => {
                     name="username"
                     rules={[{ required: true, message: 'Please input your username!' }]}
                     >
-                    <Input placeholder="Username" style={{borderRadius:"4px", width:"300px"}}/>
+                    <Input placeholder="Username" style={{width:"300px"}}/>
                     </Form.Item>
             
                     <Form.Item
@@ -65,27 +67,19 @@ const SignIn: React.FC = () => {
                     
                     
                     >
-                    <Input.Password  placeholder="Password" style={{borderRadius:"4px", width:"300px"}}/>
+                    <Input.Password  placeholder="Password" style={{ width:"300px"}}/>
               
                     </Form.Item>
                     <FormPassword >
-                        <a style={{color:"#585858", fontWeight:"600"}}>Forgot password?</a>
+                        <FP>Forgot password?</FP>
                     </FormPassword>             
                     <Form.Item wrapperCol={{ offset: 0, span: 10 }}>
-                    <Button 
+                    <LoginButton 
                     type="primary" 
                     htmlType="submit"
-                    style={
-                        {
-                        width:"300px",
-                        borderRadius: "4px",
-                        background:"#6C63FF",
-                        border:"none"                    
-
-                    } }  
                     >
                         Sign In                        
-                    </Button>
+                    </LoginButton >
                     </Form.Item>
                     <FormMember>
                         <MemberP>New member?<MemberSpan>Sign Up here</MemberSpan></MemberP>

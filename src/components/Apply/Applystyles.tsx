@@ -1,48 +1,98 @@
-import { Button, Form, Input, Select,} from 'antd';
+import { Form, Input, Select, Button} from 'antd';
 import styled from '@emotion/styled';
-/* import image from './images/card2.jpg';  */
+import {Link} from 'react-router-dom'
 
-
-export const FormContainer = styled.div( () => ({
+export const Container = styled.div(() => ({  
+    height:"100vh",
     width:"100%",
-    height:"50vh",
+    backgroundImage: "linear-gradient(45deg, #fff , #caa8f7) ",
+ }) )
+
+ export const FormWrap = styled.div(() => ({  
+    height:"100%",
+    width:"100%",
     display:"flex",
-    justifyContent:'center',
-    alignItems:'center',
-    position:'relative', 
-    background:'black',
-/*     backgroundImage:`url(${image})`,
-    backgroundSize:"cover",
-    backgroundPosition:"center center"
- */
+    flexDirection:"column",
+    justifyContent:"center",
 
-  }) )
 
-  export const Main = styled.div( () => ({
-      maxWidth:'600px',
-      width:'100%',
-      padding:' 0 20px',
-      margin: ' 0 auto'
+        '@media screen and (max-width: 400px)':{
+        height:"80%"
+        },
+    }) )
+export const FormWrapper = styled(Form)(() => ({  
+    maxWidth:"600px",
+    width:"100%",
+    height:"600px",
+    background:'white',
+    padding:"20px 12px",
+    borderRadius:"4px",
+    backdropFilter: "blur(10px)",
+    display:"grid",
+    justifyContent:"center"
+}) )
 
-  }))
-  export const FormWrapper = styled(Form)( () => ({
- /*      position:'absolute',
-      top:'-35%',
-      left:'50%',
-      transform:'translate(-50%)', */
-      zIndex:'100', 
-      maxWidth: '1200px',
-      width:'100%',
-      padding:' 30px 40px',
-      alignItems:'center',
-      background: "rgba(255,255,255, 0.05)",
-      backdropFilter: "blur(10px)", 
-      borderRadius: "10px",
-      border: "1px solid rgba(255,255,255, 0.05)",
-      boxShadow:" 0 5px 25px rgba(0 0 0 / 20%)", 
-      margin: '0 auto',
+export const Icon = styled(Link)(() => ({ 
+    marginLeft:" 32px",
+    textDecoration:"none",
+    color:"#090154",
+    fontWeight:"700",
+    marginTop:"8px",
+    fontSize:"1.5rem",
+    letterSpacing: "2px",
+    textTransform: "uppercase",
 
-  }))
+    ':hover':{
+        color:" #7f33b0",
+    },
+
+    '@media screen and (max-width: 480px)':{
+    marginLeft:"16px",
+    marginTop:"8px"
+    }
+
+}) )     
+
+export const FormContent = styled.div(() => ({  
+    height:"600px",
+    maxWidth:"1200px",
+    width:'100%',
+    display:"flex",
+    justifyContent:"center",
+    alignItems:"center",
+    margin:'0 auto',
+    boxShadow: "rgb(0 0 0 / 90%) 0px 2px 8px",
+    
+    '@media screen and (max-width: 480px)':{
+    padding:"10px",
+    }
+    }) )  
+        
+    export const FormH1 = styled.h1(() => ({  
+        marginBottom:"10px",
+        color:"#090154",
+        fontSize:"28px",
+        fontWeight:"600",
+        textAlign:"center",
+        
+        }) )
+        
+
+    export const ImgDiv = styled.div(() => ({  
+        maxWidth:"600px",
+        width:'100%',
+        objectFit:'cover',
+        height:'100%'
+    
+    }) )  
+    export const Img = styled.img(() => ({  
+        width:'100%',
+        objectFit:'cover',
+        height:'100%',
+    
+    
+    }) ) 
+
   export const FormItem = styled(Form.Item)( () => ({
       maxWidth:'600px',
       width:'100%',
@@ -62,4 +112,23 @@ export const FormContainer = styled.div( () => ({
 
   
   }))
+
+  export const ApplyButton = styled(Button)(() => ({ 
+    width:"300px",
+    borderRadius: "4px",
+    background:"#090154",
+    border:"none",
+    transition:'0.2s all ease',
+    
+    ':hover': {
+        background:'black',
+        backgroundImage: "linear-gradient(45deg, #ca4bcc , #090154) ",
+        textDecoration: "none",
+        border:'none',
+        color:'white',
+    }, 
+
+}) )
+
+
 

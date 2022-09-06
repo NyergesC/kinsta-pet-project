@@ -151,10 +151,12 @@ export const NavBtnLink = styled(LinkR)(() => ({
 
     ':hover': {
         background:'black',
-        border: "2px solid #7f33b0 ",
+        backgroundImage: "linear-gradient(45deg, #ca4bcc , #090154) ",
         textDecoration: "none",
-        color:'#7f33b0',
-    }
+        border:'none',
+        color:'white',
+        },   
+    
 }));
 
 
