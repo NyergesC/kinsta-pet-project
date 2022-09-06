@@ -151,7 +151,7 @@ export const NavBtnLink = styled(LinkR)(() => ({
 
     ':hover': {
         background:'black',
-        backgroundImage: "linear-gradient(45deg, #ca4bcc , #090154) ",
+        backgroundImage: "linear-gradient(45deg, #090154 , #ca4bcc) ",
         textDecoration: "none",
         border:'none',
         color:'white',

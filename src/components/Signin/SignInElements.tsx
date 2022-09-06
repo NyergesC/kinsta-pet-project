@@ -121,6 +121,14 @@ export const MemberSpan = styled.span(() => ({
 export const LoginButton  = styled(Button)(() => ({ 
     width:"300px",
     background:"#090154",
-    border:"none"         
+    border:"none" ,   
+    
+    ':hover': {
+        background:"#090154",
+        textDecoration: "none",
+        border:'none',
+        color:'white',
+        },   
+    
 
 }) )
