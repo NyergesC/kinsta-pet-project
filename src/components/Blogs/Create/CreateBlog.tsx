@@ -106,8 +106,8 @@ const CreateBlog = () => {
 
                           
                   <Form.Item wrapperCol={{ offset: 8, span: 10 }}>
-                     { !isPending && <FormButton type="primary"  htmlType="submit">Add Blog</FormButton>}
-                     { isPending && <FormButton type="primary" >Adding New Blog...</FormButton>}
+                     { !isPending && <FormButton type="primary"  htmlType="submit">Add Story</FormButton>}
+                     { isPending && <FormButton type="primary" >Adding New Story...</FormButton>}
                   </Form.Item>               
                   <div>
                     <p>{author}</p>
