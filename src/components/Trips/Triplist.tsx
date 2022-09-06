@@ -4,7 +4,8 @@ import { Navigation, Pagination, Autoplay} from 'swiper';
 import { EffectFade } from 'swiper'
 import 'swiper/css/bundle'
 import 'swiper/css/effect-fade'
-import BaseButton from '../../useButton'
+import {Link} from "react-router-dom"
+import BaseButton from '../../useButton';
 
 type Trips = {
     trips: Trip[]
@@ -57,8 +58,7 @@ const TripList: React.FC<Trips> = ( { trips }) => {
                                 <p>{trip.duration}</p>
                             </div>
                         </Details> 
-                        <BaseButton children={"Book now"} type='link'/>
-                                                               
+                        <BaseButton type="link"><Link to='/apply'>Book now</Link></BaseButton>                                                           
                     </RightSide>
                  
                 </Slide>

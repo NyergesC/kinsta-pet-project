@@ -70,9 +70,7 @@ import { Modal, Button, Form, message,Select,} from 'antd';
         })
       
       }).then(() => {
-      /*   message.success(`${values.firstname} has been added.`) */
-        console.log("submitted")
-        
+        console.log("submitted")       
 
       })
     }

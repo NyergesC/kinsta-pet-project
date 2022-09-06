@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Card } from 'antd';
+import { Card, Button} from 'antd';
 
 
 export const Slide = styled.div( () => ({
@@ -181,4 +181,43 @@ export const Two = styled(One)( () => ({
     },
         
 }) )
+
+/* export const BookButton = styled(Button)( () => ({
+    marginTop: '40px',
+    padding: '15px 45px',
+    textAlign: 'center',
+    alignItems:'center',
+    justifyContent:'center',
+    textTransform: 'uppercase',
+    transition: '0.5s all ease-in-out',
+    color: 'white',
+    fontSize:'1.3em', 
+    height:'60px',  
+    background:'transparent', 
+    border:'2px solid white',       
+    display: 'block',  
+
+
+    ':hover': {
+        background:'black',
+        backgroundImage: "linear-gradient(45deg, #ca4bcc , #7f33b0) ",
+        textDecoration: "none",
+        border:'none',
+        color:'white',
+    },   
+    ':focus': {
+        background:'black',
+        textDecoration: "none",
+        border:'2px solid white', 
+        color:'white',
+    },   
+   
+    
+    '@media screen and (max-width: 768px)': {
+        fontSize: "0.9em",
+        padding: "10px 13px",
+        marginTop:"30px",
+    }
+}) )
+ */
 

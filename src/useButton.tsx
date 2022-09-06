@@ -6,6 +6,7 @@ export type ButtonProps  = {
     //onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     color?: 'primary' | 'secondary'
     type?: "link" | 'primary'
+    to?:''
 
 }
 
@@ -13,7 +14,8 @@ const BaseButton: React.FC<ButtonProps> = ({
     children,
     //onClick,
     color, 
-    type 
+    type ,
+    to
 
 
   }) => { 
@@ -24,7 +26,7 @@ const BaseButton: React.FC<ButtonProps> = ({
         //onClick={onClick}
         //color={color}
         type={type}
-
+        
 
     >
     {children}
