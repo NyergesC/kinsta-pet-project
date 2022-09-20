@@ -70,10 +70,10 @@ import image from './images/shuttle.jpg'
           gender:values.gender
         })
       
-      }).then(() => {
-        console.log("submitted")       
+        }).then(() => {
+          console.log("submitted")       
 
-      })
+        })
     }
         
     const [form] = Form.useForm();

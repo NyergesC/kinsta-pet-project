@@ -131,6 +131,7 @@ export const Image1 = styled.img(() => ({
         top:'-5%',
         left:'200px',
         transition:'0.3s all ease',
+        zIndex:"1",
 
         '@media screen and (max-width: 1650px)': {
             width:"300px",

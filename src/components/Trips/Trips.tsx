@@ -2,6 +2,7 @@ import TripList from './Triplist'
 import useFetch from '../../useFetch'
 import { One, Two, Container} from './Tripstyles'
 
+
 const Trips: React.FC<{}>= () => {
   const {data:trips, isPending, error} = useFetch("http://localhost:8000/trips")  
 

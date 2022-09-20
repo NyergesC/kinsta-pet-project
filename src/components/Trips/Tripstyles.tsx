@@ -15,8 +15,8 @@ export const Container = styled.div( () => ({
     width:"100%",
     height:"100vh",
     position:'relative',
-    zIndex:'-1',
-  }) )
+/*     zIndex:'-1',
+ */  }) )
 
 export const LeftSide = styled.div( () => ({
     maxWidth:'600px',

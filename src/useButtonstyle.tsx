@@ -20,8 +20,8 @@ export const UseButton = styled(Button)( () => ({
 
 
     ':hover': {
-        background:'black',
-        backgroundImage: "linear-gradient(45deg, #090154 , #ca4bcc) ",
+        background:'#7f33b0',
+       /*  backgroundImage: "linear-gradient(45deg, #090154 , #ca4bcc) ", */
         textDecoration: "none",
         border:'none',
         color:'white',

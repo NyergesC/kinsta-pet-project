@@ -57,10 +57,9 @@ const TripList: React.FC<Trips> = ( { trips }) => {
                                 <h4>Duration:</h4>
                                 <p>{trip.duration}</p>
                             </div>
-                        </Details>
+                        </Details>  
                         <BaseButton type="link"><Link to='/apply'>Book now</Link></BaseButton>                                                           
-                    </RightSide>
-                
+                    </RightSide>                
                 </Slide>
             </SwiperSlide>
           )
