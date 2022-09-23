@@ -1,4 +1,12 @@
-exports.Query = {
+ const trips = async(parent, args, context) => {
+    return await context.prisma.trip.findMany();
+} 
+  
+  module.exports = {
+    trips,
+  }; 
+
+/* exports.Query = {
     trips: (parent, args, { db }) => db.trips,
 
     trip: (parent, {id}, { db }) => {
@@ -32,4 +40,4 @@ exports.Query = {
         return db.reviews.find((review) => review.id === id);
     },
 
-}
+} */
