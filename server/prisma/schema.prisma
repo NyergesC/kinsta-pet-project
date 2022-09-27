@@ -18,6 +18,7 @@ model Trip {
   duration        String
   src             String
   alt             String
+  averageRating   Float
   reviews         Review[]
   tripCategory    TripCategory @relation(fields: [tripCategoryId], references: [id])
   tripCategoryId  String
@@ -31,6 +32,8 @@ model User {
   createdAt DateTime @default(now())
   reviews   Review[]
   blog      Blog?
+
+  @@unique([name])
 }
 
 model Review {
@@ -55,7 +58,7 @@ model Blog {
   id          String @id @default(uuid())
   title       String
   createdAt   DateTime @default(now())
-  updateAt    DateTime @default(now())
+  updateAt    DateTime @updatedAt
   small       String
   body        String
   author      User @relation(fields: [authorId], references: [id])
