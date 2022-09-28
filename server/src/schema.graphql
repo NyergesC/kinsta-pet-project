@@ -1,6 +1,14 @@
 type Query {
     trips: [Trip!]!
     trip(id:ID!): Trip
+    reviews: [Review!]!
+    review(id: ID!): Review
+    tripCategories: [TripCategory!]!
+    tripCategory(id:ID!): TripCategory
+    blogs: [Blog!]!
+    blog(id: ID!): Blog
+    users: [User!]!
+    user(id: ID!): User
 }
 
 type Trip {
@@ -11,4 +19,45 @@ type Trip {
     duration: String!,
     src: String!,
     alt: String!,
+    averageRating: Float!,
+    reviews:[Review!],
+    tripCategory: TripCategory
   }
+
+type Review {
+    id: ID!
+    createdAt: String!
+    comment: String!
+    text:String!
+    rating: Int!
+    author: User
+    trip: Trip
+}
+
+type TripCategory {
+    id: ID!
+    name: String!
+    trips: [Trip!]!
+}
+
+type Blog {
+    id: ID!,
+    title: String!,
+    createdAt: String!,
+    updatedAt: String!,
+    small: String!,
+    body: String!,
+    author: String!,
+    user: User
+  }
+
+type User {
+    id: ID!
+    name: String!
+    age: Int!
+    email: String!
+    createdAt: String!
+    reviews: [Review!]!
+    blog:Blog
+
+}
