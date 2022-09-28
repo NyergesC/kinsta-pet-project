@@ -1,15 +1,22 @@
 import { ApolloServer } from 'apollo-server';
 import { PrismaClient } from '@prisma/client';
 import { Query } from './resolvers/Query.js';
-import { typeDefs } from './schema.js'
-
+import * as fs from 'fs'
+import * as path from 'path'
+import { fileURLToPath } from 'url';
 
 const prisma = new PrismaClient()
 
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
 
 const server = new ApolloServer({
-    typeDefs,
-    
+    typeDefs: fs.readFileSync(
+      path.join(__dirname, 'schema.graphql'),
+      'utf8'
+    ),
     resolvers: {
         Query
     },
