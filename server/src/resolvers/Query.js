@@ -1,10 +1,16 @@
- const trips = async(parent, args, context) => {
+
+
+export const Query = {
+
+    
+}
+/*  const trips = async(parent, args, context) => {
     return await context.prisma.trip.findMany();
 } 
   
   module.exports = {
     trips,
-  }; 
+  };  */
 
 /* exports.Query = {
     trips: (parent, args, { db }) => db.trips,

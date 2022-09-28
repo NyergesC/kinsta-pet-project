@@ -1,7 +1,7 @@
-const { gql } = require('apollo-server');
+import  { gql }  from 'apollo-server';
 
 
-exports.typeDefs = gql`
+export const typeDefs = gql`
     type Query{
         trips: [Trip!]!
         trip(id:ID!): Trip
