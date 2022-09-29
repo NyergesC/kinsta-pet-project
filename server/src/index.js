@@ -4,6 +4,7 @@ import { Query } from './resolvers/Query.js';
 import { Trip } from './resolvers/Trip.js';
 import { Blog } from './resolvers/Blog.js';
 import { User } from './resolvers/User.js';
+import { Review } from './resolvers/Review.js';
 import { TripCategory } from './resolvers/TripCategory.js';
 import * as fs from 'fs'
 import * as path from 'path'
@@ -24,6 +25,7 @@ const server = new ApolloServer({
         Query,
         Trip,
         Blog,
+        Review,
         TripCategory,
         User
     },
