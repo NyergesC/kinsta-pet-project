@@ -16,4 +16,23 @@ export const Mutation = {
         return addBlog
     }, 
 
+    updateBlog: async (parent, { id, input }, { prisma }) => {
+
+        const  { title, body, small } = input;
+
+        const updateBlog = await prisma.blog.update({
+            where: {
+                id: id
+            },
+            data: { 
+                title: title,
+                body:body,
+                small:small,
+
+            }
+        });
+
+        return updateBlog
+    },
+
 }

@@ -13,6 +13,7 @@ type Query {
 
  type Mutation {
         addBlog(input: AddBlogInput!): Blog!
+        updateBlog(id:ID!, input:UpdateBlogInput!): Blog!
        
 }
 
@@ -71,4 +72,10 @@ type User {
       small: String!
       body: String!
       authorId:String!
+  }
+
+    input UpdateBlogInput {
+      title:String!
+      body: String!
+      small: String!
   }
