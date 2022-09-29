@@ -1,49 +1,76 @@
 
-
 export const Query = {
+    trips : async(parent, args, { prisma }) => {
+        return await prisma.trip.findMany();
+    },
+
+    trip: async (parent, { id }, { prisma }) => {
+
+        const trip = prisma.trip.findUnique({
+          where: {
+            id: id,
+          },
+        })    
+        return trip ? trip : null 
+    },
+
+    tripCategories : async(parent, args, { prisma }) => {
+        return await prisma.tripCategory.findMany();
+    },
+
+    tripCategory: async (parent, { id }, { prisma }) => {
+
+        const tripCategory = prisma.tripCategory.findUnique({
+          where: {
+            id: id,
+          },
+        })    
+        return tripCategory ? tripCategory : null 
+    },
+
+    reviews : async(parent, args, { prisma }) => {
+        return await prisma.review.findMany();
+    },
+
+    review: async (parent, { id }, { prisma }) => {
+
+        const review = prisma.review.findUnique({
+          where: {
+            id: id,
+          },
+        })    
+        return review ? review : null 
+    },
+
+    blogs : async(parent, args, { prisma }) => {
+        return await prisma.blog.findMany();
+    },
+
+    blog: async (parent, { id }, { prisma }) => {
+
+        const blog = prisma.blog.findUnique({
+          where: {
+            id: id,
+          },
+        })    
+        return blog ? blog : null 
+    },
+
+    users: async(parent, args, { prisma }) => {
+        return await prisma.user.findMany();
+    },
 
     
+    user: async (parent, { id }, { prisma }) => {
+
+        const user = prisma.user.findUnique({
+          where: {
+            id: id,
+          },
+        })    
+        return user ? user : null 
+    },
+
+     
+      
 }
-/*  const trips = async(parent, args, context) => {
-    return await context.prisma.trip.findMany();
-} 
-  
-  module.exports = {
-    trips,
-  };  */
-
-/* exports.Query = {
-    trips: (parent, args, { db }) => db.trips,
-
-    trip: (parent, {id}, { db }) => {
-        return db.trips.find((trip) => trip.id === id);
-    },
-
-    blogs: (parent, args, { db }) => db.blogs,
-
-    blog: (parent, {id}, { db }) => {
-        return db.blogs.find((blog) => blog.id === id);
-    },
-
-    tripCategories: (parent, args, { db }) => db.tripCategories,
-
-    tripCategory: (parent, { id }, { db }) => {
-        return db.tripCategories.find((tripCategory) => tripCategory.id === id)
-    },
-
-    users: (parent, args, { db }) =>  db.users,
-
-    user: (parent, {id}, { db }) => {
-        return db.users.find((user) => user.id === id);
-    },
-
-    reviews: (parent, {filter}, { db }) => {        
-        return filter ?
-        db.reviews.filter(review => review.rating === filter.rating) : db.reviews
-    },
-
-    review: (parent, {id}, { db }) => {
-        return db.reviews.find((review) => review.id === id);
-    },
-
-} */
