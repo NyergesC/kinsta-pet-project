@@ -2,6 +2,7 @@ import { ApolloServer } from 'apollo-server';
 import { PrismaClient } from '@prisma/client';
 import { Query } from './resolvers/Query.js';
 import { Trip } from './resolvers/Trip.js';
+import { Blog } from './resolvers/Blog.js';
 import * as fs from 'fs'
 import * as path from 'path'
 import { fileURLToPath } from 'url';
@@ -19,7 +20,8 @@ const server = new ApolloServer({
     ),
     resolvers: {
         Query,
-        Trip
+        Trip,
+        Blog
     },
     context: {
       prisma,
