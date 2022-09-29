@@ -70,7 +70,6 @@ export const Query = {
         })    
         return user ? user : null 
     },
-
-     
+    
       
 }

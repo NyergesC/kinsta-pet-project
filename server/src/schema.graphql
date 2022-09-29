@@ -20,7 +20,7 @@ type Trip {
     src: String!,
     alt: String!,
     averageRating: Float!,
-    reviews:[Review!],
+    reviews:[Review!]!,
     tripCategory: TripCategory
   }
 
