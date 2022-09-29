@@ -35,4 +35,14 @@ export const Mutation = {
         return updateBlog
     },
 
+      deleteBlog: async (parent, { id }, { prisma }) => {
+        await prisma.blog.delete({
+            where: {
+                id: id,
+            },
+        })
+        return true
+
+    }
+
 }

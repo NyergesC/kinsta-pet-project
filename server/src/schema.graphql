@@ -12,8 +12,9 @@ type Query {
 }
 
  type Mutation {
-        addBlog(input: AddBlogInput!): Blog!
-        updateBlog(id:ID!, input:UpdateBlogInput!): Blog!
+    addBlog(input: AddBlogInput!): Blog!
+    updateBlog(id:ID!, input:UpdateBlogInput!): Blog!
+    deleteBlog(id: ID!): Boolean!
        
 }
 
