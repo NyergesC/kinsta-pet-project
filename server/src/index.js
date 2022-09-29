@@ -5,6 +5,7 @@ import { Trip } from './resolvers/Trip.js';
 import { Blog } from './resolvers/Blog.js';
 import { User } from './resolvers/User.js';
 import { Review } from './resolvers/Review.js';
+import { Mutation } from './resolvers/Mutation.js';
 import { TripCategory } from './resolvers/TripCategory.js';
 import * as fs from 'fs'
 import * as path from 'path'
@@ -27,7 +28,8 @@ const server = new ApolloServer({
         Blog,
         Review,
         TripCategory,
-        User
+        User,
+        Mutation
     },
     context: {
       prisma,

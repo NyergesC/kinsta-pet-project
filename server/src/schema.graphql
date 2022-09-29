@@ -11,6 +11,11 @@ type Query {
     user(id: ID!): User
 }
 
+ type Mutation {
+        addBlog(input: AddBlogInput!): Blog!
+       
+}
+
 type Trip {
     id: ID!,
     destination: String!,
@@ -47,8 +52,7 @@ type Blog {
     updatedAt: String!,
     small: String!,
     body: String!,
-    author: String!,
-    user: User
+    author: User!,
   }
 
 type User {
@@ -61,3 +65,10 @@ type User {
     blog:Blog
 
 }
+
+  input AddBlogInput {
+      title:String!
+      small: String!
+      body: String!
+      authorId:String!
+  }

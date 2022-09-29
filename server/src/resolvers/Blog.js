@@ -1,14 +1,14 @@
 export const Blog = {
 
-    user: async ({ authorId }, args, { prisma }) => {
+    author: async ({ authorId }, args, { prisma }) => {
 
-        const user =  await prisma.user.findUnique({
+        const author =  await prisma.user.findUnique({
             where: {
                  id: authorId
             },
         })
 
-        return user
+        return author
     },
 
 
