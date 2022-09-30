@@ -35,7 +35,7 @@ export const Mutation = {
         return updateBlog
     },
 
-      deleteBlog: async (parent, { id }, { prisma }) => {
+    deleteBlog: async (parent, { id }, { prisma }) => {
         await prisma.blog.delete({
             where: {
                 id: id,
@@ -43,6 +43,34 @@ export const Mutation = {
         })
         return true
 
-    }
+    },
+
+    
+    addReview: async (parent, { input }, { prisma }) => {
+
+        const  { comment, text, rating, authorId, tripId } = input;
+
+        const addReview = await prisma.review.create({
+            data: { 
+                comment: comment,
+                text:text,
+                rating:rating,
+                authorId:authorId,
+                tripId:tripId
+            }
+        })
+
+        return addReview
+    }, 
+
+    deleteReview: async (parent, { id }, { prisma }) => {
+        await prisma.review.delete({
+            where: {
+                id: id,
+            },
+        })
+        return true
+
+    },
 
 }
