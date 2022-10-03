@@ -17,6 +17,8 @@ type Query {
     deleteBlog(id: ID!): Boolean!
     addReview(input: AddReviewInput!): Review!
     deleteReview(id: ID!): Boolean!
+    signup(email: String!, password: String!, name: String!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
        
 }
 
