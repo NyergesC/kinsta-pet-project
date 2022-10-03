@@ -6,7 +6,7 @@ export const Blog = {
             where: {
                  id: authorId
             },
-        })
+        }).author()
 
         return author
     },

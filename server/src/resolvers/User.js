@@ -16,7 +16,7 @@ export const User = {
             where: {
                  authorId: id
             },
-        })
+        }).blog()
 
         return blog
     },

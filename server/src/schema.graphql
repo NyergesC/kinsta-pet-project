@@ -17,11 +17,27 @@ type Query {
     deleteBlog(id: ID!): Boolean!
     addReview(input: AddReviewInput!): Review!
     deleteReview(id: ID!): Boolean!
-    signup(email: String!, password: String!, name: String!): AuthPayload
+    signup(email: String!, password: String!, name: String!, age: Int!): AuthPayload
     login(email: String!, password: String!): AuthPayload
        
 }
 
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+    id: ID!
+    name: String!
+    age: Int!
+    email: String!
+    password: String!
+    createdAt: String!
+    reviews: [Review!]!
+    blog:Blog
+
+}
 type Trip {
     id: ID!,
     destination: String!,
@@ -61,24 +77,14 @@ type Blog {
     author: User!,
   }
 
-type User {
-    id: ID!
-    name: String!
-    age: Int!
-    email: String!
-    createdAt: String!
-    reviews: [Review!]!
-    blog:Blog
-
-}
 
   input AddBlogInput {
       title:String!
       small: String!
       body: String!
-      authorId:String!
   }
-
+"""       authorId:String!
+ """
     input UpdateBlogInput {
       title:String!
       body: String!

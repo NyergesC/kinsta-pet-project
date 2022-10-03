@@ -6,6 +6,7 @@ import { Blog } from './resolvers/Blog.js';
 import { User } from './resolvers/User.js';
 import { Review } from './resolvers/Review.js';
 import { Mutation } from './resolvers/Mutation.js';
+import { getUserId } from './utils.js';
 import { TripCategory } from './resolvers/TripCategory.js';
 import * as fs from 'fs'
 import * as path from 'path'
@@ -16,6 +17,8 @@ const prisma = new PrismaClient()
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
+
+//const { getUserId } = require('./utils');
 
 const server = new ApolloServer({
     typeDefs: fs.readFileSync(
@@ -31,8 +34,12 @@ const server = new ApolloServer({
         User,
         Mutation
     },
-    context: {
-      prisma,
+    context: ({req}) => {
+      return {
+        ...req,
+        prisma,
+        userId: req && req.headers.authorization ? getUserId(req) : null
+      }
     }
   })
 
