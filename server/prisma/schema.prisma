@@ -64,7 +64,7 @@ model Blog {
   updateAt    DateTime @updatedAt
   small       String
   body        String
-  author      User @relation(fields: [authorId], references: [id])
-  authorId    String @unique
+  author      User? @relation(fields: [authorId], references: [id])
+  authorId    String? @unique
 }
 

@@ -1,30 +1,22 @@
 import bcrypt from 'bcryptjs'
 import  jwt  from "jsonwebtoken"
 import {  APP_SECRET, getUserId } from "../utils.js"
-/* const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken"); */
-/* import pkg from 'bcryptjs';
-import {pgk as pgkjwt} from 'jsonwebtoken';
 
-const { jwt } = pgkjwt;
-
-const { bcrypt } = pkg; */
 
 export const Mutation = {
 
-    addBlog: async (parent, { input }, { prisma }) => {
+    addBlog: async (parent, { input }, context) => {
 
         const  { title, body, small } = input;
 
-        const { userId } = prisma;
+        const { userId } = context;
 
-        const addBlog = await prisma.blog.create({
+        const addBlog = await context.prisma.blog.create({
 /*             include:{author:true}, */
             data: { 
                 title: title,
                 body:body,
                 small:small,
-                // authorId:authorId
                 author: { connect: { id: userId } },
             }
         })
