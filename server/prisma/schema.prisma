@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Trip {
+  id              String  @id @default(uuid())
+  destination     String
+  description     String
+  distance        String
+  duration        String
+  src             String
+  alt             String
+  averageRating   Float @default(0)
+  reviews         Review[]
+  tripCategory    TripCategory @relation(fields: [tripCategoryId], references: [id])
+  tripCategoryId  String
+
+}
+
+
+model TripCategory {
+  id        String @id @default(uuid())
+  name      String
+  trips     Trip[]
+}
+model User {
+  id        String @id @default(uuid())
+  name      String
+  age       Int
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  reviews   Review[]
+  blog      Blog?
+
+  @@unique([name, age])
+  @@index([email])
+}
+
+model Review {
+  id        String @id @default(uuid())
+  createdAt DateTime @default(now())
+  comment   String
+  text      String
+  rating    Int
+  author    User @relation(fields: [authorId], references: [id])
+  authorId  String
+  trip      Trip @relation(fields: [tripId], references: [id])
+  tripId    String
+}
+
+model Blog {
+  id          String @id @default(uuid())
+  title       String
+  createdAt   DateTime @default(now())
+  updateAt    DateTime @updatedAt
+  small       String
+  body        String
+  author      User? @relation(fields: [authorId], references: [id])
+  authorId    String? @unique
+}
+

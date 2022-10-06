@@ -1,0 +1,101 @@
+type Query {
+    trips: [Trip!]!
+    trip(id:ID!): Trip
+    reviews: [Review!]!
+    review(id: ID!): Review
+    tripCategories: [TripCategory!]!
+    tripCategory(id:ID!): TripCategory
+    blogs: [Blog!]!
+    blog(id: ID!): Blog
+    users: [User!]!
+    user(id: ID!): User
+}
+
+ type Mutation {
+    addBlog(input: AddBlogInput!): Blog!
+    updateBlog(id:ID!, input:UpdateBlogInput!): Blog!
+    deleteBlog(id: ID!): Boolean!
+    addReview(input: AddReviewInput!): Review!
+    deleteReview(id: ID!): Boolean!
+    signup(email: String!, password: String!, name: String!, age: Int!): AuthPayload
+    login(email: String!, password: String!): AuthPayload
+       
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type User {
+    id: ID!
+    name: String!
+    age: Int!
+    email: String!
+    password: String!
+    createdAt: String!
+    reviews: [Review!]!
+    blog:Blog
+
+}
+type Trip {
+    id: ID!,
+    destination: String!,
+    description: String!,
+    distance: String!,
+    duration: String!,
+    src: String!,
+    alt: String!,
+    averageRating: Float!,
+    reviews:[Review!]!,
+    tripCategory: TripCategory
+  }
+
+type Review {
+    id: ID!
+    createdAt: String!
+    comment: String!
+    text:String!
+    rating: Int!
+    author: User
+    trip: Trip
+}
+
+type TripCategory {
+    id: ID!
+    name: String!
+    trips: [Trip!]!
+}
+
+type Blog {
+    id: ID!,
+    title: String!,
+    createdAt: String!,
+    updatedAt: String!,
+    small: String!,
+    body: String!,
+    author: User!,
+  }
+
+
+  input AddBlogInput {
+      title:String!
+      small: String!
+      body: String!
+  }
+"""       authorId:String!
+ """
+    input UpdateBlogInput {
+      title:String!
+      body: String!
+      small: String!
+  }
+
+  input AddReviewInput {
+      comment: String!,
+      text: String!,
+      rating:Int!
+      authorId:String!
+      tripId:String!
+
+  }
