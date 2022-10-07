@@ -1,6 +1,6 @@
 import bcrypt from 'bcryptjs'
 import  jwt  from "jsonwebtoken"
-import {  APP_SECRET, getUserId } from "../utils.js"
+import {  APP_SECRET } from "../utils"
 import { PrismaClient } from "@prisma/client";
 
 

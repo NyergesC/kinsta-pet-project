@@ -10,15 +10,8 @@ import { getUserId } from './utils';
 import { TripCategory } from './resolvers/TripCategory';
 import * as fs from 'fs'
 import * as path from 'path'
- import { fileURLToPath } from 'url';
  
 const prisma = new PrismaClient()
-
-const __filename = fileURLToPath(import.meta.url);
-
- const __dirname = path.dirname(__filename);
-
-//const { getUserId } = require('./utils');
 
 const server = new ApolloServer({
     typeDefs: fs.readFileSync(
