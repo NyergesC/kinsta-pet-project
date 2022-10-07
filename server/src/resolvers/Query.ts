@@ -7,12 +7,12 @@ export const Query = {
 
     trip: async (parent: any, { id }: { id: string }, { prisma }: { prisma: PrismaClient }) => {
 
-        const trip = prisma.trip.findUnique({
+        const trip = await prisma.trip.findUnique({
           where: {
             id: id,
           },
         })    
-        return trip 
+        return trip ? trip : null
     },
 
     tripCategories : async(parent: any, args: any, { prisma }: { prisma: PrismaClient }) => {
@@ -21,12 +21,12 @@ export const Query = {
 
     tripCategory: async (parent: any, { id }: { id: string }, { prisma }: { prisma: PrismaClient }) => {
 
-        const tripCategory = prisma.tripCategory.findUnique({
+        const tripCategory = await prisma.tripCategory.findUnique({
           where: {
             id: id,
           },
         })    
-        return tripCategory 
+        return tripCategory ? tripCategory : null
     },
 
     reviews : async(parent: any, args: any, { prisma }: { prisma: PrismaClient }) => {
@@ -35,12 +35,12 @@ export const Query = {
 
     review: async (parent: any, { id }: { id: string }, { prisma }: { prisma: PrismaClient }) => {
 
-        const review = prisma.review.findUnique({
+        const review = await prisma.review.findUnique({
           where: {
             id: id,
           },
         })    
-        return review 
+        return review ? review : null
     },
 
     blogs : async(parent: any, args: any, { prisma }: { prisma: PrismaClient }) => {
@@ -49,12 +49,12 @@ export const Query = {
 
     blog: async (parent: any, { id }: { id: string }, { prisma }: { prisma: PrismaClient }) => {
 
-        const blog = prisma.blog.findUnique({
+        const blog = await prisma.blog.findUnique({
           where: {
             id: id,
           },
         })    
-        return blog 
+        return blog ? blog : null
     },
 
     users: async(parent:any, args: any,  { prisma }: { prisma: PrismaClient }) => {
@@ -64,12 +64,12 @@ export const Query = {
     
     user: async (parent: any,{ id }: { id: string }, { prisma }: { prisma: PrismaClient }) => {
 
-        const user = prisma.user.findUnique({
+        const user = await prisma.user.findUnique({
           where: {
             id: id,
           },
         })    
-        return user 
+        return user ? user : null
     },
     
       

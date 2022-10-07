@@ -21,10 +21,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "ts-node": {
+/*   "ts-node": {
     "esm": true
-},
-  "include": [
+  } */
+/*   "include": [
     "src"
-  ]
+  ] */
 } 

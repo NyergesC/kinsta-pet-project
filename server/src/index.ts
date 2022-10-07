@@ -27,16 +27,16 @@ const server = new ApolloServer({
         User,
         Mutation
     },
-    context: ({req}:{req:any}, {authToken}:{authToken:any}) => {
+    context: ({req}:{req:any}) => {
       return {
         ...req,
         prisma,
-        userId: req && req.headers.authorization ? getUserId(req, authToken) : null
+        userId: req && req.headers.authorization ? getUserId(req) : null
       }
     }
   })
 
-  server.listen().then(({ url }) => {
+  server.listen().then(({ url } : {url:string}) => {
     console.log("Server is up at " + url);
   })
 
