@@ -2,11 +2,11 @@
 import jwt from 'jsonwebtoken'
 export const APP_SECRET = 'GraphQL-is-aw3some';
 
-export const getTokenPayload = (token) => {
+export const getTokenPayload = (token:string) => {
   return jwt.verify(token, APP_SECRET);
 }
 
-export const getUserId = (req, authToken) => {
+export const getUserId = (req:any, authToken:any) => {
   if (req) {
     const authHeader = req.headers.authorization;
     if (authHeader) {
@@ -14,7 +14,7 @@ export const getUserId = (req, authToken) => {
       if (!token) {
         throw new Error('No token found');
       }
-      const { userId } = getTokenPayload(token);
+      const { userId} = getTokenPayload(token);
       return userId;
     }
   } else if (authToken) {

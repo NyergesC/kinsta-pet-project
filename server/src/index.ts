@@ -1,22 +1,22 @@
 import { ApolloServer } from 'apollo-server';
 import { PrismaClient } from '@prisma/client';
-import { Query } from './resolvers/Query.js';
-import { Trip } from './resolvers/Trip.js';
-import { Blog } from './resolvers/Blog.js';
-import { User } from './resolvers/User.js';
-import { Review } from './resolvers/Review.js';
-import { Mutation } from './resolvers/Mutation.js';
-import { getUserId } from './utils.js';
-import { TripCategory } from './resolvers/TripCategory.js';
+import { Query } from './resolvers/Query';
+import { Trip } from './resolvers/Trip';
+import { Blog } from './resolvers/Blog';
+import { User } from './resolvers/User';
+import { Review } from './resolvers/Review';
+import { Mutation } from './resolvers/Mutation';
+import { getUserId } from './utils';
+import { TripCategory } from './resolvers/TripCategory';
 import * as fs from 'fs'
 import * as path from 'path'
-import { fileURLToPath } from 'url';
-
+ import { fileURLToPath } from 'url';
+ 
 const prisma = new PrismaClient()
 
 const __filename = fileURLToPath(import.meta.url);
 
-const __dirname = path.dirname(__filename);
+ const __dirname = path.dirname(__filename);
 
 //const { getUserId } = require('./utils');
 
@@ -34,11 +34,11 @@ const server = new ApolloServer({
         User,
         Mutation
     },
-    context: ({req}) => {
+    context: ({req}:{req:any}, {authToken}:{authToken:any}) => {
       return {
         ...req,
         prisma,
-        userId: req && req.headers.authorization ? getUserId(req) : null
+        userId: req && req.headers.authorization ? getUserId(req, authToken) : null
       }
     }
   })

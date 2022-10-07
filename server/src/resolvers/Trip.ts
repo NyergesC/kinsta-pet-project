@@ -1,6 +1,8 @@
+import { PrismaClient } from "@prisma/client";
+
 export const Trip = {
 
-    reviews: async ({id}, args, {prisma}) => {
+    reviews: async ({id}:{id:string}, args:any, { prisma }: { prisma: PrismaClient }) => {
         
         const reviews = await prisma.review.findMany({
             where:{
@@ -12,7 +14,7 @@ export const Trip = {
     },
 
     
-    tripCategory: async ({ tripCategoryId }, args, { prisma }) => {
+    tripCategory: async ({ tripCategoryId } : {tripCategoryId: string}, args: any, { prisma }: { prisma: PrismaClient }) => {
 
         const tripCategory =  await prisma.tripCategory.findUnique({
             where: {
