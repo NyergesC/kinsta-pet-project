@@ -3,15 +3,17 @@ export type Blogs = {
 }
 
 export type Blog = {
+    id:string,
     title: string,
-    date: string,
-    small: string,
+    name:string,
+    createdAt: string,
+    updatedAt: string,
+    small:string,
     author:string, 
     body:string, 
-    read:string,
-    value:number,
-    id:number 
 }
+
+
 
 export enum SortBlogs {
   ASC = 'Author A-Z',

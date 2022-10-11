@@ -64,6 +64,7 @@ model Blog {
   updateAt    DateTime @updatedAt
   small       String
   body        String
+  name        String @default("Add your name")
   author      User? @relation(fields: [authorId], references: [id])
   authorId    String? @unique
 }

@@ -6,17 +6,12 @@ import { Blogs, Blog, SortBlogs } from './Types'
 
 const BlogList: React.FC<Blogs> = ( { blogs }) => {
 
-/*   const [sort, setSort] = useState<Blog[] | []>([]);
- */  const [sortButton, setSortButton] = useState<SortBlogs>(SortBlogs.ASC)
+
+  const [sortButton, setSortButton] = useState<SortBlogs>(SortBlogs.ASC)
 
 
-/* 
   const sortButtonChangeHandle = () => {
-    setSort([...blogs.sort( (a: Blog,b: Blog) => sortButton === SortBlogs.ASC ? a.author.localeCompare(b.author) : b.author.localeCompare(a.author))]);
-    setSortButton(sortButton === SortBlogs.ASC ? SortBlogs.DESC : SortBlogs.ASC);
-  }; */
-  const sortButtonChangeHandle = () => {
-    blogs.sort((a: Blog,b: Blog) => sortButton === SortBlogs.ASC ? a.author.localeCompare(b.author) : b.author.localeCompare(a.author));
+    blogs.sort((a: Blog,b: Blog) => sortButton === SortBlogs.ASC ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
     setSortButton(sortButton === SortBlogs.ASC ? SortBlogs.DESC : SortBlogs.ASC);
   };
 
@@ -28,19 +23,17 @@ const BlogList: React.FC<Blogs> = ( { blogs }) => {
            <AddButton to='/add_blog'><Plus />Add story</AddButton>
         </ButtonWrap>     
 
-      {blogs.map((blog:Blog) => {
-        
-        return(
+      {blogs.map((blog:Blog) => (
             <Blogwrapper key={blog.id} >
               <Link to={`/blogs/${blog.id}`}>
-                  <TextH2>{ blog.author }</TextH2>
-                  <Date>{ blog.date }</Date>
+                  <TextH2>{ blog.name }</TextH2>
+                  <Date>{ blog.createdAt }</Date>
                   <TextP> { blog.small }</TextP>
-                  <TextRead>{blog.read}</TextRead>
+                  <TextRead>Read more</TextRead>
               </Link>
             </Blogwrapper>
           )
-      }
+      
       )}
     </Wrapper>
   );

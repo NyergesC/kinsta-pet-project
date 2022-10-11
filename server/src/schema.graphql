@@ -75,6 +75,7 @@ type Blog {
     createdAt: String!,
     updatedAt: String!,
     small: String!,
+    name:String!,
     body: String!,
     author: User!,
   }
