@@ -1,45 +1,50 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import useFetch from '../../../useFetch'
+import { useBlogDetails } from '../../../hooks/useBlogDetails'
 
-type Blog = {
+
+export type Blog = {
+  id:string,
   title: string,
-  date: string,
-  small: string,
+  name:string,
+  createdAt: string,
+  updatedAt: string,
+  small:string,
   author:string, 
   body:string, 
-  read:string,
-  id:number 
 }
 
 const BlogDetails: React.FC<{}> = () => {
 
   const { id } = useParams()
-  const {data: blog, error, isPending} = useFetch("http://localhost:8000/blogs/" + id)
+
+  const {data, error, loading} = useBlogDetails(id)
+
   const navigate = useNavigate()
 
 
-  const handleDelete = () => {
+/*   const handleDelete = () => {
     fetch("http://localhost:8000/blogs/" + blog.id, {
       method: 'DELETE'
     }).then (() => {
       navigate("../", { replace: true });   
     })
-  }
+  } */
+
 
   return (
     <div>
-      { isPending && <div>Loading...</div>}
-      { error && <div>{ error }</div>}
-      { blog && (
+      { loading && <div>Loading...</div>}
+      { error && <div>{ error.message }</div>}
+      { data && (
         <article>
-           <h2>{blog.title}</h2>
-           <p>Written by {blog.author}</p>
+           <h2>{data.blog.title}</h2>
+           <p>Written by {data.blog.name}</p>
            <div>
-             <p>{blog.body}</p>
+             <p>{data.blog.body}</p>
            </div>
-           <button onClick={handleDelete}>delete</button>
-        </article>
+{/*            <button onClick={handleDelete}>delete</button>
+ */}        </article>
       )}
       
     </div>
