@@ -1,3 +1,4 @@
+
 import { useQuery, gql } from "@apollo/client"
 
 export const GET_BLOGS = gql`
@@ -13,7 +14,6 @@ export const GET_BLOGS = gql`
             }
   } 
 }
-
 `;
 
 export const useBlogs = () => {

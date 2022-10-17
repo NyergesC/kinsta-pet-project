@@ -6,18 +6,18 @@ import { PrismaClient } from "@prisma/client";
 
 export const Mutation = {
 
-    addBlog: async (parent: any, {input} : { input:{ title:string, body:string, small:string} }, context:any) => {
+    addBlog: async (parent: any, {input} : { input:{ title:string, body:string, small:string, name:string} }, context:any) => {
 
-        const  { title, body, small } = input;
+        const  { title, body, small, name } = input;
 
         const { userId } = context;
 
         const addBlog = await context.prisma.blog.create({
-/*             include:{author:true}, */
             data: { 
                 title: title,
                 body:body,
                 small:small,
+                name:name,
                 author: { connect: { id: userId } },
             }
         })
