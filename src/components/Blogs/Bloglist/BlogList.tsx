@@ -6,7 +6,7 @@ import { Blogs, Blog, SortBlogs } from './Types'
 
 const BlogList: React.FC<Blogs> = ( { blogs }) => {
 
-
+ 
   const [sortButton, setSortButton] = useState<SortBlogs>(SortBlogs.ASC)
 
 
@@ -36,7 +36,7 @@ const BlogList: React.FC<Blogs> = ( { blogs }) => {
       
       )}
     </Wrapper>
-  );
+  )
 }
  
 export default BlogList;

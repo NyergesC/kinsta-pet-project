@@ -5,8 +5,7 @@ import {  Form, Input, Upload } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import image from './images/astronaut2.jpg'
 import {useMutation} from '@apollo/client'
-/* import  {AddBlog} from '../../../hooks/Mutation'
- */import { ADD_BLOG } from '../../../hooks/Mutation';
+import { ADD_BLOG } from '../../../hooks/Mutation';
 
 const CreateBlog = () => {
 

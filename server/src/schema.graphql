@@ -85,10 +85,10 @@ type Blog {
       title:String!
       small: String!
       body: String!
+      name:String!
   }
-"""       authorId:String!
- """
-    input UpdateBlogInput {
+
+  input UpdateBlogInput {
       title:String!
       body: String!
       small: String!

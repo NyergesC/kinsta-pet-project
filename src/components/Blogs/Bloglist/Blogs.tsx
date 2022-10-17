@@ -10,6 +10,8 @@ import  {useBlogs} from '../../../hooks/useBlogs'
 
   const {error, loading, data} = useBlogs()
 
+  console.log()
+
  
   return (
     <Container>        
