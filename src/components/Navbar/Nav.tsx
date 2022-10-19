@@ -5,7 +5,7 @@ import {NavBar, NavbarContainer, NavItems, NavLogo, MobileIcon, NavMenu, NavItem
 import * as data from './links.json'
 import { useGlobalContext } from "../../UserContext";
 import {LinkR, Links} from './Types'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AUTH_TOKEN } from '../../constants';
 
 const linksString = JSON.stringify(data)
@@ -43,20 +43,15 @@ const Nav: React.FC<{}> = () => {
                         <FaBars />
                     </MobileIcon>
                     <LinkItem links={links} /> 
-                    <NavBtn>
+{/*                     <NavBtn>
                         <NavBtnLink to='/signin'>Login</NavBtnLink>
-                    </NavBtn>
-                    {authToken && <Link to="/add_blog"  > submit </Link>}
+                    </NavBtn> */}
+                    <NavBtn>{authToken && <NavBtnLink to="/signin"> Login </NavBtnLink>}
 
-      <div>{authToken ? <div  onClick={() => { localStorage.removeItem(AUTH_TOKEN);  navigate(`/`); }} >logout </div>  : (
-          <Link
-            to="/signin"
-            className="ml1 no-underline black"
-          >
-            login
-          </Link>
-        )}
-      </div>
+                    <NavBtn>{authToken ? <div  onClick={() => { localStorage.removeItem(AUTH_TOKEN);  navigate(`/`); }} >logout </div>  : (
+                    <NavBtnLink to="/signin" > login  </NavBtnLink> )}
+                   </NavBtn>
+                  </NavBtn>
 
                 </NavItems>
             </NavbarContainer>

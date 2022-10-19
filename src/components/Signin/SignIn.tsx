@@ -10,7 +10,6 @@ import { SIGNUP_MUTATION } from '../../hooks/Mutation';
 
 
 
-
 const Login: React.FC = () => {
   //const { userContext, setUserContext } = LoginContextProvider();
   const [user, setUser] = useState({
@@ -94,18 +93,18 @@ const Login: React.FC = () => {
            {!user.login && (
             <>
             <Form.Item
-              name="email"
-              rules={[{ required: true, message: "Please input your Email!" }]}
+              name="name"
+              rules={[{ required: true, message: "Please input your Username!" }]}
           >
             <Input
-              value={user.email}
+              value={user.name}
               onChange={(e) =>
                 setUser({
                   ...user,
-                  email: e.target.value,
+                  name: e.target.value,
                 })
               }
-              placeholder="Email"
+              placeholder="Username"
               style={{width:"300px"}}
             />
           </Form.Item>
@@ -129,20 +128,20 @@ const Login: React.FC = () => {
         )}
 
         <Form.Item
-          name="name"
+          name="email"
           rules={[
-            { required: true, message: "Please input your username!" },
+            { required: true, message: "Please input your Email!" },
           ]}
         >
           <Input
-            value={user.name}
+            value={user.email}
             onChange={(e) =>
               setUser({
                 ...user,
-                name: e.target.value,
+                email: e.target.value,
               })
             }
-            placeholder="Username" 
+            placeholder="Email" 
             style={{width:"300px"}}
           />
         </Form.Item>
