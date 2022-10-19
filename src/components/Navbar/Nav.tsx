@@ -43,8 +43,8 @@ const Nav: React.FC<{}> = () => {
                     </MobileIcon>
                     <LinkItem links={links} /> 
 
-                    <NavBtn>{authToken ? <NavBtnLink to="/" onClick={() => { localStorage.removeItem(AUTH_TOKEN);  navigate(`/`); }}  >Logout </NavBtnLink>  : (
-                    <NavBtnLink to="/signin" color='white' > Login  </NavBtnLink> )}
+                    <NavBtn>{authToken ? <NavBtnLink to="/" onClick={() => { localStorage.removeItem(AUTH_TOKEN);  navigate(`/`); }}  >Logout</NavBtnLink>  : (
+                    <NavBtnLink to="/signin" >Login</NavBtnLink> )}
                    </NavBtn>
 
                 </NavItems>
