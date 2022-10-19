@@ -5,7 +5,7 @@ import {NavBar, NavbarContainer, NavItems, NavLogo, MobileIcon, NavMenu, NavItem
 import * as data from './links.json'
 import { useGlobalContext } from "../../UserContext";
 import {LinkR, Links} from './Types'
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate } from 'react-router-dom';
 import { AUTH_TOKEN } from '../../constants';
 
 const linksString = JSON.stringify(data)
@@ -26,8 +26,7 @@ const LinkItem: React.FC<Links> = ( { links }) => {
 };
 
 const Nav: React.FC<{}> = () => {
-
-
+ 
     const {user, setUser} = useGlobalContext()
     const guestUser = 'Guest'
     const navigate = useNavigate();
@@ -43,16 +42,14 @@ const Nav: React.FC<{}> = () => {
                         <FaBars />
                     </MobileIcon>
                     <LinkItem links={links} /> 
-{/*                     <NavBtn>
-                        <NavBtnLink to='/signin'>Login</NavBtnLink>
-                    </NavBtn> */}
-                    <NavBtn>{authToken && <NavBtnLink to="/signin"> Login </NavBtnLink>}
 
-                    <NavBtn>{authToken ? <div  onClick={() => { localStorage.removeItem(AUTH_TOKEN);  navigate(`/`); }} >logout </div>  : (
-                    <NavBtnLink to="/signin" > login  </NavBtnLink> )}
+{/*                     <NavBtn>{authToken && <NavBtnLink to="/signin"> Login </NavBtnLink>}
+ */}
+                    <NavBtn color='white'>{authToken ? <NavBtnLink to="/" onClick={() => { localStorage.removeItem(AUTH_TOKEN);  navigate(`/`); }} color='white' >Logout </NavBtnLink>  : (
+                    <NavBtnLink to="/signin" color='white' > Login  </NavBtnLink> )}
                    </NavBtn>
-                  </NavBtn>
-
+{/*                   </NavBtn>
+ */}
                 </NavItems>
             </NavbarContainer>
             <UserDiv>
@@ -62,7 +59,7 @@ const Nav: React.FC<{}> = () => {
         </NavBar>
     </IconContext.Provider>
   )
-}
+} 
 
 export default Nav 
 /* 
