@@ -1,17 +1,23 @@
 import {  Form, Input , Button,} from 'antd';
  import  { Container,FormContent, FormWrap, Icon, FormH1, FormH4,  Img, LoginButton,  } from './SignInElements'
- import React, {useState} from 'react';
+ import React, {useState, useContext} from 'react';
 import { useNavigate } from "react-router-dom";
 import image from './images/background.jpg'
 import { useMutation} from '@apollo/client';
+/* import { LoginContext, LoginContextProvider} from '../../UserContext'
+ */
+import { LoginContext, LoginContextProvider } from 'src/UserContext';
 import { AUTH_TOKEN } from '../../constants';
 import { LOGIN_MUTATION } from '../../hooks/Mutation';
 import { SIGNUP_MUTATION } from '../../hooks/Mutation';  
 
 
-
 const Login: React.FC = () => {
-  //const { userContext, setUserContext } = LoginContextProvider();
+
+ 
+
+  const loginContext = useContext(LoginContext)
+
   const [user, setUser] = useState({
     login: true,
     email: "",
@@ -29,7 +35,8 @@ const Login: React.FC = () => {
     },
     onCompleted: ({ login }) => {
       localStorage.setItem(AUTH_TOKEN, login.token);
-      //setUserContext(login.user.name)
+      
+      loginContext.setUserContext({name:login.user.name})
       navigate("/");
     },
   });

@@ -7,15 +7,14 @@ import Create from './pages/Create';
 import Details from './pages/Details';
 import Notfound from './pages/Notfound';
 import Apply from './pages/Apply';
-import { MyGlobalContext } from './UserContext';
-import { useState } from 'react';
+import { LoginContextProvider } from './UserContext';
 
 
 function App() {
-  const [user, setUser] = useState<string>('Guest')
-    return (
+  
+   return (
   <BrowserRouter>
-    <MyGlobalContext.Provider value={{user, setUser}}>
+    <LoginContextProvider>
         <Routes>
           <Route path='/' element={<Home />}  />
           <Route path='/signin' element={<SignIn  />} />
@@ -24,7 +23,7 @@ function App() {
           <Route path='/blogs/:id' element={<Details  />} />
           <Route path='*' element={<Notfound  />} />
         </Routes>
-    </MyGlobalContext.Provider>
+    </LoginContextProvider>
   </BrowserRouter>
 );
 

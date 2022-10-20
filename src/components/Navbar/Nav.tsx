@@ -3,10 +3,11 @@ import {FaBars} from 'react-icons/fa'
 import  {IconContext} from 'react-icons'
 import {NavBar, NavbarContainer, NavItems, NavLogo, MobileIcon, NavMenu, NavItem, NavLinks, NavBtn, NavBtnLink, UserDiv, OutButton, LogoutOutlinedS} from './NavElements'
 import * as data from './links.json'
-import { useGlobalContext } from "../../UserContext";
 import {LinkR, Links} from './Types'
 import { useNavigate } from 'react-router-dom';
 import { AUTH_TOKEN } from '../../constants';
+import { useContext } from 'react';
+import { LoginContext } from 'src/UserContext'
 
 const linksString = JSON.stringify(data)
 const links = JSON.parse(linksString).links
@@ -26,11 +27,17 @@ const LinkItem: React.FC<Links> = ( { links }) => {
 };
 
 const Nav: React.FC<{}> = () => {
+
+    const loginContext = useContext(LoginContext)
  
-    const {user, setUser} = useGlobalContext()
     const guestUser = 'Guest'
     const navigate = useNavigate();
     const authToken = localStorage.getItem(AUTH_TOKEN);
+
+    const logOut = () => {
+        loginContext.setUserContext({name:'Guest'})
+        localStorage.removeItem(AUTH_TOKEN)
+    }
 
   return (
     <IconContext.Provider value={{color:'#fff'}}>
@@ -50,8 +57,8 @@ const Nav: React.FC<{}> = () => {
                 </NavItems>
             </NavbarContainer>
             <UserDiv>
-                <h3>Hello {user}!</h3>
-                {user === guestUser! || <OutButton onClick={() => setUser('Guest')}><LogoutOutlinedS/></OutButton>}
+                <h3>Hello  {loginContext.userContext.name}!</h3>
+                {loginContext.userContext.name === guestUser! || <OutButton onClick={() => logOut()}><LogoutOutlinedS/></OutButton>}
             </UserDiv> 
         </NavBar>
     </IconContext.Provider>
