@@ -37,6 +37,7 @@ const Nav: React.FC<{}> = () => {
     const logOut = () => {
         loginContext.setUserContext({name:'Guest'})
         localStorage.removeItem(AUTH_TOKEN)
+        navigate(`/`)
     }
 
   return (
@@ -50,7 +51,7 @@ const Nav: React.FC<{}> = () => {
                     </MobileIcon>
                     <LinkItem links={links} /> 
 
-                    <NavBtn>{authToken ? <NavBtnLink to="/" onClick={() => { localStorage.removeItem(AUTH_TOKEN);  navigate(`/`); }}  >Logout</NavBtnLink>  : (
+                    <NavBtn>{authToken ? <NavBtnLink to="/" onClick={() => { logOut() }}  >Logout</NavBtnLink>  : (
                     <NavBtnLink to="/signin" >Login</NavBtnLink> )}
                    </NavBtn>
 

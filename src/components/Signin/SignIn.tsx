@@ -4,17 +4,13 @@ import {  Form, Input , Button,} from 'antd';
 import { useNavigate } from "react-router-dom";
 import image from './images/background.jpg'
 import { useMutation} from '@apollo/client';
-/* import { LoginContext, LoginContextProvider} from '../../UserContext'
- */
-import { LoginContext, LoginContextProvider } from 'src/UserContext';
+import { LoginContext} from 'src/UserContext';
 import { AUTH_TOKEN } from '../../constants';
 import { LOGIN_MUTATION } from '../../hooks/Mutation';
 import { SIGNUP_MUTATION } from '../../hooks/Mutation';  
 
 
-const Login: React.FC = () => {
-
- 
+const Login: React.FC = () => { 
 
   const loginContext = useContext(LoginContext)
 
