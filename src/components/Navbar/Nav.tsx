@@ -58,7 +58,7 @@ const Nav: React.FC<{}> = () => {
                 </NavItems>
             </NavbarContainer>
             <UserDiv>
-                <h3>Hello  {loginContext.userContext.name}!</h3>
+                <h3>Hello {loginContext.userContext.name}!</h3>
                 {loginContext.userContext.name === guestUser! || <OutButton onClick={() => logOut()}><LogoutOutlinedS/></OutButton>}
             </UserDiv> 
         </NavBar>

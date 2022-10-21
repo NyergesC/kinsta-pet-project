@@ -9,12 +9,12 @@
             "href": "/about"
         },
         {
-            "label":"Contact",
-            "href": "/contact"
+            "label":"Trips",
+            "href": "/trips"
         },
         {
             "label":"Blog",
-            "href": "/create"
+            "href": "/blog"
         }
 
     ]

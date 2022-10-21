@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import { useNavigate } from "react-router-dom";
 import {Container, FormWrap, Icon, FormContent, FormWrapper, FormH1, FormButton,ImgDiv, Img} from './Createstyle'
 import {  Form, Input, Upload } from 'antd';
@@ -6,6 +6,8 @@ import { PlusOutlined } from '@ant-design/icons';
 import image from './images/astronaut2.jpg'
 import {useMutation} from '@apollo/client'
 import { ADD_BLOG } from '../../../hooks/Mutation';
+import { GET_BLOGS } from 'src/hooks/useBlogs';
+import type { FormInstance } from 'antd/es/form';
 
 const CreateBlog = () => {
 
@@ -15,10 +17,21 @@ const CreateBlog = () => {
   const [small, setSmall] = useState("")
   const navigate = useNavigate()
   const { TextArea } = Input;
+
+/*   const formRef = useRef() */
+  const formRef = React.createRef<FormInstance>();
 /*   const [loading, setLoading] = useState(false)
  */
+const onReset = () => {
+  formRef.current!.resetFields();
+};
 
-  const [addBlog, { loading, error}] = useMutation(ADD_BLOG)  
+  const [addBlog, { loading, error}] = useMutation(ADD_BLOG, {
+    onCompleted:() => onReset(),
+    refetchQueries:[{
+      query:GET_BLOGS
+    }]
+  })  
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -45,6 +58,7 @@ const CreateBlog = () => {
     console.log('Failed:', errorInfo);
   };
 
+
   return (
     <Container>
       <Icon to="/">Logo</Icon>
@@ -61,7 +75,7 @@ const CreateBlog = () => {
                   initialValues={{ remember: true }}
                   autoComplete="off"
                   onFinishFailed={onFinishFailed}
-            
+                  ref={formRef}
               >
                   <FormH1>Share your story</FormH1>
                   <Form.Item
