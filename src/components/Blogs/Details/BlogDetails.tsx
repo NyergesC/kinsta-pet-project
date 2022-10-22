@@ -62,19 +62,6 @@ const BlogDetails: React.FC<{}> = () => {
       }
     }) 
 
-/*        update(cache, {data: {deleteBlog}}) {
-        const { blogs } = cache.readQuery<Blog[] | any>({
-          query: GET_BLOGS
-        });
-        const newBlogs = blogs!.blogs.filter((blog:Blog) => blog.id !== deleteBlog.id)
-        cache.writeQuery({
-          query:GET_BLOGS,
-          data: { blogs: newBlogs         
-          }
-        })
-      }   */ 
-  
-
       navigate("../", { replace: true });   
 
    }

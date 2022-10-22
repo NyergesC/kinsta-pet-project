@@ -35,7 +35,7 @@ const Nav: React.FC<{}> = () => {
     const authToken = localStorage.getItem(AUTH_TOKEN);
 
     const logOut = () => {
-        loginContext.setUserContext({name:'Guest'})
+        loginContext.setUserContext({name:'Guest', email:"", id:""})
         localStorage.removeItem(AUTH_TOKEN)
         navigate(`/`)
     }
