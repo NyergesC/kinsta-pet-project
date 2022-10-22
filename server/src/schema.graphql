@@ -16,7 +16,8 @@ type Query {
  type Mutation {
     addBlog(input: AddBlogInput!): Blog!
     updateBlog(id:ID!, input:UpdateBlogInput!): Blog!
-    deleteBlog(id: ID!): Boolean!
+    deleteBlog(id: ID!): Blog!
+    """ deleteBlog(id: ID!): Boolean! """
     addReview(input: AddReviewInput!): Review!
     deleteReview(id: ID!): Boolean!
     signup(email: String!, password: String!, name: String!, age: Int!): AuthPayload

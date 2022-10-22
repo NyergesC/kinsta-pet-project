@@ -19,6 +19,15 @@ export const ADD_BLOG = gql`
     }
 
 `;
+
+export const DELETE_BLOG = gql`
+  mutation DeleteBlog($id: ID!) {
+    deleteBlog(id:$id) {
+      id
+    }
+  }  
+`;
+
 export const SIGNUP_MUTATION = gql`
 mutation SignupMutation($email: String!, $password: String!, $name: String!, $age:Int!) {
   signup(email: $email, password: $password, name: $name, age:$age) {

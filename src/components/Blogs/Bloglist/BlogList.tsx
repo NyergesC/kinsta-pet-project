@@ -11,6 +11,7 @@ const BlogList: React.FC<Blogs> = ( { blogs }) => {
 
 
   const sortButtonChangeHandle = () => {
+    
     blogs.sort((a: Blog,b: Blog) => sortButton === SortBlogs.ASC ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
     setSortButton(sortButton === SortBlogs.ASC ? SortBlogs.DESC : SortBlogs.ASC);
   };

@@ -17,8 +17,7 @@ export const GET_BLOGS = gql`
 
 export const useBlogs = () => {
 
-    const {error, loading, data} = useQuery(GET_BLOGS)
-
+    const {data, loading, error} = useQuery(GET_BLOGS);
 
     return {
         error,

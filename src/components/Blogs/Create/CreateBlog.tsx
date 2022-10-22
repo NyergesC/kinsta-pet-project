@@ -9,6 +9,8 @@ import { ADD_BLOG } from '../../../hooks/Mutation';
 import { GET_BLOGS } from 'src/hooks/useBlogs';
 import type { FormInstance } from 'antd/es/form';
 import {Blog} from '../../Blogs/Bloglist/Types'
+import Loading from 'src/components/Loading/Loading';
+
 
 const CreateBlog = () => {
 
@@ -19,59 +21,82 @@ const CreateBlog = () => {
   const navigate = useNavigate()
   const { TextArea } = Input;
   const formRef = React.createRef<FormInstance>();
+  const [isPending, setIsPending] = useState(false)
 
-  const onReset = () => {
+/*   const onReset = () => {
     formRef.current!.resetFields();
   };
+ */
+  
+  const [addBlog, {loading, error}] = useMutation(ADD_BLOG);
 
-  const [addBlog, { loading, error}] = useMutation(ADD_BLOG, {
-    onCompleted:() => onReset(),
+  if (loading) return <Loading />;
+  
+    /* const [addBlog, { loading, error}] = useMutation(ADD_BLOG, {
+      onCompleted:() => onReset(),
     update(cache, {data}) {
       const { blogs }  = cache.readQuery<Blog[] | any>({
         query:GET_BLOGS
       });
+      const blogArr = [...blogs]
       cache.writeQuery({
         query:GET_BLOGS,
         data:{          
           blogs:[
-            ...blogs,
+            ...blogArr,
             data.addBlog
           ]
         },
 
       })
-      }
+    }
     })
-
-/*   const [addBlog, { loading, error}] = useMutation(ADD_BLOG, {
-    onCompleted:() => onReset(),
-    refetchQueries:[{
+ */
+/*  REFETCH QUERIES:
+    const [addBlog, { loading, error}] = useMutation(ADD_BLOG, {
+      onCompleted:() => onReset(),
+      refetchQueries:[{
       query:GET_BLOGS
     }]
   })   */
 
-  
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    setIsPending(true);
     addBlog({
       variables:{
         title:title,
         small: small,
         body: body,
         name: name
-    },
-  
-    })
+      },
+      update: (cache, {data}) => {
+        const { blogs }  = cache.readQuery<Blog[] | any>({
+          query:GET_BLOGS
+        });
+        cache.writeQuery({
+          query:GET_BLOGS,
+          data:{          
+            blogs:[
+              ...blogs,
+              data.addBlog
+            ]
+          },  
+         })
+        }  
+     });
+      setIsPending(false);
+      if (loading) return <Loading />               
 
+            
     if(error) {
       console.log(error)
     }
+    
+      navigate("../", { replace: true });   
 
-    navigate("../", { replace: true });   
-
-
-  }
+   }
+ 
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
@@ -142,10 +167,18 @@ const CreateBlog = () => {
 
                           
                   <Form.Item wrapperCol={{ offset: 8, span: 10 }}>
-                     { !loading && <FormButton type="primary"  htmlType="submit">Add Story</FormButton>}
-                     { loading && <FormButton type="primary" >Adding New Story...</FormButton>}
+                 {isPending ? (
+                    <FormButton disabled htmlType="submit" >Adding your new story...</FormButton>
+                   ) : (
+                <FormButton type="primary"  htmlType="submit">Submit</FormButton>
+               )}
+                </Form.Item>
+                <div>
+                  {/* <Form.Item wrapperCol={{ offset: 8, span: 10 }}>
+                    { isPending ? <FormButton type="primary"  htmlType="submit"  >Add Story</FormButton> :
+                   <FormButton type="primary" >Adding New Story...</FormButton>}
                   </Form.Item>               
-                  <div>
+                  <div> */}
                     <p>{title}</p>
                     <p>{name}</p>
                     <p>{small}</p>

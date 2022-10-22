@@ -5,6 +5,7 @@ export const useFetch = (url:string) => {
     const [data, setData] = useState<any>(null) 
     const [isPending, SetIsPending] = useState(true)
     const [error, setError] = useState(null)
+  
 
     useEffect(() => {
 

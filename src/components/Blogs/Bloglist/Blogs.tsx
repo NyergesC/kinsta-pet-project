@@ -6,11 +6,9 @@ import image3 from './images/shuttle.jpg'
 import  {useBlogs} from '../../../hooks/useBlogs'
 
 
- const Blogs = () => {
+ const Blogs: React.FC<{}> = () => {
 
-  const {error, loading, data} = useBlogs()
-
-  console.log()
+  const {data, loading, error} = useBlogs()
 
  
   return (

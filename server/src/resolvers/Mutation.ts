@@ -45,12 +45,12 @@ export const Mutation = {
     },
 
     deleteBlog: async (parent: any, { id }:{id:string}, { prisma }: { prisma: PrismaClient }) => {
-        await prisma.blog.delete({
+        const deleteBlog = await prisma.blog.delete({
             where: {
                 id: id,
             },
         })
-        return true
+        return deleteBlog
 
     },
 
