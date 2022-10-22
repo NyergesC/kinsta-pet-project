@@ -11,6 +11,7 @@ export type Blog = {
     small:string,
     author:string, 
     body:string, 
+   
 }
 
 
