@@ -9,8 +9,8 @@ import { ADD_BLOG } from '../../../hooks/Mutation';
 import { GET_BLOGS } from 'src/hooks/useBlogs';
 import type { FormInstance } from 'antd/es/form';
 import {Blog} from '../../Blogs/Bloglist/Types'
-import Loading from 'src/components/Loading/Loading';
-
+/* import Loading from 'src/components/Loading/Loading';
+ */
 
 const CreateBlog = () => {
 
@@ -18,51 +18,22 @@ const CreateBlog = () => {
   const [body, setBody] = useState("")
   const [title, setTitle] = useState("")
   const [small, setSmall] = useState("")
-  const navigate = useNavigate()
+  const [isPending, setIsPending] = useState(false)
   const { TextArea } = Input;
   const formRef = React.createRef<FormInstance>();
-  const [isPending, setIsPending] = useState(false)
+  const navigate = useNavigate()
 
 /*   const onReset = () => {
     formRef.current!.resetFields();
   };
  */
   
-  const [addBlog, {loading, error}] = useMutation(ADD_BLOG);
-
-  if (loading) return <Loading />;
-  
-    /* const [addBlog, { loading, error}] = useMutation(ADD_BLOG, {
-      onCompleted:() => onReset(),
-    update(cache, {data}) {
-      const { blogs }  = cache.readQuery<Blog[] | any>({
-        query:GET_BLOGS
-      });
-      const blogArr = [...blogs]
-      cache.writeQuery({
-        query:GET_BLOGS,
-        data:{          
-          blogs:[
-            ...blogArr,
-            data.addBlog
-          ]
-        },
-
-      })
-    }
-    })
- */
-/*  REFETCH QUERIES:
-    const [addBlog, { loading, error}] = useMutation(ADD_BLOG, {
-      onCompleted:() => onReset(),
-      refetchQueries:[{
-      query:GET_BLOGS
-    }]
-  })   */
-
+  const [addBlog, { error}] = useMutation(ADD_BLOG); 
+    
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    setIsPending(true);
+    setIsPending(!isPending);
+    console.log(isPending)
     addBlog({
       variables:{
         title:title,
@@ -85,9 +56,9 @@ const CreateBlog = () => {
          })
         }  
      });
-      setIsPending(false);
-      if (loading) return <Loading />               
-
+      
+     setIsPending(false);
+     console.log(isPending)
             
     if(error) {
       console.log(error)

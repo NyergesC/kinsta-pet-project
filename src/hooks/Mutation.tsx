@@ -28,6 +28,18 @@ export const DELETE_BLOG = gql`
   }  
 `;
 
+
+export const UPDATE_BLOG = gql`
+  mutation UpdateBlog($updateBlogId: ID!, $input: UpdateBlogInput!) {
+    updateBlog(id: $updateBlogId, input: $input) {
+     title,
+     body,
+     small,
+     id  
+    }
+  }
+`;
+
 export const SIGNUP_MUTATION = gql`
 mutation SignupMutation($email: String!, $password: String!, $name: String!, $age:Int!) {
   signup(email: $email, password: $password, name: $name, age:$age) {
@@ -49,22 +61,4 @@ export const LOGIN_MUTATION = gql`
   }
 `;
 
-/* export const AddBlog = (title: String, small: String, body: String, name:String) => {
 
-    const [addBlog, {data, loading, error}] = useMutation(ADD_BLOG, {
-        variables:{
-            title,
-            small,
-            body,
-            name
-        }
-    })
-
-  return [
-      addBlog,
-      {error,
-      loading,
-      data
-  }
-]
-} */

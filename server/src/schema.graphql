@@ -74,7 +74,7 @@ type Blog {
     id: ID!,
     title: String!,
     createdAt: String!,
-    updatedAt: String!,
+    updatedAt: String,
     small: String!,
     name:String!,
     body: String!,
@@ -90,9 +90,9 @@ type Blog {
   }
 
   input UpdateBlogInput {
-      title:String!
-      body: String!
-      small: String!
+      title:String
+      body: String
+      small: String
   }
 
   input AddReviewInput {

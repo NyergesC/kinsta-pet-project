@@ -5,7 +5,9 @@ export const GET_BLOGDETAILS = gql`
         blog (id:$id)  {
             title
             createdAt
+            updatedAt
             body
+            small
             author {
             name
             }
