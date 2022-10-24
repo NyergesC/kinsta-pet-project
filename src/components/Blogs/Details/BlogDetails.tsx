@@ -7,6 +7,9 @@ import { GET_BLOGS} from 'src/hooks/useBlogs'
 import { UPDATE_BLOG } from 'src/hooks/Mutation'
 import type {Blog} from '../Bloglist/Types'
 import { Button, Modal, Form, Input, } from 'antd';
+import {Container, Img, Wrapper, Icon, Content, TitleH2, AuthorP, BodyP} from './BlogDetailstyle'
+import image from './images/background.jpg'
+
 
 const BlogDetails: React.FC<{}> = () => {
 
@@ -100,73 +103,78 @@ const BlogDetails: React.FC<{}> = () => {
    //RENDERING:
 
   return (
-    <div>
-      { loading && <div>Loading...</div>}
-      { error && <div>{ error.message }</div>}
-      { data && (
-        <article>
-           <h2>{data.blog.title}</h2>
-           <p>Written by {data.blog.author.name}</p>
-           <h4>Note! Starter will be: "{data.blog.small}"</h4>
-           <div>
-             <p>{data.blog.body}</p>
-           </div>
-              <Button type="primary" onClick={updateBlogDetails}>
-                Edit
-              </Button>
-              <Modal 
-              title="Edit your story"
-              onOk={handleUpdate} 
-              onCancel={handleCancel}
-              centered
-              visible={isModalOpen}
+    <Container>
+      <Img src={image} />
+      <Icon to="/">Logo</Icon>
+      <Wrapper>
+        <Content>
+        { loading && <div>Loading...</div>}
+        { error && <div>{ error.message }</div>}
+          { data && (
+              <article>
+                <TitleH2>{data.blog.title}</TitleH2>
+                <AuthorP>Written by {data.blog.author.name}</AuthorP>
+                <h4>Note! Starter will be: "{data.blog.small}"</h4>
+                <div>
+                  <BodyP>{data.blog.body}</BodyP>
+                </div>
+                    <Button type="primary" onClick={updateBlogDetails}>
+                      Edit
+                    </Button>
+                    <Modal 
+                    title="Edit your story"
+                    onOk={handleUpdate} 
+                    onCancel={handleCancel}
+                    centered
+                    visible={isModalOpen}
+                    >
+              <Form
+                labelCol={{ span: 4 }}
+                wrapperCol={{ span: 14 }}
+                layout="horizontal"
               >
-        <Form
-          labelCol={{ span: 4 }}
-          wrapperCol={{ span: 14 }}
-          layout="horizontal"
-        >
-          <Form.Item
-            label="Title"
-            rules={[{ required: true, message: "Please add a new title!" }]}
-          >
-            <Input
-              value={blogDetails.title}
-              onChange={(e) =>
-                setBlogDetails({ ...blogDetails, title: e.target.value })
-              }
-            />
-          </Form.Item>
+                <Form.Item
+                  label="Title"
+                  rules={[{ required: true, message: "Please add a new title!" }]}
+                >
+                  <Input
+                    value={blogDetails.title}
+                    onChange={(e) =>
+                      setBlogDetails({ ...blogDetails, title: e.target.value })
+                    }
+                  />
+                </Form.Item>
 
-          <Form.Item label="Starter">
-            <Input
-              value={blogDetails.small}
-              onChange={(e) =>
-                setBlogDetails({ ...blogDetails, small: e.target.value })
-              }
-            />
-          </Form.Item>
+                <Form.Item label="Starter">
+                  <Input
+                    value={blogDetails.small}
+                    onChange={(e) =>
+                      setBlogDetails({ ...blogDetails, small: e.target.value })
+                    }
+                  />
+                </Form.Item>
 
-          <Form.Item label="body">
-            <Input
-              value={blogDetails.body}
-              onChange={(e) =>
-                setBlogDetails({ ...blogDetails, body: e.target.value })
-              }
-            />
-          </Form.Item>
+                <Form.Item label="body">
+                  <Input
+                    value={blogDetails.body}
+                    onChange={(e) =>
+                      setBlogDetails({ ...blogDetails, body: e.target.value })
+                    }
+                  />
+                </Form.Item>
 
 
-        </Form>
-      </Modal>
+              </Form>
+            </Modal>
 
-                <button onClick={handleDelete} >Delete</button>          
-         </article>
-          
+                      <button onClick={handleDelete} >Delete</button>          
+              </article>
 
-      )}
+              )}
+          </Content>
+        </Wrapper>
       
-    </div>
+    </Container>
   )
 }
 
