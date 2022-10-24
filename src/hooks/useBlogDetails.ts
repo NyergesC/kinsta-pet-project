@@ -18,7 +18,7 @@ export const GET_BLOGDETAILS = gql`
 
 export const useBlogDetails = (id:any) => {
 
-    const {error, loading, data} = useQuery(GET_BLOGDETAILS, {
+    const {error, loading, data, refetch} = useQuery(GET_BLOGDETAILS, {
         variables:{
             id
         }
@@ -29,5 +29,7 @@ export const useBlogDetails = (id:any) => {
         error,
         loading,
         data,
+        refetch
+        
     }
 }

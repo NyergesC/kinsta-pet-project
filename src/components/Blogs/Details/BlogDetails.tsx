@@ -16,7 +16,7 @@ const BlogDetails: React.FC<{}> = () => {
   
   //MUTATIONS:
   
-  const {data, error, loading} = useBlogDetails(id)
+  const {data, error, loading, refetch} = useBlogDetails(id)
   const [deleteBlog] = useMutation(DELETE_BLOG)
   const [updateBlog] = useMutation(UPDATE_BLOG)
 
@@ -56,16 +56,18 @@ const BlogDetails: React.FC<{}> = () => {
 
   //UPDATE EVENT:
 
-  const handleUpdate = (e:React.MouseEvent) => {
+  const handleUpdate =  (e:React.MouseEvent) => {
     e.preventDefault()
-
+    console.log(id)
+    
     updateBlog({
       variables:{
         updateBlogId:id,
         input: blogDetails
       },
-      refetchQueries:[{query:GET_BLOGDETAILS}, ]
     });
+    refetch()
+
     setIsModalOpen(false)
   }
 
@@ -113,7 +115,7 @@ const BlogDetails: React.FC<{}> = () => {
                 Edit
               </Button>
               <Modal 
-              title="Update Blog"
+              title="Edit your story"
               onOk={handleUpdate} 
               onCancel={handleCancel}
               centered
