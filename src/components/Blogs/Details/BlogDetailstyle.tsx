@@ -17,11 +17,12 @@ export const Img = styled.img(() => ({
 }) )   
 
 export const Icon = styled(Link)(() => ({ 
-    marginLeft:" 32px",
+    position:'absolute',
+    left:'32px',
+    top:'10px',
     textDecoration:"none",
     color:"#fff",
     fontWeight:"700",
-    marginTop:"8px",
     fontSize:"1.5rem",
     letterSpacing: "2px",
     textTransform: "uppercase",
@@ -105,7 +106,7 @@ export const QuoteDiv = styled.div(() => ({
     
 }) ) 
 export const SmallH4 = styled.h4(() => ({  
-    maxWidth:'400px',
+    maxWidth:'380px',
     width:'auto',
     height:'auto',
     fontSize: "1.5rem",

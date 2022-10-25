@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { AUTH_TOKEN } from '../../constants';
 import { useContext } from 'react';
 import { LoginContext } from 'src/UserContext'
+import {useDate} from '../../utils'
 
 const linksString = JSON.stringify(data)
 const links = JSON.parse(linksString).links
@@ -30,6 +31,7 @@ const Nav: React.FC<{}> = () => {
 
     const loginContext = useContext(LoginContext)
  
+    const { wish } = useDate()
     const guestUser = 'Guest'
     const navigate = useNavigate();
     const authToken = localStorage.getItem(AUTH_TOKEN);
@@ -39,6 +41,8 @@ const Nav: React.FC<{}> = () => {
         localStorage.removeItem(AUTH_TOKEN)
         navigate(`/`)
     }
+
+
 
   return (
     <IconContext.Provider value={{color:'#fff'}}>
@@ -58,7 +62,8 @@ const Nav: React.FC<{}> = () => {
                 </NavItems>
             </NavbarContainer>
             <UserDiv>
-                <h3>Hello {loginContext.userContext.name}!</h3>
+                <h3>{wish}</h3>
+                <h3>{loginContext.userContext.name}!</h3>
                 {loginContext.userContext.name === guestUser! || <OutButton onClick={() => logOut()}><LogoutOutlinedS/></OutButton>}
             </UserDiv> 
         </NavBar>

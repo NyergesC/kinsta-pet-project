@@ -162,7 +162,7 @@ export const NavBtnLink = styled(LinkR)(() => ({
 
 
 export const UserDiv = styled("div")(() => ({
-    maxWidth:'200px',
+    maxWidth:'250px',
     width:"100%",
     height:"50px",
     display: "flex",

@@ -9,6 +9,9 @@ export const GET_BLOGS = gql`
             name
             createdAt
             small
+            author{
+                name
+            }
   } 
 }
 

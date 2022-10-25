@@ -9,8 +9,10 @@ export type Blog = {
     createdAt: string,
     updatedAt: string,
     small:string,
-    author:string, 
     body:string, 
+    author:{
+      name:String
+    }
   
 }
 
