@@ -44,7 +44,7 @@ export const Content = styled.div(() => ({
 }) ) 
 
 export const Div1 = styled.div(() => ({  
-    minHeight:"30vh",
+    minHeight:"40vh",
     width:"100%",
     display:"flex",
     flexDirection:'column',
@@ -151,7 +151,8 @@ export const ButtonDiv = styled.div(() => ({
     width:'100%',
     display:"flex",
     justifyContent:"space-between",
-    margin:'20px 0 '
+    marginTop:'20px',
+    marginBottom:'40px'
     
 }) ) 
 export const ButtonEdit = styled(Button)(() => ({  

@@ -32,7 +32,7 @@ const Login: React.FC = () => {
     onCompleted: ({ login }) => {
       localStorage.setItem(AUTH_TOKEN, login.token);
       
-      loginContext.setUserContext({  name: login.user.name, email: login.user.email, id: login.user.id,}); 
+      loginContext.setUserContext({ name: login.user.name, email: login.user.email, id: login.user.id,}); 
       navigate("/");
     },
   });

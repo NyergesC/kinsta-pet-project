@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import {Container, FormWrap, Icon, FormContent, FormWrapper, FormH1, FormButton,ImgDiv, Img} from './Createstyle'
-import {  Form, Input, Upload } from 'antd';
+import {  Form, Input } from 'antd';
 import image from './images/astronaut2.jpg'
 import {useMutation} from '@apollo/client'
 import { ADD_BLOG } from '../../../hooks/Mutation';
@@ -22,10 +22,6 @@ const CreateBlog = () => {
   const formRef = React.createRef<FormInstance>();
   const navigate = useNavigate()
 
-/*   const onReset = () => {
-    formRef.current!.resetFields();
-  };
- */
   
   const [addBlog, { error}] = useMutation(ADD_BLOG); 
     

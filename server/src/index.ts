@@ -28,10 +28,12 @@ const server = new ApolloServer({
         Mutation
     },
     context: ({req}:{req:any}) => {
+      const userId = req && req.headers.authorization ? getUserId(req) : null
       return {
         ...req,
         prisma,
-        userId: req && req.headers.authorization ? getUserId(req) : null
+        userId,
+        isAuth: () => {if (!userId) throw Error('Not authorized')}
       }
     }
   })

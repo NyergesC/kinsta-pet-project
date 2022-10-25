@@ -31,9 +31,9 @@ const Nav: React.FC<{}> = () => {
 
     const loginContext = useContext(LoginContext)
  
-    const { wish } = useDate()
     const guestUser = 'Guest'
     const navigate = useNavigate();
+    const { wish } = useDate()
     const authToken = localStorage.getItem(AUTH_TOKEN);
 
     const logOut = () => {
@@ -61,8 +61,8 @@ const Nav: React.FC<{}> = () => {
 
                 </NavItems>
             </NavbarContainer>
-            <UserDiv>
-                <h3>{wish}</h3>
+            <UserDiv>          
+                {loginContext.userContext.name === guestUser ? <h3>Hello</h3> : <h3>{wish}</h3>}   
                 <h3>{loginContext.userContext.name}!</h3>
                 {loginContext.userContext.name === guestUser! || <OutButton onClick={() => logOut()}><LogoutOutlinedS/></OutButton>}
             </UserDiv> 
