@@ -8,6 +8,7 @@ export const GET_BLOGS = gql`
             title
             name
             createdAt
+            updatedAt
             small
             author{
                 name

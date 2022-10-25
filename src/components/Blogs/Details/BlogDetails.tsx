@@ -7,9 +7,9 @@ import { GET_BLOGS} from 'src/hooks/useBlogs'
 import { UPDATE_BLOG } from 'src/hooks/Mutation'
 import type {Blog} from '../Bloglist/Types'
 import { Modal, Form, Input, } from 'antd';
-import {Container, Img, Wrapper, Icon, Content, TitleH2, AuthorP, BodyP, ButtonDiv, ButtonEdit, ButtonDelete, AuthorSpan, SmallH4, QuoteDiv} from './BlogDetailstyle'
-import image from './images/background.jpg'
+import {Container, Icon, Content, TitleH2, AuthorP, BodyP, ButtonDiv, ButtonEdit, ButtonDelete, SmallH4, QuoteDiv, Div1, Div2, Div3} from './BlogDetailstyle'
 import {FaQuoteLeft, FaQuoteRight} from 'react-icons/fa'
+import { timeDifferenceForDate } from 'src/utils'
 
 
 const BlogDetails: React.FC<{}> = () => {
@@ -105,22 +105,29 @@ const BlogDetails: React.FC<{}> = () => {
 
   return (
     <Container>
-      <Img src={image} />
       <Icon to="/">Logo</Icon>
-      <Wrapper>
-        <Content>
         { loading && <div>Loading...</div>}
         { error && <div>{ error.message }</div>}
         { data && (
-            <article>
-              <TitleH2>{data.blog.title}</TitleH2>
-              <AuthorP>Written by <AuthorSpan>{data.blog.author.name}</AuthorSpan></AuthorP>
-              <QuoteDiv>
-                  <SmallH4><FaQuoteLeft /> {data.blog.small} <FaQuoteRight /></SmallH4>
-              </QuoteDiv>
-              <BodyP>{data.blog.body}</BodyP>
-              <ButtonDiv>
-                  <ButtonEdit type="primary" onClick={updateBlogDetails}>Edit</ButtonEdit>
+           <Content>
+                <Div1>
+                  <TitleH2>{data.blog.title}</TitleH2>
+                  <AuthorP>
+                        by {data.blog.author.name} |
+                        created at {timeDifferenceForDate(data.blog.createdAt)} |
+                        updated at {timeDifferenceForDate(data.blog.updatedAt)}
+      
+                  </AuthorP>      
+
+                  <QuoteDiv>
+                      <SmallH4><FaQuoteLeft style={{fontSize:"1.4em"}} /> {data.blog.small} <FaQuoteRight style={{fontSize:"1.4em"}} /></SmallH4>
+                  </QuoteDiv> 
+                </Div1>
+                <Div2></Div2>
+                <Div3>
+                  <BodyP>{data.blog.body}</BodyP>
+                  <ButtonDiv>
+                    <ButtonEdit type="primary" onClick={updateBlogDetails}>Edit</ButtonEdit>
             <Modal 
               title="Edit your story"
               onOk={handleUpdate} 
@@ -165,15 +172,16 @@ const BlogDetails: React.FC<{}> = () => {
               </Form>
                 </Modal>
                     <ButtonDelete onClick={handleDelete} >Delete</ButtonDelete> 
-                </ButtonDiv>         
-              </article>
+                </ButtonDiv> 
+              </Div3>        
+            
 
-              )}
           </Content>
-        </Wrapper>
-      
+              )}
+     
     </Container>
   )
 }
 
 export default BlogDetails
+
