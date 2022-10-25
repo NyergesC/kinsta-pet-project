@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { GET_BLOGDETAILS, useBlogDetails } from '../../../hooks/useBlogDetails'
+import { useBlogDetails } from '../../../hooks/useBlogDetails'
 import { DELETE_BLOG } from 'src/hooks/Mutation'
 import { useMutation } from '@apollo/client'
 import { GET_BLOGS} from 'src/hooks/useBlogs'
 import { UPDATE_BLOG } from 'src/hooks/Mutation'
 import type {Blog} from '../Bloglist/Types'
-import { Button, Modal, Form, Input, } from 'antd';
-import {Container, Img, Wrapper, Icon, Content, TitleH2, AuthorP, BodyP} from './BlogDetailstyle'
+import { Modal, Form, Input, } from 'antd';
+import {Container, Img, Wrapper, Icon, Content, TitleH2, AuthorP, BodyP, ButtonDiv, ButtonEdit, ButtonDelete, AuthorSpan, SmallH4, QuoteDiv} from './BlogDetailstyle'
 import image from './images/background.jpg'
+import {FaQuoteLeft, FaQuoteRight} from 'react-icons/fa'
 
 
 const BlogDetails: React.FC<{}> = () => {
@@ -110,28 +111,27 @@ const BlogDetails: React.FC<{}> = () => {
         <Content>
         { loading && <div>Loading...</div>}
         { error && <div>{ error.message }</div>}
-          { data && (
-              <article>
-                <TitleH2>{data.blog.title}</TitleH2>
-                <AuthorP>Written by {data.blog.author.name}</AuthorP>
-                <h4>Note! Starter will be: "{data.blog.small}"</h4>
-                <div>
-                  <BodyP>{data.blog.body}</BodyP>
-                </div>
-                    <Button type="primary" onClick={updateBlogDetails}>
-                      Edit
-                    </Button>
-                    <Modal 
-                    title="Edit your story"
-                    onOk={handleUpdate} 
-                    onCancel={handleCancel}
-                    centered
-                    visible={isModalOpen}
-                    >
-              <Form
-                labelCol={{ span: 4 }}
-                wrapperCol={{ span: 14 }}
-                layout="horizontal"
+        { data && (
+            <article>
+              <TitleH2>{data.blog.title}</TitleH2>
+              <AuthorP>Written by <AuthorSpan>{data.blog.author.name}</AuthorSpan></AuthorP>
+              <QuoteDiv>
+                  <SmallH4><FaQuoteLeft /> {data.blog.small} <FaQuoteRight /></SmallH4>
+              </QuoteDiv>
+              <BodyP>{data.blog.body}</BodyP>
+              <ButtonDiv>
+                  <ButtonEdit type="primary" onClick={updateBlogDetails}>Edit</ButtonEdit>
+            <Modal 
+              title="Edit your story"
+              onOk={handleUpdate} 
+              onCancel={handleCancel}
+              centered
+              visible={isModalOpen} 
+              >
+            <Form
+              labelCol={{ span: 4 }}
+              wrapperCol={{ span: 14 }}
+              layout="horizontal"
               >
                 <Form.Item
                   label="Title"
@@ -145,7 +145,7 @@ const BlogDetails: React.FC<{}> = () => {
                   />
                 </Form.Item>
 
-                <Form.Item label="Starter">
+                <Form.Item label="Quote">
                   <Input
                     value={blogDetails.small}
                     onChange={(e) =>
@@ -154,7 +154,7 @@ const BlogDetails: React.FC<{}> = () => {
                   />
                 </Form.Item>
 
-                <Form.Item label="body">
+                <Form.Item label="Content">
                   <Input
                     value={blogDetails.body}
                     onChange={(e) =>
@@ -162,12 +162,10 @@ const BlogDetails: React.FC<{}> = () => {
                     }
                   />
                 </Form.Item>
-
-
               </Form>
-            </Modal>
-
-                      <button onClick={handleDelete} >Delete</button>          
+                </Modal>
+                    <ButtonDelete onClick={handleDelete} >Delete</ButtonDelete> 
+                </ButtonDiv>         
               </article>
 
               )}

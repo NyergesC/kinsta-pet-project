@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import {Link} from 'react-router-dom';
-
+import { Button } from "antd";
 
 export const Container = styled.div(() => ({  
     height:"100vh",
@@ -55,7 +55,7 @@ export const Content = styled.div(() => ({
     flexDirection:"column",
     justifyContent:"center",
     alignItems:"center",
-    maxWidth:"1000px",
+    maxWidth:"700px",
     width:"auto",
     height:"auto",
     background: "rgba(255,255,255, 0.3)",
@@ -71,16 +71,85 @@ export const Content = styled.div(() => ({
 }) ) 
 
 export const TitleH2 = styled.h2(() => ({  
-    fontSize: "4rem",
-    marginBottom:"0"
+    fontSize: "4.5rem",
+    marginBottom:"10px",
+    lineHeight:"1em",
+    
 }) ) 
 export const AuthorP = styled.p(() => ({  
     fontSize: "1rem",
+    textTransform:"uppercase",
+    color:"grey"
+    
+}) ) 
+export const AuthorSpan = styled.span(() => ({  
+    fontSize: "1rem",
+    textTransform:"uppercase",
+    color:"grey",
     
 }) ) 
 export const BodyP = styled.p(() => ({  
     fontSize: "1rem",
     maxWidth:"700px",
     width:"auto",
+    
+}) ) 
+export const QuoteDiv = styled.div(() => ({  
+    maxWidth:'400px',
+    width:'auto',
+    height:'auto',
+    margin: '15px auto',
+    display:"flex",
+    justifyContent:"center",
+
+    
+}) ) 
+export const SmallH4 = styled.h4(() => ({  
+    maxWidth:'400px',
+    width:'auto',
+    height:'auto',
+    fontSize: "1.5rem",
+    fontWeight:'400',
+    margin:"0 auto",
+    color:"black",
+    textAlign:'center'
+
+    
+}) ) 
+export const ButtonDiv = styled.div(() => ({  
+    maxWidth:"650px",
+    width:"auto",
+    display:"flex",
+    justifyContent:"space-between"
+    
+}) ) 
+export const ButtonEdit = styled(Button)(() => ({  
+    width:"200px",
+    background:"#090154",
+    border:"none" ,  
+    color: "white", 
+    
+    ':hover': {
+        background:"#090154",
+        textDecoration: "none",
+        border:'none',
+        color:'white',
+        },   
+    
+    
+}) ) 
+export const ButtonDelete = styled(Button)(() => ({  
+    width:"200px",
+    border:"2px solid #090154 " ,  
+    color: "#090154", 
+    background:"none",
+    
+    ':hover': {
+        textDecoration: "none",
+        background:'none',
+        border:"2px solid #090154 " ,
+        color: "#090154"
+        },   
+    
     
 }) ) 
