@@ -6,7 +6,7 @@ import { useMutation } from '@apollo/client'
 import { GET_BLOGS} from 'src/hooks/useBlogs'
 import { UPDATE_BLOG } from 'src/hooks/Mutation'
 import type {Blog} from '../Bloglist/Types'
-import { Modal, Form, Input, } from 'antd';
+import { Modal, Form, Input} from 'antd';
 import {Container, Icon, Content, TitleH2, AuthorP, BodyP, ButtonDiv, ButtonEdit, ButtonDelete, SmallH4, QuoteDiv, Div1, Div2, Div3} from './BlogDetailstyle'
 import {FaQuoteLeft, FaQuoteRight} from 'react-icons/fa'
 import { timeDifferenceForDate } from 'src/utils'
@@ -17,6 +17,7 @@ const BlogDetails: React.FC<{}> = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);  
   const { id } = useParams()
   const navigate = useNavigate()
+  const { TextArea } = Input;
   
   //MUTATIONS:
   
@@ -162,13 +163,22 @@ const BlogDetails: React.FC<{}> = () => {
                 </Form.Item>
 
                 <Form.Item label="Content">
+                    <TextArea rows={6} 
+                    value={blogDetails.body}
+                    onChange={(e) =>
+                      setBlogDetails({ ...blogDetails, body: e.target.value })
+                    }
+                    />
+
+                 </Form.Item>
+                {/* <Form.Item label="Content">
                   <Input
                     value={blogDetails.body}
                     onChange={(e) =>
                       setBlogDetails({ ...blogDetails, body: e.target.value })
                     }
                   />
-                </Form.Item>
+                </Form.Item> */}
               </Form>
                 </Modal>
                     <ButtonDelete onClick={handleDelete} >Delete</ButtonDelete> 
