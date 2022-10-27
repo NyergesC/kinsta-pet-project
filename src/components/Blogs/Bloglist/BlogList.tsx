@@ -3,9 +3,12 @@ import { Wrapper,Blogwrapper, Date, TextH2, TextP,TextRead, ButtonWrap, SortButt
 import React, {useState} from 'react'
 import { Blogs, Blog, SortBlogs } from './Types'
 import { timeDifferenceForDate } from '../../../utils';
+import { AUTH_TOKEN } from 'src/constants';
 
 
 const BlogList: React.FC<Blogs> = ( { blogs }) => {
+
+  const authToken = localStorage.getItem(AUTH_TOKEN);
 
   const [sortButton, setSortButton] = useState<SortBlogs>(SortBlogs.ASC)
 
@@ -22,7 +25,9 @@ const BlogList: React.FC<Blogs> = ( { blogs }) => {
     <Wrapper>
         <ButtonWrap>
            <SortButton onClick={sortButtonChangeHandle}>{sortButton}</SortButton>
-           <AddButton to='/add_blog'><Plus />Add story</AddButton>
+           { authToken && (
+              <AddButton to='/add_blog'><Plus />Add story</AddButton>
+           )}
         </ButtonWrap>     
 
       {blogs.map((blog:Blog) => (
