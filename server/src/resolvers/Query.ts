@@ -52,6 +52,7 @@ export const Query = {
         const blog = await prisma.blog.findUnique({
           where: {
             id: id,
+              
           },
         })    
         return blog ? blog : null
@@ -61,10 +62,11 @@ export const Query = {
         return await prisma.user.findMany();
     },
 
-    
     user: async (parent: any,{ id }: { id: string }, { prisma }: { prisma: PrismaClient }) => {
 
+
         const user = await prisma.user.findUnique({
+         
           where: {
             id: id,
           },
@@ -72,5 +74,6 @@ export const Query = {
         return user ? user : null
     },
     
+
       
 }

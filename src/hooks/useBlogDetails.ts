@@ -9,6 +9,7 @@ export const GET_BLOGDETAILS = gql`
             body
             small
             author {
+            id
             name
             }
         } 

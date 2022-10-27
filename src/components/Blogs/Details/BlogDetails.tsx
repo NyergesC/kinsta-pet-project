@@ -10,6 +10,9 @@ import { Modal, Form, Input} from 'antd';
 import {Container, Icon, Content, TitleH2, AuthorP, BodyP, ButtonDiv, ButtonEdit, ButtonDelete, SmallH4, QuoteDiv, Div1, Div2, Div3} from './BlogDetailstyle'
 import {FaQuoteLeft, FaQuoteRight} from 'react-icons/fa'
 import { timeDifferenceForDate } from 'src/utils'
+import { AUTH_TOKEN } from 'src/constants'
+import { useContext } from 'react';
+import { LoginContext } from 'src/UserContext'
 
 
 const BlogDetails: React.FC<{}> = () => {
@@ -18,6 +21,14 @@ const BlogDetails: React.FC<{}> = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const { TextArea } = Input;
+
+ 
+  const loginContext = useContext(LoginContext)
+  const authToken = localStorage.getItem(AUTH_TOKEN);
+
+  const userId = loginContext.userContext.id
+  console.log(userId) 
+
   
   //MUTATIONS:
   
@@ -127,7 +138,8 @@ const BlogDetails: React.FC<{}> = () => {
                 <Div2></Div2>
                 <Div3>
                   <BodyP>{data.blog.body}</BodyP>
-                  <ButtonDiv>
+            { data.blog.author.id === userId && (
+                 <ButtonDiv>
                     <ButtonEdit type="primary" onClick={updateBlogDetails}>Edit</ButtonEdit>
             <Modal 
               title="Edit your story"
@@ -171,19 +183,12 @@ const BlogDetails: React.FC<{}> = () => {
                     />
 
                  </Form.Item>
-                {/* <Form.Item label="Content">
-                  <Input
-                    value={blogDetails.body}
-                    onChange={(e) =>
-                      setBlogDetails({ ...blogDetails, body: e.target.value })
-                    }
-                  />
-                </Form.Item> */}
-              </Form>
+              </Form>              
                 </Modal>
                     <ButtonDelete onClick={handleDelete} >Delete</ButtonDelete> 
                 </ButtonDiv> 
-              </Div3>        
+            )}   
+              </Div3>     
             
 
           </Content>
