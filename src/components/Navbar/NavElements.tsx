@@ -109,7 +109,7 @@ export const NavItem = styled.li(() => ({
     height: "60px",   
 }));
 
-export const NavLinks = styled(LinkS)(() => ({
+export const NavLinks = styled(LinkR)(() => ({
     color: "#fff",
     display: "flex",
     padding: "38px 1rem",

@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import { Blogs, Blog, SortBlogs } from './Types'
 import { timeDifferenceForDate } from '../../../utils';
 import { AUTH_TOKEN } from 'src/constants';
+import { useMemo } from 'react';
 
 
 const BlogList: React.FC<Blogs> = ( { blogs }) => {
@@ -12,14 +13,26 @@ const BlogList: React.FC<Blogs> = ( { blogs }) => {
 
   const [sortButton, setSortButton] = useState<SortBlogs>(SortBlogs.ASC)
 
+/* 
+   const sortedBlogs = useMemo(() => {
+    const sortedBlogs = [...blogs].sort((a: Blog,b: Blog) => sortButton === SortBlogs.ASC ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
+    setSortButton(sortButton === SortBlogs.ASC ? SortBlogs.DESC : SortBlogs.ASC);
+    return sortedBlogs
+ }, [blogs, sortButton])  */
+
+
 
   const sortButtonChangeHandle = () => {
     
-    blogs.sort((a: Blog,b: Blog) => sortButton === SortBlogs.ASC ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
+     blogs.sort((a: Blog,b: Blog) => sortButton === SortBlogs.ASC ? a.name.localeCompare(b.name) : b.name.localeCompare(a.name));
     setSortButton(sortButton === SortBlogs.ASC ? SortBlogs.DESC : SortBlogs.ASC);
 
   };
 
+/*   useEffect (() => {
+    console.warn(blogs)
+  })
+ */
   
   return (
     <Wrapper>
@@ -37,9 +50,8 @@ const BlogList: React.FC<Blogs> = ( { blogs }) => {
                  
                  <Date>
                     by {blog.author ? blog.author.name: 'Unknown'} |
-                    created at {timeDifferenceForDate(blog.createdAt)}
-   
-                  </Date>      
+                    created at {timeDifferenceForDate(blog.createdAt)}   
+                  </Date>   
 
                 
                   <TextP> { blog.small }</TextP>

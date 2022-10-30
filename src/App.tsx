@@ -8,6 +8,7 @@ import Details from './pages/Details';
 import Notfound from './pages/Notfound';
 import Apply from './pages/Apply';
 import { LoginContextProvider } from './UserContext';
+import TripPage from './pages/TripPage'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/apply' element={<Apply  />} />
           <Route path='/add_blog' element={<Create  />} />
           <Route path='/blogs/:id' element={<Details  />} />
+          <Route path='/trips' element={<TripPage />} />
           <Route path='*' element={<Notfound  />} />
         </Routes>
     </LoginContextProvider>

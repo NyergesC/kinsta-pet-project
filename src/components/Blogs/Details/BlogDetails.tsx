@@ -138,7 +138,7 @@ const BlogDetails: React.FC<{}> = () => {
                 <Div2></Div2>
                 <Div3>
                   <BodyP>{data.blog.body}</BodyP>
-            { data.blog.author.id === userId && (
+                  { data.blog.author.id === userId && (
                  <ButtonDiv>
                     <ButtonEdit type="primary" onClick={updateBlogDetails}>Edit</ButtonEdit>
             <Modal 
@@ -188,8 +188,7 @@ const BlogDetails: React.FC<{}> = () => {
                     <ButtonDelete onClick={handleDelete} >Delete</ButtonDelete> 
                 </ButtonDiv> 
             )}   
-              </Div3>     
-            
+              </Div3>               
 
           </Content>
               )}
