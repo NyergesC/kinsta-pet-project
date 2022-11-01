@@ -6,20 +6,7 @@ import 'swiper/css/bundle'
 import 'swiper/css/effect-fade'
 import {Link} from "react-router-dom"
 import BaseButton from '../../useButton';
-
-type Trips = {
-    trips: Trip[]
-}
-
-type Trip = {
-    destination: string,
-    description: string,
-    distance: string,
-    duration:string, 
-    src:string,
-    alt:string,
-    id:number 
-}
+import {Trips, Trip} from '../Types'
 
 const TripList: React.FC<Trips> = ( { trips }) => {
 
