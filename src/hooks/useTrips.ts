@@ -16,6 +16,7 @@ export const GET_TRIPS = gql`
             name
             }
             reviews {
+            tripId
             comment
             id
             text

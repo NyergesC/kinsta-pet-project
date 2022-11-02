@@ -1,12 +1,13 @@
 import { useQuery, gql } from "@apollo/client"
 
 export const GET_REVIEWS = gql`
-    query Reviews {
-            reviews {
+    query reviews {
+        reviews {
             comment
             id
             text
             rating
+            tripId
             author {
                 name
             }

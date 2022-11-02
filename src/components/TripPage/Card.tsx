@@ -1,12 +1,16 @@
 import React , {useState} from 'react'
 import {CardS, LeftSide, Img,RightSide, Details} from './TripPagestyle'
-import {Trip} from '../Types'
+import {Trip, Review} from '../Types'
 import { Modal } from 'antd';
-import Trips from '../Trips/Trips';
 
 
+type Props = {
+    trip:Trip,
+    reviews:Review[]
+    review:Review
+}
 
-export const Card = ({trip}:{trip: Trip} )=> {
+export const Card = ({trip, reviews, review}:Props )=> {
     
     const [isModalOpen, setIsModalOpen] = useState(false);  
     
@@ -17,9 +21,14 @@ export const Card = ({trip}:{trip: Trip} )=> {
     const handleOk = () => {
         setIsModalOpen(false);
     };
+
+/*     const {data, error, loading, } = useReviews()
+ */
+    console.log(reviews)
+    
   return (
-            <CardS key={trip.id}>
-            <LeftSide>                   
+    <CardS key={trip.id}>
+        <LeftSide>                   
             <Img src={require(`./images/${trip.src}`)} alt={trip.alt} />
         </LeftSide>
         <RightSide>
@@ -43,12 +52,20 @@ export const Card = ({trip}:{trip: Trip} )=> {
                 onOk={handleOk}
                 visible={isModalOpen}
                 onCancel={handleOk}
-            >
 
-                <p>{trip.reviews.text}</p>
+                >
+                    {reviews.map((review:Review) => {
+                        if (trip.id === review.tripId) {
+                            return <p>{review.comment}</p>
+                        }
+                    })
+                }
+
+
+
                 
             </Modal>
-        </RightSide>         
+         </RightSide>         
 
         </CardS>
   )

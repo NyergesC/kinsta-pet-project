@@ -1,7 +1,4 @@
-import {useState} from 'react'
 import { gql, useLazyQuery } from '@apollo/client';
-import { TripCards} from './TripCards';
-import {Trips, Trip} from '../Types'
 
  type Props = {
     name: string,
@@ -35,12 +32,6 @@ console.log({called,loading, data, error})
             <input value={name} onChange={inputChangeHandle} placeholder="Search your destination" />
             <button onClick={() => getName()}>Search</button>
             {loading && <div>spinner...</div>}
-            {data && (
-                <div>{data.trips.map((trip:Trip) =>{
-                    return <h2 style={{color:'white'}}>{trip.destination}</h2>
-                })}</div>
-
-            )}
         </div>
   )
   }

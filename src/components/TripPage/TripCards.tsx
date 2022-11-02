@@ -1,36 +1,21 @@
-import React, {useState} from 'react'
-import {Trips, Trip, Review, Reviews} from '../Types'
+import {Trip, Review} from '../Types'
 import { CardWrapp} from './TripPagestyle'
-import { useReviews } from 'src/hooks/useReviews';
 import {Card} from './Card'
 
 type Props = {
     name:string,
-    trips:Trip[]
+    trips:Trip[],
+    reviews:Review[]
 }
 
 
-export const TripCards= ( {trips, name}: Props  ) => {
-
- const [isModalOpen, setIsModalOpen] = useState(false);  
-
-//MODAL EVENTS:
-  
-   const showReviews = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  //REVIEW QUERY
+export const TripCards= ( {trips, name, reviews}: Props  ) => {
 
   
   return (
       <CardWrapp>
-           {trips.map((trip:Trip) => trip.destination.toLowerCase().includes(name.toLowerCase()) && <Card trip={trip}/>)}               
+           {trips.map((trip:Trip ) => trip.destination.toLowerCase().includes(name.toLowerCase()) && <Card trip={trip} reviews={reviews}/>)}              
 
-    </CardWrapp>
+      </CardWrapp>
   )
 }

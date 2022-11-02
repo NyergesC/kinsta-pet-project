@@ -7,20 +7,11 @@ import {AiOutlineSafetyCertificate} from 'react-icons/ai'
 import {BiHappyBeaming, BiTransferAlt} from 'react-icons/bi'
 import {RiMentalHealthLine} from 'react-icons/ri'
 import React, {useState} from 'react'
-import { gql, useLazyQuery } from '@apollo/client';
 import { Search} from './Search'
-import { Trip } from '../Types'
+import { useReviews } from '../../hooks/useReviews'
 
-/* const GET_TRIP_NAME = gql`
-    query GetTripName ($name: String!) {
-        trips (filter:{
-        name:$name
-        }){
-        destination
-        }
-     }
 
-` */
+
 
 /* const renderTitle = (title: string) => (
   <span>
@@ -58,13 +49,8 @@ const options = [
 export const Trippage = () => {
 
 const {data, error, loading, } = useTrips()
+const {data:reviews } = useReviews()
 
-/* const [getName, {loading, error, data:tripName, called}] = useLazyQuery(GET_TRIP_NAME,{
-    variables:{
-        name
-    }
-})
- */
 const [name, setName] = useState<string>('');
 
 const inputChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)
@@ -72,8 +58,7 @@ const inputChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.
 
  
 
-/* console.log({called,loading, tripName, error}) */
-  return (
+ return (
     <Container>        
         <Icon to="/">Logo</Icon>
         <SearchDiv>
@@ -115,9 +100,8 @@ const inputChangeHandle = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.
         </IconDiv>
             { error && <div>{error.message}</div>}
             { loading && <Loading />}
-            { data && <TripCards trips={data.trips}  name={name} />}
-{/*             {data && data.trips.map((trip: Trip) => trip.destination.toLowerCase().includes(name.toLowerCase()) && <TripCards key={trip.id} trips={data.trips} />)}      
- */}    </Container>
+            { data && <TripCards trips={data.trips}  name={name} reviews={reviews.reviews}/>}
+    </Container>
   )
 }
 

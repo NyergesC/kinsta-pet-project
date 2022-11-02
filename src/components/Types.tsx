@@ -10,7 +10,7 @@ export type Trip = {
     duration:string, 
     src:string,
     alt:string,
-    id:number,
+    id:string,
     tripCategory:{
       name:string,
 
@@ -19,6 +19,7 @@ export type Trip = {
       rating:number,
       comment:string,
       text:string,
+      tripId:string,
       author:{
         name:string
       }
@@ -34,6 +35,7 @@ export type Review = {
   comment:string,
   text:string,
   rating:number,
+  tripId:string,
   author:{
     name:string
   }

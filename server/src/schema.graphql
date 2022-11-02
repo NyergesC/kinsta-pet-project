@@ -62,6 +62,7 @@ type Review {
     text:String!
     rating: Int!
     author: User
+    tripId:String!
     trip: Trip
 }
 
