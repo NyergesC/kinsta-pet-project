@@ -15,8 +15,29 @@ export type Trip = {
       name:string,
 
     },
+    reviews:{
+      rating:number,
+      comment:string,
+      text:string,
+      author:{
+        name:string
+      }
+
+    }
 }
 
+export type Reviews = {
+  reviews: Review[]
+}
+
+export type Review = {
+  comment:string,
+  text:string,
+  rating:number,
+  author:{
+    name:string
+  }
+}
 
 
 export type Blogs = {

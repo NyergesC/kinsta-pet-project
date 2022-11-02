@@ -3,15 +3,17 @@ import { Wrapper,Blogwrapper, Date, TextH2, TextP,TextRead, ButtonWrap, SortButt
 import React, {useState} from 'react'
 import { Blogs, Blog, SortBlogs } from './Types'
 import { timeDifferenceForDate } from '../../../utils';
-import { AUTH_TOKEN } from 'src/constants';
 import { useMemo } from 'react';
+import { useContext } from 'react';
+import { LoginContext } from 'src/UserContext'
 
 
 const BlogList: React.FC<Blogs> = ( { blogs }) => {
 
-  const authToken = localStorage.getItem(AUTH_TOKEN);
 
   const [sortButton, setSortButton] = useState<SortBlogs>(SortBlogs.ASC)
+
+  const loginContext = useContext(LoginContext)
 
 /* 
    const sortedBlogs = useMemo(() => {
@@ -29,18 +31,14 @@ const BlogList: React.FC<Blogs> = ( { blogs }) => {
 
   };
 
-/*   useEffect (() => {
-    console.warn(blogs)
-  })
- */
   
   return (
     <Wrapper>
         <ButtonWrap>
            <SortButton onClick={sortButtonChangeHandle}>{sortButton}</SortButton>
-           { authToken && (
+           { loginContext.userContext.id !== "" &&  
               <AddButton to='/add_blog'><Plus />Add story</AddButton>
-           )}
+           }
         </ButtonWrap>     
 
       {blogs.map((blog:Blog) => (

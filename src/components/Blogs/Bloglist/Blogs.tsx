@@ -3,12 +3,14 @@ import { Container, Image1, Image2, Image3, Three } from './BlogsStyle'
 import image from './images/outerspace.jpg'
 import image2 from './images/space.jpg'
 import image3 from './images/shuttle.jpg'
-import  {useBlogs} from '../../../hooks/useBlogs'
+import  {useBlogs, GET_BLOGS} from '../../../hooks/useBlogs'
+import { useQuery } from '@apollo/client'
 
 
  const Blogs: React.FC<{}> = () => {
 
-  const {data, loading, error} = useBlogs()
+
+  const {data, loading, error} = useBlogs() 
 
  
   return (

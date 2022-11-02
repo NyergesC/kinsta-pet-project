@@ -1,43 +1,35 @@
-import React from 'react'
-import {Trips, Trip} from '../Types'
-import {CardS, LeftSide, Img,RightSide, Details, CardWrapp} from './TripPagestyle'
+import React, {useState} from 'react'
+import {Trips, Trip, Review, Reviews} from '../Types'
+import { CardWrapp} from './TripPagestyle'
+import { useReviews } from 'src/hooks/useReviews';
+import {Card} from './Card'
 
-export const TripCards: React.FC<Trips>  = ( {trips} ) => {
+type Props = {
+    name:string,
+    trips:Trip[]
+}
 
 
+export const TripCards= ( {trips, name}: Props  ) => {
+
+ const [isModalOpen, setIsModalOpen] = useState(false);  
+
+//MODAL EVENTS:
+  
+   const showReviews = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  //REVIEW QUERY
+
+  
   return (
-    <CardWrapp>
-        <>
-        {trips.map((trip:Trip) => {
-            return(
-                <CardS key={trip.id}>
-                     <LeftSide>                   
-                        <Img src={require(`./images/${trip.src}`)} alt={trip.alt} />
-                    </LeftSide>
-                    <RightSide>
-                        <h6>Category: {trip.tripCategory.name}</h6>
-                        <h2>{ trip.destination }</h2>
-                        <p>{ trip.description }</p>         
-                        <Details>
-                            <div>
-                                <h4>Distance:</h4>
-                                <p>{trip.distance}</p>
-                            </div>
-                            <div>
-                                <h4>Duration:</h4>
-                                <p>{trip.duration}</p>
-                            </div>
-                        </Details>  
-                    </RightSide>         
-
-                </CardS>
-            )
-        })
-
-    }
-        
-        
-        </>
+      <CardWrapp>
+           {trips.map((trip:Trip) => trip.destination.toLowerCase().includes(name.toLowerCase()) && <Card trip={trip}/>)}               
 
     </CardWrapp>
   )

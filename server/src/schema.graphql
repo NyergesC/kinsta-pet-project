@@ -1,13 +1,13 @@
 
 
 type Query {
-    trips: [Trip!]!
+    trips(filter:TripsFilterInput): [Trip!]!
     trip(id:ID!): Trip
     reviews: [Review!]!
     review(id: ID!): Review
     tripCategories: [TripCategory!]!
     tripCategory(id:ID!): TripCategory
-    blogs: [Blog!]!
+    blogs(offset: Int, limit: Int): [Blog!]!
     blog(id: ID!): Blog
     users: [User!]!
     user(id: ID!): User
@@ -51,7 +51,8 @@ type Trip {
     alt: String!,
     averageRating: Float!,
     reviews:[Review!]!,
-    tripCategory: TripCategory
+    tripCategory: TripCategory,
+
   }
 
 type Review {
@@ -67,7 +68,7 @@ type Review {
 type TripCategory {
     id: ID!
     name: String!
-    trips: [Trip!]!
+    trips(filter:TripsFilterInput): [Trip!]!
 }
 
 type Blog {
@@ -102,4 +103,8 @@ type Blog {
       authorId:String!
       tripId:String!
 
+  }
+
+  input TripsFilterInput {
+      name:String!
   }

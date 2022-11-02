@@ -1,10 +1,29 @@
 import { PrismaClient } from "@prisma/client";
 
 export const Query = {
-    trips : async(parent: any, args: any, { prisma }: { prisma: PrismaClient }) => {
-        return await prisma.trip.findMany();
-    },
 
+   trips : async(parent: any, {filter}: any, { prisma }: { prisma: PrismaClient }) => {
+
+      if(filter) {
+          return await prisma.trip.findMany({
+            where: {
+              destination: {
+                contains: filter.name
+              }
+            }
+          })
+        } else {
+          return await prisma.trip.findMany();
+        }
+        
+
+    }, 
+/* 
+   trips : async(parent: any, {filter}: any, { prisma }: { prisma: PrismaClient }) => {
+        
+        return await prisma.trip.findMany();
+    }, 
+ */
     trip: async (parent: any, { id }: { id: string }, { prisma }: { prisma: PrismaClient }) => {
 
         const trip = await prisma.trip.findUnique({

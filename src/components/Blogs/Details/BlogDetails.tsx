@@ -10,8 +10,8 @@ import { Modal, Form, Input} from 'antd';
 import {Container, Icon, Content, TitleH2, AuthorP, BodyP, ButtonDiv, ButtonEdit, ButtonDelete, SmallH4, QuoteDiv, Div1, Div2, Div3} from './BlogDetailstyle'
 import {FaQuoteLeft, FaQuoteRight} from 'react-icons/fa'
 import { timeDifferenceForDate } from 'src/utils'
-import { AUTH_TOKEN } from 'src/constants'
-import { useContext } from 'react';
+/* import { AUTH_TOKEN } from 'src/constants'
+ */import { useContext } from 'react';
 import { LoginContext } from 'src/UserContext'
 
 
@@ -24,8 +24,8 @@ const BlogDetails: React.FC<{}> = () => {
 
  
   const loginContext = useContext(LoginContext)
-  const authToken = localStorage.getItem(AUTH_TOKEN);
-
+/*   const authToken = localStorage.getItem(AUTH_TOKEN);
+ */
   const userId = loginContext.userContext.id
   console.log(userId) 
 

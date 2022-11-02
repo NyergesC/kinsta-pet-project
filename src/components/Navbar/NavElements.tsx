@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Link as LinkR} from 'react-router-dom'
-import { Link as LinkS} from 'react-scroll'
-/* import { LogoutOutlined } from '@ant-design/icons'; */
+/* import { Link as LinkS} from 'react-scroll'
+ *//* import { LogoutOutlined } from '@ant-design/icons'; */
 import {HiLogout} from 'react-icons/hi'
 
 
