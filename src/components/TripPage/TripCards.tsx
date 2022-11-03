@@ -5,7 +5,7 @@ import {Card} from './Card'
 type Props = {
     name:string,
     trips:Trip[],
-    reviews:Review[]
+    reviews:Review[],
 }
 
 

@@ -1,5 +1,6 @@
 import { gql, useLazyQuery } from '@apollo/client';
 
+
  type Props = {
     name: string,
     inputChangeHandle: (e: React.ChangeEvent<HTMLInputElement>) => void,
@@ -24,7 +25,7 @@ export const Search = ({name, inputChangeHandle}: Props) => {
         }
     })
 
-console.log({called,loading, data, error})
+    console.log({called,loading, data, error})
 
   return (
 

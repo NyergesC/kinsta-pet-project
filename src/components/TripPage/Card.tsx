@@ -7,10 +7,9 @@ import { Modal } from 'antd';
 type Props = {
     trip:Trip,
     reviews:Review[]
-    review:Review
 }
 
-export const Card = ({trip, reviews, review}:Props )=> {
+export const Card = ({trip, reviews}:Props )=> {
     
     const [isModalOpen, setIsModalOpen] = useState(false);  
     
@@ -22,10 +21,8 @@ export const Card = ({trip, reviews, review}:Props )=> {
         setIsModalOpen(false);
     };
 
-/*     const {data, error, loading, } = useReviews()
- */
-    console.log(reviews)
-    
+
+   
   return (
     <CardS key={trip.id}>
         <LeftSide>                   
@@ -56,7 +53,16 @@ export const Card = ({trip, reviews, review}:Props )=> {
                 >
                     {reviews.map((review:Review) => {
                         if (trip.id === review.tripId) {
-                            return <p>{review.comment}</p>
+                            return (
+                                <>
+                                <h3>{review.comment}</h3>
+                                <p>{review.text}</p>
+                                <h4>by {review.author.name}</h4>
+                                <h3>Rating: {review.rating}</h3>
+                                </>
+                            )
+                        } else {
+                            return null
                         }
                     })
                 }
