@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import {Link} from 'react-router-dom'
-import { Card, AutoComplete} from 'antd';
+import { Card} from 'antd';
 import background from "./images/shuttle.jpg";
 
 
@@ -125,10 +125,9 @@ export const CardS = styled.div(() => ({
     display:'flex',
     justifyContent:'center',
     alignItems:'center',
-/*     background: "rgba(255,255,255, 0.1)",  */
     padding:"70px 12px",
     borderRadius:"4px",
-    boxShadow: "rgb(47 79 79/ 60%) 0px 2px 8px",
+    boxShadow: "rgb(47 79 79/ 80%) 0px 2px 8px",
     margin:'30px 30px',
     gap:'0 30px',
 
@@ -214,17 +213,23 @@ export const Details = styled.div( () => ({
         }
     }
 }) )
-export const AutoCompleteItem = styled(AutoComplete)( () => ({
-  backround:'transparent',
-  marginTop:'10px',
-  border:'none',
+export const SearchInput = styled.input( () => ({
+  background:'transparent',
+  border:'1px solid white',
+  color:"white",
+  width:"400px",
+  height:'38px',
+  padding:'0 5px'
 
-  input : {
-    backgroundColor:"transparent" ,
+  
+}) ) 
+export const SearchBtn = styled.button( () => ({
+  height:'40px',
+  width:'70px',
 
-    },
-  button: {
-    backgroundColor:"transparent" 
-    }
+  
+}) ) 
+export const RevBtn = styled.button( () => ({
 
+  
 }) ) 

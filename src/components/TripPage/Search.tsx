@@ -1,4 +1,5 @@
 import { gql, useLazyQuery } from '@apollo/client';
+import {SearchInput, SearchBtn} from './TripPagestyle'
 
 
  type Props = {
@@ -28,11 +29,10 @@ export const Search = ({name, inputChangeHandle}: Props) => {
     console.log({called,loading, data, error})
 
   return (
-
         <div>
-            <input value={name} onChange={inputChangeHandle} placeholder="Search your destination" />
-            <button onClick={() => getName()}>Search</button>
             {loading && <div>spinner...</div>}
+            <SearchInput value={name} onChange={inputChangeHandle} placeholder="Search your destination" />
+            <SearchBtn onClick={() => getName()}>Search</SearchBtn>
         </div>
   )
   }

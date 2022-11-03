@@ -1,5 +1,5 @@
 import React , {useState} from 'react'
-import {CardS, LeftSide, Img,RightSide, Details} from './TripPagestyle'
+import {CardS, LeftSide, Img,RightSide, Details, RevBtn} from './TripPagestyle'
 import {Trip, Review} from '../Types'
 import { Modal } from 'antd';
 
@@ -42,7 +42,7 @@ export const Card = ({trip, reviews}:Props )=> {
                     <p>{trip.duration}</p>
                 </div>
             </Details> 
-            <button onClick={showReviews}>Show Reviews</button> 
+            <RevBtn onClick={showReviews}>Show Reviews</RevBtn> 
 
             <Modal
                 title="Reviews"
