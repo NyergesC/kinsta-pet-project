@@ -141,49 +141,49 @@ const BlogDetails: React.FC<{}> = () => {
                   { data.blog.author.id === userId && (
                  <ButtonDiv>
                     <ButtonEdit type="primary" onClick={updateBlogDetails}>Edit</ButtonEdit>
-            <Modal 
-              title="Edit your story"
-              onOk={handleUpdate} 
-              onCancel={handleCancel}
-              centered
-              visible={isModalOpen} 
-              >
-            <Form
-              labelCol={{ span: 4 }}
-              wrapperCol={{ span: 14 }}
-              layout="horizontal"
-              >
-                <Form.Item
-                  label="Title"
-                  rules={[{ required: true, message: "Please add a new title!" }]}
-                >
-                  <Input
-                    value={blogDetails.title}
-                    onChange={(e) =>
-                      setBlogDetails({ ...blogDetails, title: e.target.value })
-                    }
-                  />
-                </Form.Item>
+          <Modal 
+            title="Edit your story"
+            onOk={handleUpdate} 
+            onCancel={handleCancel}
+            centered
+            visible={isModalOpen} 
+            >
+        <Form
+          labelCol={{ span: 4 }}
+          wrapperCol={{ span: 14 }}
+          layout="horizontal"
+          >
+            <Form.Item
+              label="Title"
+              rules={[{ required: true, message: "Please add a new title!" }]}
+            >
+              <Input
+                value={blogDetails.title}
+                onChange={(e) =>
+                  setBlogDetails({ ...blogDetails, title: e.target.value })
+                }
+              />
+            </Form.Item>
 
-                <Form.Item label="Quote">
-                  <Input
-                    value={blogDetails.small}
-                    onChange={(e) =>
-                      setBlogDetails({ ...blogDetails, small: e.target.value })
-                    }
-                  />
-                </Form.Item>
+            <Form.Item label="Quote">
+              <Input
+                value={blogDetails.small}
+                onChange={(e) =>
+                  setBlogDetails({ ...blogDetails, small: e.target.value })
+                }
+              />
+            </Form.Item>
 
-                <Form.Item label="Content">
-                    <TextArea rows={6} 
-                    value={blogDetails.body}
-                    onChange={(e) =>
-                      setBlogDetails({ ...blogDetails, body: e.target.value })
-                    }
-                    />
+            <Form.Item label="Content">
+                <TextArea rows={6} 
+                value={blogDetails.body}
+                onChange={(e) =>
+                  setBlogDetails({ ...blogDetails, body: e.target.value })
+                }
+                />
 
-                 </Form.Item>
-              </Form>              
+              </Form.Item>
+          </Form>              
                 </Modal>
                     <ButtonDelete onClick={handleDelete} >Delete</ButtonDelete> 
                 </ButtonDiv> 

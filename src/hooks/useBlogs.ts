@@ -20,12 +20,13 @@ export const GET_BLOGS = gql`
 
 
 export const useBlogs = () => {
-
-    const {data, loading, error} = useQuery(GET_BLOGS);
+    
+    const {data, loading, error, updateQuery} = useQuery(GET_BLOGS);
 
     return {
         error,
         loading,
         data,
+        updateQuery
     }
 }
