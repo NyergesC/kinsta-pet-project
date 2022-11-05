@@ -1,22 +1,23 @@
 import bcrypt from 'bcryptjs'
 import  jwt  from "jsonwebtoken"
-import {  APP_SECRET, getUserId } from "../utils.js"
+import {  APP_SECRET } from "../utils"
+import { PrismaClient } from "@prisma/client";
 
 
 export const Mutation = {
 
-    addBlog: async (parent, { input }, context) => {
+    addBlog: async (parent: any, {input} : { input:{ title:string, body:string, small:string, name:string} }, context:any) => {
 
-        const  { title, body, small } = input;
+        const  { title, body, small, name } = input;
 
         const { userId } = context;
 
         const addBlog = await context.prisma.blog.create({
-/*             include:{author:true}, */
             data: { 
                 title: title,
                 body:body,
                 small:small,
+                name:name,
                 author: { connect: { id: userId } },
             }
         })
@@ -24,7 +25,7 @@ export const Mutation = {
         return addBlog
     }, 
 
-    updateBlog: async (parent, { id, input }, { prisma }) => {
+    updateBlog: async (parent: any, { id, input } : {id:string, input:{ title:string, body:string, small:string}}, { prisma }: { prisma: PrismaClient }) => {
 
         const  { title, body, small } = input;
 
@@ -43,18 +44,18 @@ export const Mutation = {
         return updateBlog
     },
 
-    deleteBlog: async (parent, { id }, { prisma }) => {
-        await prisma.blog.delete({
+    deleteBlog: async (parent: any, { id }:{id:string}, { prisma }: { prisma: PrismaClient }) => {
+        const deleteBlog = await prisma.blog.delete({
             where: {
                 id: id,
             },
         })
-        return true
+        return deleteBlog
 
     },
 
     
-    addReview: async (parent, { input }, { prisma }) => {
+    addReview: async (parent: any, { input }:{input:{comment:string, rating:number,text:string, authorId:string, tripId:string}}, { prisma }: { prisma: PrismaClient }) => {
 
         const  { comment, text, rating, authorId, tripId } = input;
 
@@ -71,7 +72,7 @@ export const Mutation = {
         return addReview
     }, 
 
-    deleteReview: async (parent, { id }, { prisma }) => {
+    deleteReview: async (parent: any, { id }:{id:string}, { prisma }: { prisma: PrismaClient }) => {
         await prisma.review.delete({
             where: {
                 id: id,
@@ -81,7 +82,7 @@ export const Mutation = {
 
     },
 
-    signup: async (parent, args, {prisma}, info) => {
+    signup: async (parent: any, args: any, { prisma }: { prisma: PrismaClient }, info:any) => {
         // 1 jelszo titkositasa 
         
         const password = await bcrypt.hash(args.password, 10)
@@ -99,7 +100,7 @@ export const Mutation = {
         }
     },
 
-    login: async (parent, args, {prisma}, info) => {
+    login: async(parent: any, args: any, { prisma }: { prisma: PrismaClient }, info:any) => {
             // 1
         const user = await prisma.user.findUnique({ where: { email: args.email } })
         if (!user) {

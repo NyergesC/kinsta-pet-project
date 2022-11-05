@@ -1,17 +1,17 @@
 import TripList from './Triplist'
-import useFetch from '../../useFetch'
 import { One, Two, Container} from './Tripstyles'
+import {useTrips} from '../../hooks/useTrips'
 
 
 const Trips: React.FC<{}>= () => {
-  const {data:trips, isPending, error} = useFetch("http://localhost:8000/trips")  
+  const {data, loading, error} = useTrips()
 
   return (
     <>
     <Container>
-        { error && <div>{error}</div>}
-        { isPending && <div>Loading...</div>}
-        { trips && <TripList trips={trips} />}
+        { error && <div>{error.message}</div>}
+        { loading && <div>Loading...</div>}
+        { data && <TripList trips={data.trips} />}
      <One>
          <h2>01</h2><span>Pick</span>
      </One>

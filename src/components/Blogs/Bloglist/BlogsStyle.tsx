@@ -74,6 +74,7 @@ export const TextP = styled.p(() => ({
 }) )
 export const TextRead = styled(TextP)(() => ({
     fontSize:'0.8em',
+    fontWeight:"500",
     color:'#7f33b0', 
     textTransform:'uppercase',
     letterSpacing:'0.1em'   

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import { Link as LinkR} from 'react-router-dom'
-import { Link as LinkS} from 'react-scroll'
-/* import { LogoutOutlined } from '@ant-design/icons'; */
+/* import { Link as LinkS} from 'react-scroll'
+ *//* import { LogoutOutlined } from '@ant-design/icons'; */
 import {HiLogout} from 'react-icons/hi'
 
 
@@ -109,7 +109,7 @@ export const NavItem = styled.li(() => ({
     height: "60px",   
 }));
 
-export const NavLinks = styled(LinkS)(() => ({
+export const NavLinks = styled(LinkR)(() => ({
     color: "#fff",
     display: "flex",
     padding: "38px 1rem",
@@ -162,7 +162,7 @@ export const NavBtnLink = styled(LinkR)(() => ({
 
 
 export const UserDiv = styled("div")(() => ({
-    maxWidth:'200px',
+    maxWidth:'250px',
     width:"100%",
     height:"50px",
     display: "flex",

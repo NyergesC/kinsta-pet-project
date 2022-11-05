@@ -1,0 +1,36 @@
+import { useQuery, gql } from "@apollo/client"
+
+export const GET_BLOGDETAILS = gql`
+    query getBlogDetail($id: ID!) {
+        blog (id:$id)  {
+            title
+            createdAt
+            updatedAt
+            body
+            small
+            author {
+            id
+            name
+            }
+        } 
+}
+
+`;
+
+export const useBlogDetails = (id:any) => {
+
+    const {error, loading, data, refetch} = useQuery(GET_BLOGDETAILS, {
+        variables:{
+            id
+        }
+    })
+
+
+    return {
+        error,
+        loading,
+        data,
+        refetch
+        
+    }
+}

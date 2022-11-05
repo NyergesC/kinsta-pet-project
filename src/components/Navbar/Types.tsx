@@ -1,8 +1,8 @@
-export type Link = {
+export type LinkR = {
     label: string,
     href: string
 }
 
 export type Links = {
-    links: Link[]
+    links: LinkR[]
 }

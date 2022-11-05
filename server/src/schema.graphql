@@ -1,11 +1,13 @@
+
+
 type Query {
-    trips: [Trip!]!
+    trips(filter:TripsFilterInput): [Trip!]!
     trip(id:ID!): Trip
     reviews: [Review!]!
     review(id: ID!): Review
     tripCategories: [TripCategory!]!
     tripCategory(id:ID!): TripCategory
-    blogs: [Blog!]!
+    blogs(offset: Int, limit: Int): [Blog!]!
     blog(id: ID!): Blog
     users: [User!]!
     user(id: ID!): User
@@ -14,7 +16,8 @@ type Query {
  type Mutation {
     addBlog(input: AddBlogInput!): Blog!
     updateBlog(id:ID!, input:UpdateBlogInput!): Blog!
-    deleteBlog(id: ID!): Boolean!
+    deleteBlog(id: ID!): Blog!
+    """ deleteBlog(id: ID!): Boolean! """
     addReview(input: AddReviewInput!): Review!
     deleteReview(id: ID!): Boolean!
     signup(email: String!, password: String!, name: String!, age: Int!): AuthPayload
@@ -48,7 +51,8 @@ type Trip {
     alt: String!,
     averageRating: Float!,
     reviews:[Review!]!,
-    tripCategory: TripCategory
+    tripCategory: TripCategory,
+
   }
 
 type Review {
@@ -58,21 +62,23 @@ type Review {
     text:String!
     rating: Int!
     author: User
+    tripId:String!
     trip: Trip
 }
 
 type TripCategory {
     id: ID!
     name: String!
-    trips: [Trip!]!
+    trips(filter:TripsFilterInput): [Trip!]!
 }
 
 type Blog {
     id: ID!,
     title: String!,
     createdAt: String!,
-    updatedAt: String!,
+    updatedAt: String,
     small: String!,
+    name:String!,
     body: String!,
     author: User!,
   }
@@ -82,13 +88,13 @@ type Blog {
       title:String!
       small: String!
       body: String!
+      name:String!
   }
-"""       authorId:String!
- """
-    input UpdateBlogInput {
-      title:String!
-      body: String!
-      small: String!
+
+  input UpdateBlogInput {
+      title:String
+      body: String
+      small: String
   }
 
   input AddReviewInput {
@@ -98,4 +104,8 @@ type Blog {
       authorId:String!
       tripId:String!
 
+  }
+
+  input TripsFilterInput {
+      name:String!
   }

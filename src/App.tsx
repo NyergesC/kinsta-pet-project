@@ -7,24 +7,25 @@ import Create from './pages/Create';
 import Details from './pages/Details';
 import Notfound from './pages/Notfound';
 import Apply from './pages/Apply';
-import { MyGlobalContext } from './UserContext';
-import { useState } from 'react';
+import { LoginContextProvider } from './UserContext';
+import TripPage from './pages/TripPage'
 
 
 function App() {
-  const [user, setUser] = useState<string>('Guest')
-    return (
+  
+   return (
   <BrowserRouter>
-    <MyGlobalContext.Provider value={{user, setUser}}>
+    <LoginContextProvider>
         <Routes>
           <Route path='/' element={<Home />}  />
           <Route path='/signin' element={<SignIn  />} />
           <Route path='/apply' element={<Apply  />} />
           <Route path='/add_blog' element={<Create  />} />
           <Route path='/blogs/:id' element={<Details  />} />
+          <Route path='/trips' element={<TripPage />} />
           <Route path='*' element={<Notfound  />} />
         </Routes>
-    </MyGlobalContext.Provider>
+    </LoginContextProvider>
   </BrowserRouter>
 );
 

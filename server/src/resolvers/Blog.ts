@@ -1,6 +1,8 @@
+import { PrismaClient } from "@prisma/client";
+
 export const Blog = {
 
-    author: async ({ authorId }, args, { prisma }) => {
+    author: async ({ authorId }:{ authorId: string}, args: any, { prisma }: { prisma: PrismaClient }) => {
 
         const author =  await prisma.user.findUnique({
             where: {
@@ -10,8 +12,6 @@ export const Blog = {
 
         return author
     },
-
-
 
 
 }
