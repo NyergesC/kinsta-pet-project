@@ -30,8 +30,7 @@ const Login: React.FC = () => {
       password: user.password,
     },
     onCompleted: ({ login }) => {
-      localStorage.setItem(AUTH_TOKEN, login.token);
-      
+      localStorage.setItem(AUTH_TOKEN, login.token);      
       loginContext.setUserContext({ name: login.user.name, email: login.user.email, id: login.user.id,}); 
       navigate("/");
     },
@@ -46,6 +45,7 @@ const Login: React.FC = () => {
     },
     onCompleted: ({ signup }) => {
       localStorage.setItem(AUTH_TOKEN, signup.token);
+      loginContext.setUserContext({ name: signup.user.name, email: signup.user.email, id: signup.user.id,}); 
       navigate("/");
     },
   });

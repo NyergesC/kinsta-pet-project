@@ -43,7 +43,13 @@ export const UPDATE_BLOG = gql`
 export const SIGNUP_MUTATION = gql`
 mutation SignupMutation($email: String!, $password: String!, $name: String!, $age:Int!) {
   signup(email: $email, password: $password, name: $name, age:$age) {
-    token
+    token,
+    user{
+        id
+        name
+        email
+      }
+  
   }
 }
 `;

@@ -10,6 +10,7 @@ import { getUserId } from './utils';
 import { TripCategory } from './resolvers/TripCategory';
 import * as fs from 'fs'
 import * as path from 'path'
+
  
 const prisma = new PrismaClient()
 
