@@ -218,13 +218,13 @@ export const SearchInput = styled.input( () => ({
   border:'1px solid white',
   color:"white",
   width:"400px",
-  height:'38px',
+  height:'39px',
   padding:'0 5px'
 
   
 }) ) 
 export const SearchBtn = styled.button( () => ({
-  height:'40px',
+  height:'39px',
   width:'70px',
 
   
